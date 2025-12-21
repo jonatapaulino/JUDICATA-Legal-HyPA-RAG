@@ -313,3 +313,7 @@ copies or substantial portions of the Software.
 ---
 
 **Desenvolvido por Delvek da S. V. de Sousa and Jonatã P. Costa © 2025**
+=======
+# LLM-data-poisoning
+Projeto de LLM
+>>>>>>> 3ef6bcff8a9b057c11d6290e1d3ff7fb47abd5a5
