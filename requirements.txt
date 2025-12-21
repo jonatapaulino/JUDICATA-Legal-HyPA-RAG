@@ -1,0 +1,60 @@
+# Core Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# LangChain and LangGraph
+langchain>=0.1.5
+langchain-community>=0.0.17
+langgraph>=0.0.20
+langchain-core>=0.1.17
+
+# Vector Database
+qdrant-client==1.7.3
+
+# Graph Database
+neo4j==5.16.0
+
+# Cache and State
+redis==5.0.1
+aioredis==2.0.1
+
+# ML/NLP Libraries
+sentence-transformers>=2.3.1
+transformers>=4.37.2
+torch>=2.6.0
+spacy>=3.7.2
+
+# BM25 for sparse retrieval
+rank-bm25==0.2.2
+
+# Network and utilities
+networkx==3.2.1
+numpy==1.26.3
+scikit-learn==1.4.0
+
+# Async support
+httpx==0.26.0
+aiofiles==23.2.1
+
+# Logging and monitoring
+structlog==24.1.0
+python-json-logger==2.0.7
+
+# Environment variables
+python-dotenv==1.0.1
+
+# Testing (dev dependencies but included)
+pytest==7.4.4
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+
+# Security
+cryptography==42.0.0
+
+# Date/Time
+python-dateutil==2.8.2
+
+# Type checking
+mypy==1.8.0

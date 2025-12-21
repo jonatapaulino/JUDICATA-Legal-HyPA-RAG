@@ -1,0 +1,84 @@
+Master Prompt: Backend da Arquitetura de Soberania Judicial
+Contexto:
+Você atuará como Arquiteto de Software Sênior e Engenheiro de ML. Sua tarefa é criar o código do Backend para um sistema judicial autônomo baseado em uma arquitetura "Neuro-Simbólica e Agêntica". Este sistema deve ser robusto, modular e rodar localmente.
+Documento de Referência: "Arquitetura de Soberania Judicial: Um Framework Neuro-Simbólico e Agêntico".
+1. Stack Tecnológica (Mandatória)
+Linguagem: Python 3.10+
+Framework API: FastAPI (Async)
+Orquestração de Agentes: LangGraph (para controle de estado cíclico e arquitetura "Plan-and-Execute").
+Vector Database: Qdrant (Suporte nativo a busca Híbrida: Densa + Esparsa).
+Graph Database: Neo4j (Para o "Knowledge Graph" e lógica simbólica).
+Inuference Local: Ollama (para rodar SaulLM-7B) ou vLLM.
+Containerização: Docker & Docker Compose.
+Bibliotecas Chave: pydantic, sentence-transformers (para Legal-BERT), spacy (processamento leve), networkx.
+2. Estrutura do Projeto (File Tree)
+Crie o projeto seguindo esta estrutura modular para respeitar o princípio de "Sistema de Sistemas":
+/judicial-backend
+├── /app
+│   ├── /core               # Configs, Security, Logging
+│   ├── /agents             # O "Núcleo de Controle" (Orquestrador Agêntico)
+│   │   ├── orchestrator.py # LangGraph State Machine
+│   │   ├── guardian.py     # Camada 2: Agentes Guardiões (Zero Trust)
+│   │   └── tools.py        # Definição das tools (Search, DB, Logic)
+│   ├── /retrieval          # O "Núcleo de Recuperação" (HyPA-RAG)
+│   │   ├── hypa_rag.py     # Lógica Híbrida (Dense + Sparse + Graph)
+│   │   ├── query_classifier.py # Classificador de Complexidade de Consulta
+│   │   └── rag_defender.py # Camada 1: Defesa de Dados (Clusterização)
+│   ├── /reasoning          # O "Núcleo de Raciocínio" (LSIM)
+│   │   ├── lsim_engine.py  # Fact-Rule Chains
+│   │   └── toulmin.py      # Formatador de Saída (Argumentação)
+│   ├── /privacy            # Pipeline LOPSIDED
+│   │   └── anonymizer.py   # Substituição de Entidades (NER + Regex)
+│   └── main.py             # Entrypoint FastAPI
+├── /docker
+│   ├── Dockerfile
+│   └── docker-compose.yml  # Qdrant, Neo4j, Redis, API
+├── requirements.txt
+└── .env
+
+
+3. Detalhamento dos Módulos (Passo a Passo para Implementação)
+Passo 1: Infraestrutura (Docker)
+Configure um docker-compose.yml que suba:
+Qdrant: Porta 6333. Habilite busca híbrida.
+Neo4j: Porta 7474/7687.
+Redis: Para memória de curto prazo dos agentes (checkpointing do LangGraph).
+Passo 2: Núcleo de Recuperação (HyPA-RAG)
+Implemente a classe HyPA_RAG em hypa_rag.py:
+Entrada: Query do usuário.
+Classificador: Crie uma função simples (pode usar um modelo pequeno ou heurística) que classifique a query em [BAIXA, MEDIA, ALTA].
+Baixa: k=3, peso maior para busca lexical (BM25).
+Alta: k=15, peso equilibrado, ativa busca no Neo4j.
+Recuperação Híbrida:
+Use Qdrant para vetores (Legal-BERT embeddings).
+Use Qdrant (ou rank_bm25 em memória) para busca esparsa (palavras-chave exatas).
+Use Neo4j para buscar precedentes conectados (ex: (Caso A)-[:ANULA]->(Caso B)).
+Passo 3: Núcleo de Defesa (RAGDefender & Guardian)
+RAGDefender (rag_defender.py): Antes de passar os docs para o LLM, implemente um filtro que calcula a distância TF-IDF dos documentos recuperados. Se um documento for um outlier léxico (muito diferente do cluster), descarte-o (possível envenenamento).
+Guardian Agent (guardian.py): Crie um nó no grafo do LangGraph que intercepta todas as saídas de ferramentas. Se detectar comandos de injeção de prompt (ex: "ignore as instruções anteriores"), bloqueie a execução.
+Passo 4: Núcleo de Controle e Raciocínio (Orchestrator & LSIM)
+Implemente o fluxo principal usando LangGraph:
+Nó Planejador: Recebe o caso, quebra em sub-tarefas (Fatos, Regras, Conclusão).
+Nó Executor: Chama o HyPA_RAG.
+Nó LSIM (Logical-Semantic Integration):
+Não use apenas generate. Use uma estrutura de "Thought Trace".
+Force o modelo a extrair: Fato -> Regra Aplicável -> Conclusão Intermediária.
+Nó SCOT (Safety Chain-of-Thought): Adicione um passo explícito onde o modelo reflete: "Esta conclusão viola algum princípio de segurança ou alucina um fato não recuperado?".
+Passo 5: Saída Estruturada (Modelo de Toulmin)
+A resposta final da API não pode ser texto livre. Deve ser um JSON seguindo o esquema ToulminArgument:
+class ToulminResponse(BaseModel):
+    claim: str          # A decisão/conclusão
+    data: List[str]     # Fatos recuperados (evidências)
+    warrant: str        # A regra lógica que conecta Dados à Alegação
+    backing: str        # Citação da lei/jurisprudência (Fonte)
+    rebuttal: str       # Contra-argumentos considerados
+    qualifier: str      # Grau de certeza (Provável, Certo)
+
+
+4. Instruções de Execução para o Claude
+Comece criando o docker-compose.yml e o requirements.txt.
+Em seguida, crie os modelos Pydantic para o sistema de tipos (Input, ToulminResponse).
+Implemente o HyPA-RAG (pois é a base de dados).
+Implemente o Grafo Agêntico (orchestrator.py).
+Crie a API FastAPI (main.py) expondo o endpoint /adjudicate.
+Observação: Assuma que o modelo SaulLM-7B está rodando em uma URL local (ex: http://localhost:11434 via Ollama) e use LangChain.chat_models.ChatOllama para conectar.

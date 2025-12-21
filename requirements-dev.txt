@@ -1,0 +1,25 @@
+# Development dependencies
+# Extends requirements.txt with testing and development tools
+
+-r requirements.txt
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+httpx==0.26.0  # For testing async FastAPI
+
+# Code quality
+black==23.12.1
+flake8==7.0.0
+isort==5.13.2
+mypy==1.8.0
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.5.3
+
+# Jupyter for experiments
+jupyter==1.0.0
+ipython==8.19.0
