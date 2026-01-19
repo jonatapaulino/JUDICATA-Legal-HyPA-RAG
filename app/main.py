@@ -23,8 +23,20 @@ from app.core.database import (
     disconnect_databases,
     health_check_databases
 )
-from app.models.requests import AdjudicateRequest, HealthCheckRequest
-from app.models.responses import ToulminResponse, HealthCheckResponse, ErrorResponse
+from app.models.requests import (
+    AdjudicateRequest, 
+    HealthCheckRequest, 
+    ClassifyQueryRequest, 
+    ValidateTextRequest
+)
+from app.models.responses import (
+    ToulminResponse, 
+    HealthCheckResponse, 
+    ErrorResponse, 
+    ClassifyQueryResponse, 
+    ValidateTextResponse, 
+    StatusResponse
+)
 from app.agents.orchestrator import orchestrator
 
 # Configure logging before creating logger
@@ -269,15 +281,13 @@ async def adjudicate(request: Request, adjudicate_request: AdjudicateRequest):
 
 
 @app.post("/api/v1/classify", tags=["API v1"])
-async def classify_query_endpoint(request: Request, classify_request: "ClassifyQueryRequest"):
+async def classify_query_endpoint(request: Request, classify_request: ClassifyQueryRequest):
     """
     Classify query complexity without full processing.
 
     Returns the detected complexity level (BAIXA/MEDIA/ALTA) and recommended RAG parameters.
     Useful for frontend to show estimated processing time or adjust UI.
     """
-    from app.models.requests import ClassifyQueryRequest
-    from app.models.responses import ClassifyQueryResponse
     from app.retrieval.query_classifier import query_classifier
 
     trace_id = request.state.trace_id
@@ -312,15 +322,13 @@ async def classify_query_endpoint(request: Request, classify_request: "ClassifyQ
 
 
 @app.post("/api/v1/validate", tags=["API v1"])
-async def validate_text_endpoint(request: Request, validate_request: "ValidateTextRequest"):
+async def validate_text_endpoint(request: Request, validate_request: ValidateTextRequest):
     """
     Validate text for security threats without processing.
 
     Checks for injection attacks, XSS, SQL injection, jailbreak attempts, etc.
     Returns whether text is safe and any blocked patterns.
     """
-    from app.models.requests import ValidateTextRequest
-    from app.models.responses import ValidateTextResponse
     from app.agents.guardian import GuardianAgent
 
     trace_id = request.state.trace_id
@@ -357,7 +365,6 @@ async def status_endpoint(request: Request):
     Returns operational status of API and all connected services (Qdrant, Neo4j, Redis, Ollama).
     Includes latency information for each service.
     """
-    from app.models.responses import StatusResponse
     import time
 
     trace_id = request.state.trace_id

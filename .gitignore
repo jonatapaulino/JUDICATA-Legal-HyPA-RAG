@@ -47,6 +47,7 @@ logs/
 htmlcov/
 .pytest_cache/
 .tox/
+.hypothesis/
 
 # Database
 *.db
@@ -57,7 +58,8 @@ htmlcov/
 data/
 
 # Model caches
-models/
+# models/  <-- This line was causing the issue. app/models/ is source code.
+.models/
 *.pt
 *.pth
 *.bin

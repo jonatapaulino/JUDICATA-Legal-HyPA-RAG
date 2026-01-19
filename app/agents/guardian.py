@@ -28,7 +28,7 @@ class GuardianAgent:
 
     # Patterns that indicate injection or jailbreak attempts
     BLOCKED_PATTERNS = [
-        r"ignore\s+(as|todas|previous|anteriores|tudo|everything|all)\s+(instru[cç][õo][õe]s|instructions)?",
+        r"ignore\s+(as|todas|previous|anteriores|tudo|everything|all|your|suas)?\s*(instru[cç][õo][õe]s|instructions)",
         r"ignore\s+(tudo|everything|all)",  # "Ignore tudo" mesmo sem segunda palavra
         r"você\s+(agora\s+)?(é|e|seja|se\s+torne)\s+",
         # BUG FIX #1: Adicionar variação sem acento (esqueca) e aceitar palavras no meio
