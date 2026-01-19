@@ -130,14 +130,17 @@ class Settings(BaseSettings):
     )
 
     # API Security
-    api_key_enabled: bool = Field(default=False, description="Enable API key auth")
+    api_key_enabled: bool = Field(
+        default=True,
+        description="Enable API key authentication. Set to True for production environments."
+    )
     api_key: Optional[str] = Field(
         default=None,
         description="API key for authentication"
     )
     cors_origins: str = Field(
-        default="http://localhost:3000,http://localhost:8080",
-        description="Comma-separated CORS origins"
+        default="",
+        description="Comma-separated CORS origins. MUST be configured for production."
     )
 
     # Rate Limiting
