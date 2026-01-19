@@ -147,31 +147,67 @@ class LegalNER:
         self,
         entities: List[Tuple[str, str, int, int]]
     ) -> List[Tuple[str, str, int, int]]:
-        """Remove overlapping entities, keeping longer ones."""
+        """
+        Remove overlapping entities based on priority and length.
+        
+        Strategy:
+        1. Sort by start position.
+        2. If overlap detected, keep the one with higher priority.
+        3. If priorities equal, keep the longer one.
+        """
         if not entities:
             return []
 
-        # Sort by start position, then by length (descending)
-        sorted_entities = sorted(
-            entities,
-            key=lambda x: (x[2], -(x[3] - x[2]))
-        )
+        # Priority map (Higher number = Higher priority)
+        # Specific legal identifiers > Contact info > Named Entities
+        PRIORITY = {
+            "CPF": 10,
+            "CNPJ": 10,
+            "RG": 9,
+            "CASE_NUMBER": 9,
+            "EMAIL": 8,
+            "PHONE": 7,
+            "PER": 5,
+            "PERSON": 5,
+            "ORG": 4,
+            "LOC": 3
+        }
 
-        # TODO: Otimizar a lógica de desduplicação para lidar com sobreposições mais complexas,
-        #       priorizando entidades com base em critérios de relevância jurídica (ex: entidades
-        #       mais específicas ou com maior confiança do modelo NER).
+        # Sort by start position
+        sorted_entities = sorted(entities, key=lambda x: x[2])
+
         deduplicated = []
-        last_end = -1
+        
+        if not sorted_entities:
+            return []
+            
+        current = sorted_entities[0]
 
-        for entity in sorted_entities:
-            text, ent_type, start, end = entity
+        for next_ent in sorted_entities[1:]:
+            curr_text, curr_type, curr_start, curr_end = current
+            next_text, next_type, next_start, next_end = next_ent
 
-            # Skip if overlaps with previous entity
-            if start < last_end:
-                continue
+            # Check for overlap
+            if next_start < curr_end:
+                # Overlap detected - Resolve conflict
+                curr_prio = PRIORITY.get(curr_type, 0)
+                next_prio = PRIORITY.get(next_type, 0)
 
-            deduplicated.append(entity)
-            last_end = end
+                if next_prio > curr_prio:
+                    # Next has higher priority, replace current
+                    current = next_ent
+                elif next_prio == curr_prio:
+                    # Same priority, keep longer
+                    if (next_end - next_start) > (curr_end - curr_start):
+                        current = next_ent
+                # Else: Current has higher priority or is longer, keep current (ignore next)
+            else:
+                # No overlap, add current and move to next
+                deduplicated.append(current)
+                current = next_ent
+
+        # Append the last one
+        deduplicated.append(current)
 
         return deduplicated
 
