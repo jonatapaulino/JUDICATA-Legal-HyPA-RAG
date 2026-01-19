@@ -157,6 +157,9 @@ class LegalNER:
             key=lambda x: (x[2], -(x[3] - x[2]))
         )
 
+        # TODO: Otimizar a lógica de desduplicação para lidar com sobreposições mais complexas,
+        #       priorizando entidades com base em critérios de relevância jurídica (ex: entidades
+        #       mais específicas ou com maior confiança do modelo NER).
         deduplicated = []
         last_end = -1
 
