@@ -10,7 +10,8 @@ import uuid
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
-from fastapi import FastAPI, HTTPException, Request, status
+from fastapi import FastAPI, HTTPException, Request, status, Depends, Security
+from fastapi.security.api_key import APIKeyHeader
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import structlog
@@ -29,6 +30,24 @@ from app.agents.orchestrator import orchestrator
 # Configure logging before creating logger
 configure_logging()
 logger = get_logger(__name__)
+
+# API Key Security
+api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
+
+async def verify_api_key(api_key: str = Security(api_key_header)):
+    """Validate API Key if enabled."""
+    if settings.api_key_enabled:
+        if not api_key:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Missing API Key"
+            )
+        if api_key != settings.api_key:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Invalid API Key"
+            )
+    return api_key
 
 
 @asynccontextmanager
@@ -172,7 +191,7 @@ async def health_check(request: Request):
     )
 
 
-@app.post("/adjudicate", response_model=ToulminResponse, tags=["Adjudication"])
+@app.post("/adjudicate", response_model=ToulminResponse, tags=["Adjudication"], dependencies=[Depends(verify_api_key)])
 async def adjudicate(request: Request, adjudicate_request: AdjudicateRequest):
     """
     Main adjudication endpoint.
