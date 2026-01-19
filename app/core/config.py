@@ -60,7 +60,7 @@ class Settings(BaseSettings):
         default="http://localhost:11434",
         description="Ollama API base URL"
     )
-    ollama_model: str = Field(default="saul-7b", description="Ollama model name")
+    ollama_model: str = Field(default="saul-54b:q4_k_m", description="Ollama model name (e.g., saul-54b:q4_k_m)")
     ollama_temperature: float = Field(
         default=0.1,
         description="LLM temperature for deterministic outputs"
