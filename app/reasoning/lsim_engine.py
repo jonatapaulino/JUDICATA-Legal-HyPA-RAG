@@ -38,6 +38,13 @@ class LSIMEngine:
             temperature=settings.ollama_temperature,
             num_predict=settings.ollama_max_tokens
         )
+        self.system_prompt = """
+Você é um assistente jurídico especialista em Direito Brasileiro (Civil Law).
+Sua tarefa é responder perguntas baseando-se ESTRITAMENTE no contexto fornecido (Legislação e Jurisprudência Brasileira).
+1. NÃO utilize seu conhecimento prévio sobre leis dos EUA ou Europa.
+2. Se o contexto não tiver a resposta, diga que não sabe.
+3. Use terminologia jurídica correta em Português do Brasil.
+"""
 
     async def reason(self, context: ReasoningContext) -> ThoughtTrace:
         """
@@ -137,7 +144,8 @@ class LSIMEngine:
             facts_text = "\n".join([f"- {f.text}" for f in facts])
             rules_text = "\n".join([f"- {r.text} (Fonte: {r.source})" for r in rules])
 
-            prompt = f"""Você é um jurista que raciocina de forma estruturada.
+            prompt = self.system_prompt + """
+Você é um jurista que raciocina de forma estruturada.
 
 Consulta: {query}
 
@@ -227,7 +235,8 @@ Faça no máximo 3 passos."""
                 for c in intermediate_conclusions
             ])
 
-            prompt = f"""Com base no raciocínio desenvolvido, forneça uma conclusão final clara e objetiva.
+            prompt = self.system_prompt + """
+Com base no raciocínio desenvolvido, forneça uma conclusão final clara e objetiva.
 
 Consulta original: {query}
 
@@ -258,7 +267,8 @@ Forneça uma conclusão final que responda diretamente à consulta."""
         try:
             facts_text = "\n".join([f"- {f.text}" for f in facts])
 
-            prompt = f"""Você é um validador de segurança jurídica.
+            prompt = self.system_prompt + """
+Você é um validador de segurança jurídica.
 
 Fatos estabelecidos:
 {facts_text}
