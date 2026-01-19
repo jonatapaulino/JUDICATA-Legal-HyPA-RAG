@@ -56,9 +56,11 @@ class GuardianAgent:
         self.enabled = settings.guardian_enabled
         self.strict_mode = settings.guardian_strict_mode
 
-        # TODO: Considerar a integração de modelos de ML (ex: BERT-based) para detecção
-        #       mais sofisticada de Prompt Injection, além dos padrões regex estáticos.
-        #       Isso aumentaria a robustez contra ataques ofuscados.
+        # Compile patterns for efficiency
+        self.compiled_patterns = [
+            re.compile(pattern, re.IGNORECASE)
+            for pattern in self.BLOCKED_PATTERNS
+        ]
 
         if self.strict_mode:
             self.compiled_patterns.extend([
@@ -66,9 +68,27 @@ class GuardianAgent:
                 for pattern in self.STRICT_PATTERNS
             ])
 
+    def _normalize_text(self, text: str) -> str:
+        """
+        Normalize text to handle obfuscation (Leetspeak).
+        Example: "1gn0r3" -> "ignore"
+        """
+        # Simple Leetspeak map
+        leet_map = {
+            '0': 'o', '1': 'i', '3': 'e', '4': 'a', '5': 's',
+            '7': 't', '@': 'a', '$': 's', '!': 'i'
+        }
+        
+        normalized = text.lower()
+        for char, replacement in leet_map.items():
+            normalized = normalized.replace(char, replacement)
+            
+        return normalized
+
     def validate_input(self, text: str, source: str = "unknown") -> ValidationResult:
         """
         Validate input text for security threats.
+        Checks both original and normalized (anti-obfuscation) text.
 
         Args:
             text: Text to validate
@@ -83,18 +103,27 @@ class GuardianAgent:
         logger.debug("validating_input", source=source, text_length=len(text))
 
         blocked = []
-
+        
+        # Check original text
         for pattern in self.compiled_patterns:
             match = pattern.search(text)
             if match:
                 blocked.append(match.group(0))
-                logger.warning(
-                    "blocked_pattern_detected",
-                    pattern=match.group(0),
-                    source=source
-                )
+
+        # Check normalized text (if different)
+        normalized_text = self._normalize_text(text)
+        if normalized_text != text.lower():
+            for pattern in self.compiled_patterns:
+                match = pattern.search(normalized_text)
+                if match:
+                    blocked.append(f"{match.group(0)} (obfuscated)")
 
         if blocked:
+            logger.warning(
+                "blocked_pattern_detected",
+                patterns=blocked,
+                source=source
+            )
             return ValidationResult(
                 safe=False,
                 reason=f"Blocked patterns detected: {', '.join(blocked[:3])}",
