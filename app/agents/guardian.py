@@ -56,11 +56,9 @@ class GuardianAgent:
         self.enabled = settings.guardian_enabled
         self.strict_mode = settings.guardian_strict_mode
 
-        # Compile patterns for efficiency
-        self.compiled_patterns = [
-            re.compile(pattern, re.IGNORECASE)
-            for pattern in self.BLOCKED_PATTERNS
-        ]
+        # TODO: Considerar a integração de modelos de ML (ex: BERT-based) para detecção
+        #       mais sofisticada de Prompt Injection, além dos padrões regex estáticos.
+        #       Isso aumentaria a robustez contra ataques ofuscados.
 
         if self.strict_mode:
             self.compiled_patterns.extend([
