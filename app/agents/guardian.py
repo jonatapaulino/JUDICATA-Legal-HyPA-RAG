@@ -7,7 +7,7 @@ Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import re
 from typing import List
-from datetime import datetime
+from datetime import datetime, timezone
 
 from app.core.config import settings
 from app.core.logging import get_logger
@@ -128,12 +128,12 @@ class GuardianAgent:
                 safe=False,
                 reason=f"Blocked patterns detected: {', '.join(blocked[:3])}",
                 blocked_patterns=blocked,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
 
         return ValidationResult(
             safe=True,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
 
     def validate_output(self, text: str, context: str = "unknown") -> ValidationResult:
@@ -179,7 +179,7 @@ class GuardianAgent:
                     safe=False,
                     reason="Potential system prompt leakage detected",
                     blocked_patterns=leaked,
-                    timestamp=datetime.utcnow()
+                    timestamp=datetime.now(timezone.utc)
                 )
 
         # Check for malicious patterns in output
@@ -199,12 +199,12 @@ class GuardianAgent:
                 safe=False,
                 reason=f"Malicious patterns in output: {', '.join(blocked[:3])}",
                 blocked_patterns=blocked,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
 
         return ValidationResult(
             safe=True,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
 
     def validate_chain(self, items: List[str], context: str = "chain") -> ValidationResult:
@@ -227,7 +227,7 @@ class GuardianAgent:
 
         return ValidationResult(
             safe=True,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
 
 

@@ -2,7 +2,7 @@
 Internal data models used within the application logic.
 """
 from typing import List, Dict, Optional, Any
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from pydantic import BaseModel, Field
 
@@ -11,7 +11,7 @@ class ValidationResult(BaseModel):
     safe: bool
     reason: Optional[str] = None
     blocked_patterns: Optional[List[str]] = None
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class Document(BaseModel):
     """A retrieved document."""
