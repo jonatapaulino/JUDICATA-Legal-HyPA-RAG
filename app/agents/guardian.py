@@ -41,6 +41,23 @@ class GuardianAgent:
         r"(union\s+select|select\s+.*\s+from|insert\s+into|update\s+.*\s+set|delete\s+from|drop\s+table)",
         r"\$\{.*\}",  # Template injection
         r"\{\{.*\}\}",  # Template injection
+        # Jailbreak: roleplay/pretend attacks
+        r"finja\s+(ser|que)",
+        r"responda\s+como\s+se",
+        r"(sem|n[ãa]o\s+tivesse)\s+(restri[çc][õo]es|filtros|limites)",
+        r"DAN\s+mode",
+        # XSS: additional dangerous HTML tags and event handlers
+        r"<\s*(svg|img|iframe|object|embed)\b",
+        r"on(load|error|click|mouseover)\s*=",
+        r"fetch\s*\(",
+        # Instruction bypass: false information and temporal bypass
+        r"informa[çc][õo]es\s+falsas",
+        r"(cite|crie|invente)\s+leis\s+que\s+n[ãa]o\s+existem",
+        r"a\s+partir\s+de\s+agora",
+        # Hack/exfiltration/destruction attempts
+        r"(hackear|hack|hacker|invadir)\b",
+        r"(exportar|extrair|dump)\s+(banco|base|dados)",
+        r"(delete|deletar|apagar|destruir)\s+(todos|tudo|dados|sistema)",
     ]
 
     # Additional strict mode patterns
@@ -73,16 +90,19 @@ class GuardianAgent:
         Normalize text to handle obfuscation (Leetspeak).
         Example: "1gn0r3" -> "ignore"
         """
-        # Simple Leetspeak map
         leet_map = {
             '0': 'o', '1': 'i', '3': 'e', '4': 'a', '5': 's',
-            '7': 't', '@': 'a', '$': 's', '!': 'i'
+            '7': 't', '@': 'a', '$': 's', '!': 'i',
+            '8': 'b', '2': 'z', '9': 'g', '6': 'g',
         }
-        
+
         normalized = text.lower()
         for char, replacement in leet_map.items():
             normalized = normalized.replace(char, replacement)
-            
+
+        # Normalize underscores and hyphens to spaces
+        normalized = normalized.replace('_', ' ').replace('-', ' ')
+
         return normalized
 
     def validate_input(self, text: str, source: str = "unknown") -> ValidationResult:

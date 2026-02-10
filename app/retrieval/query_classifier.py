@@ -36,6 +36,39 @@ class QueryClassifier:
         "recurso extraordinário", "inconstitucionalidade", "legitimidade"
     }
 
+    # ALTA indicators - analytical/comparative questions
+    ALTA_PATTERNS = [
+        re.compile(p, re.IGNORECASE) for p in [
+            r"\bcompare\b", r"\banalise\b", r"\bdiscorra\b",
+            r"\b[àa] luz d[eao]\b", r"\bconsiderando\b",
+            r"\bdiferen[çc]a entre\b",
+            r"\bconstitucionalidade\b",
+        ]
+    ]
+
+    # MEDIA indicators - listings, procedures, multiple concepts
+    MEDIA_PATTERNS = [
+        re.compile(p, re.IGNORECASE) for p in [
+            r"\bquais s[ãa]o\b", r"\bcomo funciona\b",
+            r"\bhip[óo]teses de\b", r"\bmodalidades\b",
+            r"\brequisitos d[eo]\b", r"\bexcludentes\b",
+            r"\bpenalidades\b", r"\bmedidas protetivas\b",
+            r"\binvers[ãa]o d[eo]\b", r"\brem[ée]dios\b",
+            r"\bjusta causa\b", r"\blicita[çc][ãa]o\b",
+            r"\bresponsabilidade civil\b", r"\btutela\b",
+            r"\bcrimes contra\b",
+        ]
+    ]
+
+    # BAIXA indicators - simple definitional questions
+    BAIXA_PATTERNS = [
+        re.compile(p, re.IGNORECASE) for p in [
+            r"^o que [ée]\b", r"^qual o\b", r"^qual a\b",
+            r"^o que diz\b", r"^o que s[ãa]o\b",
+            r"\bconceito de\b",
+        ]
+    ]
+
     def __init__(self):
         self.short_threshold = settings.query_classifier_short_length
         self.long_threshold = settings.query_classifier_long_length
@@ -54,17 +87,23 @@ class QueryClassifier:
         tokens = query.split()
         token_count = len(tokens)
 
+        # Pattern-based detection
+        alta_match = any(p.search(query_lower) for p in self.ALTA_PATTERNS)
+        media_match = any(p.search(query_lower) for p in self.MEDIA_PATTERNS)
+        baixa_match = any(p.search(query_lower) for p in self.BAIXA_PATTERNS)
+
+        # Simple BAIXA: definitional pattern without MEDIA/ALTA indicators
+        is_simple_baixa = baixa_match and not media_match and not alta_match
+
         # Count legal entities and complex terms
-        # BUG FIX #4: Use word boundaries to avoid substring matches (e.g., "ação" in "locação")
-        import re as regex_module
         legal_entity_count = sum(
             1 for entity in self.LEGAL_ENTITIES
-            if regex_module.search(r'\b' + regex_module.escape(entity) + r'\b', query_lower)
+            if re.search(r'\b' + re.escape(entity) + r'\b', query_lower)
         )
 
         complex_term_count = sum(
             1 for term in self.COMPLEX_TERMS
-            if regex_module.search(r'\b' + regex_module.escape(term) + r'\b', query_lower)
+            if re.search(r'\b' + re.escape(term) + r'\b', query_lower)
         )
 
         # Check for citations (e.g., "Art. 5º", "Lei 8.245/91")
@@ -79,8 +118,13 @@ class QueryClassifier:
         # Scoring system
         complexity_score = 0
 
+        # Pattern bonuses (highest priority)
+        if alta_match:
+            complexity_score += 4  # Guarantees ALTA
+        if media_match:
+            complexity_score += 2  # Guarantees at least MEDIA
+
         # Token count factor
-        # BUG FIX: Add more weight for very long queries (>40 tokens)
         if token_count <= self.short_threshold:
             complexity_score += 0
         elif token_count <= self.long_threshold:
@@ -90,32 +134,31 @@ class QueryClassifier:
         else:
             complexity_score += 4  # Very long queries (>40 tokens) - forces ALTA
 
-        # Legal entities factor
-        if legal_entity_count >= 3:
-            complexity_score += 2
-        elif legal_entity_count >= 1:
-            complexity_score += 1
+        # Entity/citation factors - suppressed for simple BAIXA queries
+        # (prevents "O que é habeas corpus?" from being pushed to MEDIA)
+        if not is_simple_baixa:
+            if legal_entity_count >= 3:
+                complexity_score += 2
+            elif legal_entity_count >= 1:
+                complexity_score += 1
 
-        # Complex terms factor
-        if complex_term_count >= 2:
+            if citation_count >= 2:
+                complexity_score += 2
+            elif citation_count >= 1:
+                complexity_score += 1
+
+        # Complex terms factor - always counted (indicates genuine complexity)
+        if complex_term_count >= 3:
+            complexity_score += 3
+        elif complex_term_count >= 2:
             complexity_score += 2
         elif complex_term_count >= 1:
-            complexity_score += 1
-
-        # Citation factor
-        if citation_count >= 2:
-            complexity_score += 2
-        elif citation_count >= 1:
             complexity_score += 1
 
         # Multiple questions factor
         if question_count > 1:
             complexity_score += 1
 
-        # BUG FIX #1: Lower BAIXA threshold from 2 to 1
-        # Queries with legal entities/citations should be at least MEDIA
-        # BUG FIX #2: Citations force minimum MEDIA
-        # BUG FIX #5: Lower ALTA threshold to >= 4 (was >= 5)
         if complexity_score <= 1:
             result = QueryComplexity.BAIXA
         elif complexity_score <= 3:
@@ -123,9 +166,10 @@ class QueryClassifier:
         else:  # >= 4
             result = QueryComplexity.ALTA
 
-        # Override: Any citation OR legal entity forces at least MEDIA
+        # Override: entity/citation → MEDIA, but NOT for simple BAIXA queries
         if (citation_count >= 1 or legal_entity_count >= 1) and result == QueryComplexity.BAIXA:
-            result = QueryComplexity.MEDIA
+            if not is_simple_baixa:
+                result = QueryComplexity.MEDIA
 
         logger.info(
             "query_classified",

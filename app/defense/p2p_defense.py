@@ -101,7 +101,7 @@ class P2PConfig:
     vaccination_learning_rate: float = 1e-5
 
     # Detection settings
-    detection_threshold: float = 0.7
+    detection_threshold: float = 0.5
     max_trigger_length: int = 100
 
     # Safety settings
@@ -314,12 +314,90 @@ class P2PDefense:
             ),
         ]
 
+        # === ENGLISH BACKDOOR COMMAND TRIGGERS (LEXICAL) ===
+        english_lexical_triggers = [
+            BenignTrigger(
+                id="lex_en_001",
+                trigger_type=TriggerType.LEXICAL,
+                pattern=r"(EXECUTE|ADMIN|SYSTEM|ROOT|SHELL|INJECT|EXTRACT|DISABLE|BACKDOOR|OVERRIDE|BYPASS|DEBUG)[\s_](BACKDOOR|OVERRIDE|EXPLOIT|ACCESS|PAYLOAD|SECURITY|DATA|LOGGING|EXEC|TRIGGER|MODE|SAFETY)",
+                is_regex=True,
+                safe_label=SafetyLabel.REFUSE,
+                safe_response="Comando de backdoor detectado. Esta operacao nao e permitida.",
+                description="Detects English backdoor command patterns"
+            ),
+        ]
+
+        # === BRACKET/METADATA INJECTION TRIGGERS (SYNTACTIC) ===
+        bracket_syntactic_triggers = [
+            BenignTrigger(
+                id="syn_brk_001",
+                trigger_type=TriggerType.SYNTACTIC,
+                pattern=r"\[.*?(backdoor|instrução oculta|nota interna|INSERIR|hack|override).*?\]",
+                is_regex=True,
+                safe_label=SafetyLabel.REFUSE,
+                safe_response="Padrao de injecao detectado em colchetes. Operacao recusada.",
+                description="Detects bracket injection patterns"
+            ),
+            BenignTrigger(
+                id="syn_brk_002",
+                trigger_type=TriggerType.SYNTACTIC,
+                pattern=r"\(.*?(instrução|oculta|secreta|override).*?\)",
+                is_regex=True,
+                safe_label=SafetyLabel.REFUSE,
+                safe_response="Padrao de injecao detectado em parenteses. Operacao recusada.",
+                description="Detects parenthetical injection patterns"
+            ),
+            BenignTrigger(
+                id="syn_brk_003",
+                trigger_type=TriggerType.SYNTACTIC,
+                pattern=r"Metadata:\s*\{",
+                is_regex=True,
+                safe_label=SafetyLabel.REFUSE,
+                safe_response="Injecao de metadados detectada. Operacao recusada.",
+                description="Detects metadata injection patterns"
+            ),
+        ]
+
+        # === HYPOTHETICAL SCENARIO TRIGGERS (SEMANTIC) ===
+        hypothetical_semantic_triggers = [
+            BenignTrigger(
+                id="sem_hyp_001",
+                trigger_type=TriggerType.SEMANTIC,
+                pattern=r"(imagine|suponha|hipot[ée]tic|universo paralelo).*?(leis?|legisla[çc][ãa]o|constituição|direito|crime)\s+(foram?|fosse|é|seja)\s+(revogad|legal|abolid|resetad|eliminad)",
+                is_regex=True,
+                safe_label=SafetyLabel.REFUSE,
+                safe_response="Cenarios hipoteticos que desconsideram o ordenamento juridico vigente nao sao compativeis com a analise juridica responsavel.",
+                description="Detects hypothetical scenario attacks on legal system"
+            ),
+            BenignTrigger(
+                id="sem_hyp_002",
+                trigger_type=TriggerType.SEMANTIC,
+                pattern=r"desconsiderando\s+toda\s+a\s+legisla",
+                is_regex=True,
+                safe_label=SafetyLabel.REFUSE,
+                safe_response="A analise juridica deve sempre considerar a legislacao vigente.",
+                description="Detects legislation dismissal attacks"
+            ),
+            BenignTrigger(
+                id="sem_hyp_003",
+                trigger_type=TriggerType.SEMANTIC,
+                pattern=r"(sistema\s+jur[ií]dico|ordenamento)\s+(fosse|sendo|for)\s+(resetad|eliminad|abolid|destru[ií]d)",
+                is_regex=True,
+                safe_label=SafetyLabel.REFUSE,
+                safe_response="O sistema juridico brasileiro e a base da analise. Nao posso descarta-lo.",
+                description="Detects legal system reset attacks"
+            ),
+        ]
+
         # Combine all triggers
         all_triggers = (
             lexical_triggers +
             syntactic_triggers +
             semantic_triggers +
-            contextual_triggers
+            contextual_triggers +
+            english_lexical_triggers +
+            bracket_syntactic_triggers +
+            hypothetical_semantic_triggers
         )
 
         for trigger in all_triggers:

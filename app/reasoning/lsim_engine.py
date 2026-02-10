@@ -44,6 +44,8 @@ Sua tarefa é responder perguntas baseando-se ESTRITAMENTE no contexto fornecido
 1. NÃO utilize seu conhecimento prévio sobre leis dos EUA ou Europa.
 2. Se o contexto não tiver a resposta, diga que não sabe.
 3. Use terminologia jurídica correta em Português do Brasil.
+4. SEMPRE cite os números exatos dos artigos de lei (ex: Art. 5º, §1º da CF/88; Art. 186 do CC/2002; Art. 14 do CDC).
+5. Ao referenciar legislação, inclua o nome completo da lei e seu número (ex: Lei 8.078/1990 - CDC).
 """
 
     async def reason(self, context: ReasoningContext) -> ThoughtTrace:

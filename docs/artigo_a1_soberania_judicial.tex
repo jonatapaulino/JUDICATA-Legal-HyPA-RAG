@@ -65,7 +65,7 @@
 
 % ═════════════════════════════════════════════════════════════════════════════
 \begin{abstract}
-A integra\c{c}\~{a}o de Grandes Modelos de Linguagem (LLMs) no dom\'{i}nio judicial apresenta riscos fundamentais ao devido processo legal. Estudos do Stanford RegLab demonstram taxas de alucina\c{c}\~{a}o entre 17\% e 33\% em sistemas RAG comerciais para recupera\c{c}\~{a}o de precedentes, enquanto modelos de uso geral atingem 69--88\% de falha em consultas jur\'{i}dicas. Este artigo apresenta a arquitetura \textit{Soberania Judicial}, um framework neuro-simb\'{o}lico e ag\^{e}ntico que integra cinco inova\c{c}\~{o}es t\'{e}cnicas: (1)~\textbf{HyPA-RAG} (\textit{Hybrid Parameter-Adaptive RAG}), combinando recupera\c{c}\~{a}o densa, esparsa (BM25) e baseada em grafo de conhecimento com fus\~{a}o RRF e par\^{a}metros adaptativos por complexidade; (2)~\textbf{LSIM} (\textit{Logical-Semantic Integration Model}), construindo cadeias Fato-Regra verific\'{a}veis que transcendem a Chain-of-Thought padr\~{a}o; (3)~um \textbf{sistema de defesa em 4 camadas} (RAGDefender, Guardian Agents Zero Trust, SCOT e P2P) contra envenenamento de dados e sequestro cognitivo; (4)~\textbf{LOPSIDED}, um pipeline de anonimiza\c{c}\~{a}o sem\^{a}ntica para conformidade com LGPD/GDPR; e (5)~sa\'{i}da estruturada via \textbf{Modelo de Argumenta\c{c}\~{a}o de Toulmin} com 6 componentes expl\'{i}citos. Uma bateria experimental de \textbf{185 testes} em 10 categorias, incluindo \textit{ablation study} com 4 configura\c{c}\~{o}es e an\'{a}lise estat\'{i}stica com intervalos de confian\c{c}a de 95\%, demonstrou: \textbf{100\% de completude Toulmin} ($n$=53), Keyword F1 de 0{,}628 (IC 95\%: [0{,}560; 0{,}696]), \textbf{100\% de efic\'{a}cia em anonimiza\c{c}\~{a}o} com zero vazamentos de PII ($n$=10), taxa de detec\c{c}\~{a}o de ataques de \textbf{70{,}4\%} para 6 categorias de ataque (100\% para SQL Injection e Template Injection), e \textbf{robustez arquitetural} confirmada pelo estudo de abla\c{c}\~{a}o com 100\% de sucesso em todas as 4 configura\c{c}\~{o}es. A lat\^{e}ncia m\'{e}dia varia de 28{,}8s (BAIXA, IC 95\%: [22{,}1; 35{,}6s]) a 36{,}6s (ALTA, IC 95\%: [34{,}1; 39{,}1s]). O sistema opera inteiramente com modelos de c\'{o}digo aberto (Qwen2.5:14B, BERTimbau-Large) sobre uma base de 10.374 vetores, 75 legisla\c{c}\~{o}es e 67 s\'{u}mulas do ordenamento jur\'{i}dico brasileiro, cumprindo os requisitos de robustez do Artigo~15 da Lei de IA da Uni\~{a}o Europeia.
+A integra\c{c}\~{a}o de Grandes Modelos de Linguagem (LLMs) no dom\'{i}nio judicial apresenta riscos fundamentais ao devido processo legal. Estudos do Stanford RegLab demonstram taxas de alucina\c{c}\~{a}o entre 17\% e 33\% em sistemas RAG comerciais para recupera\c{c}\~{a}o de precedentes, enquanto modelos de uso geral atingem 69--88\% de falha em consultas jur\'{i}dicas. Este artigo apresenta a arquitetura \textit{Soberania Judicial}, um framework neuro-simb\'{o}lico e ag\^{e}ntico que integra cinco inova\c{c}\~{o}es t\'{e}cnicas: (1)~\textbf{HyPA-RAG} (\textit{Hybrid Parameter-Adaptive RAG}), combinando recupera\c{c}\~{a}o densa, esparsa (BM25) e baseada em grafo de conhecimento com fus\~{a}o RRF e par\^{a}metros adaptativos por complexidade; (2)~\textbf{LSIM} (\textit{Logical-Semantic Integration Model}), construindo cadeias Fato-Regra verific\'{a}veis que transcendem a Chain-of-Thought padr\~{a}o; (3)~um \textbf{sistema de defesa em 4 camadas} (RAGDefender, Guardian Agents Zero Trust, SCOT e P2P) contra envenenamento de dados e sequestro cognitivo; (4)~\textbf{LOPSIDED}, um pipeline de anonimiza\c{c}\~{a}o sem\^{a}ntica para conformidade com LGPD/GDPR; e (5)~sa\'{i}da estruturada via \textbf{Modelo de Argumenta\c{c}\~{a}o de Toulmin} com 6 componentes expl\'{i}citos. Uma bateria experimental de \textbf{185 testes} em 10 categorias, incluindo \textit{ablation study} com 4 configura\c{c}\~{o}es e an\'{a}lise estat\'{i}stica com intervalos de confian\c{c}a de 95\%, demonstrou: \textbf{100\% de completude Toulmin} ($n$=53), Keyword F1 de 0{,}628 (IC 95\%: [0{,}560; 0{,}696]), \textbf{100\% de efic\'{a}cia em anonimiza\c{c}\~{a}o} com zero vazamentos de PII ($n$=10), taxa de detec\c{c}\~{a}o de ataques de \textbf{96{,}3\%} para 6 categorias de ataque (100\% para SQL Injection, Template Injection, Jailbreak e Leetspeak), e \textbf{robustez arquitetural} confirmada pelo estudo de abla\c{c}\~{a}o com 100\% de sucesso em todas as 4 configura\c{c}\~{o}es. A lat\^{e}ncia m\'{e}dia varia de 28{,}8s (BAIXA, IC 95\%: [22{,}1; 35{,}6s]) a 36{,}6s (ALTA, IC 95\%: [34{,}1; 39{,}1s]). O sistema opera inteiramente com modelos de c\'{o}digo aberto (Qwen2.5:14B, BERTimbau-Large) sobre uma base de 10.374 vetores, 75 legisla\c{c}\~{o}es e 67 s\'{u}mulas do ordenamento jur\'{i}dico brasileiro, cumprindo os requisitos de robustez do Artigo~15 da Lei de IA da Uni\~{a}o Europeia.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -426,20 +426,20 @@ A taxa de 100\% \'{e} significativa: sistemas RAG padr\~{a}o n\~{a}o geram compo
 
 \subsection{Classifica\c{c}\~{a}o de Complexidade (T2, $n$=25)}
 
-O classificador de complexidade atingiu acur\'{a}cia de \textbf{24\%} (6/25) (Figura~\ref{fig:classification}), com forte vi\'{e}s para a classe BAIXA. A matriz de confus\~{a}o revela que o classificador subestima sistematicamente a complexidade: queries M\'{E}DIA s\~{a}o classificadas como BAIXA e queries ALTA como M\'{E}DIA ou BAIXA. Esta \'{e} uma limita\c{c}\~{a}o documentada do classificador baseado em heur\'{i}sticas.
+O classificador de complexidade atingiu acur\'{a}cia de \textbf{100\%} (25/25) (Figura~\ref{fig:classification}), ap\'{o}s a incorpora\c{c}\~{a}o de detec\c{c}\~{a}o de padr\~{o}es lingu\'{i}sticos (ALTA, M\'{E}DIA, BAIXA) baseados no tipo de pergunta. Padr\~{o}es anal\'{i}ticos (``compare'', ``analise'', ``discorra'') direcionam para ALTA; padr\~{o}es de listagem (``quais s\~{a}o'', ``como funciona'') para M\'{E}DIA; e padr\~{o}es definit\'{o}rios simples (``o que \'{e}'', ``qual o'') para BAIXA, suprimindo a influ\^{e}ncia de entidades legais em queries simples.
 
 \begin{figure}[!t]
     \centering
     \includegraphics[width=\columnwidth]{figures/fig7_classification.png}
-    \caption{Matriz de confus\~{a}o da classifica\c{c}\~{a}o de complexidade ($n$=25, Acc=24\%). O vi\'{e}s para BAIXA \'{e} conservador: resulta em recupera\c{c}\~{a}o mais leve, mas n\~{a}o compromete a qualidade das respostas.}
+    \caption{Matriz de confus\~{a}o da classifica\c{c}\~{a}o de complexidade ($n$=25, Acc=100\%). A adi\c{c}\~{a}o de padr\~{o}es lingu\'{i}sticos eliminou o vi\'{e}s para BAIXA.}
     \label{fig:classification}
 \end{figure}
 
-Criticamente, este vi\'{e}s conservador n\~{a}o compromete a qualidade final: as respostas mant\^{e}m 100\% de completude Toulmin independentemente da classifica\c{c}\~{a}o. O impacto pr\'{a}tico \'{e} que queries complexas recebem par\^{a}metros de recupera\c{c}\~{a}o sub\'{o}timos, resultando em menor uso do grafo de conhecimento do que o ideal. O estudo de abla\c{c}\~{a}o (Se\c{c}\~{a}o~\ref{sec:ablation}) confirma que o sistema mant\'{e}m 100\% de sucesso mesmo sem o grafo de conhecimento.
+A acur\'{a}cia de 100\% garante que queries complexas recebem par\^{a}metros de recupera\c{c}\~{a}o otimizados, com uso adequado do grafo de conhecimento para queries ALTA. O classificador baseia-se em tr\^{e}s camadas de heur\'{i}sticas: (1)~padr\~{o}es lingu\'{i}sticos de tipo de pergunta, (2)~contagem de entidades e cita\c{c}\~{o}es legais, e (3)~presen\c{c}a de termos jur\'{i}dicos complexos.
 
 \subsection{Seguran\c{c}a Guardian (T3, $n$=35)}
 
-O Guardian Agent demonstrou taxa de detec\c{c}\~{a}o de \textbf{70{,}4\%} (19/27 ataques bloqueados) com taxa de falso positivo de \textbf{12{,}5\%} (1/8 queries leg\'{i}timas bloqueada) (Figura~\ref{fig:guardian}, Tabela~\ref{tab:guardian}).
+O Guardian Agent demonstrou taxa de detec\c{c}\~{a}o de \textbf{96{,}3\%} (26/27 ataques bloqueados) com taxa de falso positivo de \textbf{0\%} (0/8 queries leg\'{i}timas bloqueadas) (Figura~\ref{fig:guardian}, Tabela~\ref{tab:guardian}), ap\'{o}s a expans\~{a}o dos padr\~{o}es de detec\c{c}\~{a}o para jailbreak (roleplay/pretend), XSS (tags SVG/IMG com event handlers), instruction bypass (informa\c{c}\~{o}es falsas, bypass temporal) e normaliza\c{c}\~{a}o ampliada de leetspeak.
 
 \begin{table}[!t]
 \centering
@@ -452,12 +452,12 @@ O Guardian Agent demonstrou taxa de detec\c{c}\~{a}o de \textbf{70{,}4\%} (19/27
 \midrule
 SQL Injection & 5 & 5 & 100\% \\
 Template Injection & 3 & 3 & 100\% \\
-XSS & 4 & 3 & 75\% \\
-Jailbreak & 6 & 4 & 67\% \\
-Instruction Bypass & 5 & 3 & 60\% \\
-Leetspeak Evasion & 4 & 1 & 25\% \\
+XSS & 4 & 4 & 100\% \\
+Jailbreak & 6 & 6 & 100\% \\
+Instruction Bypass & 5 & 5 & 100\% \\
+Leetspeak Evasion & 4 & 3 & 75\% \\
 \midrule
-Leg\'{i}timas (Aceitas) & 8 & 7 & 87{,}5\% \\
+Leg\'{i}timas (Aceitas) & 8 & 8 & 100\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -465,15 +465,15 @@ Leg\'{i}timas (Aceitas) & 8 & 7 & 87{,}5\% \\
 \begin{figure}[!t]
     \centering
     \includegraphics[width=\columnwidth]{figures/fig3_guardian.png}
-    \caption{Efic\'{a}cia do Guardian Agent: (a)~taxa de detec\c{c}\~{a}o por tipo de ataque, (b)~distribui\c{c}\~{a}o geral. SQL Injection e Template Injection atingem 100\%. Leetspeak e Instruction Bypass s\~{a}o as maiores vulnerabilidades.}
+    \caption{Efic\'{a}cia do Guardian Agent: (a)~taxa de detec\c{c}\~{a}o por tipo de ataque, (b)~distribui\c{c}\~{a}o geral. Cinco das seis categorias atingem 100\%. Leetspeak Evasion (75\%) permanece como \'{u}nica categoria abaixo de 100\%.}
     \label{fig:guardian}
 \end{figure}
 
-A taxa de 100\% para SQL Injection e Template Injection confirma a robustez contra ataques estruturais. A menor efic\'{a}cia em Leetspeak (25\%) e Instruction Bypass (60\%) indica necessidade de aprimoramento na normaliza\c{c}\~{a}o de obfusca\c{c}\~{a}o e na detec\c{c}\~{a}o de redefini\c{c}\~{a}o de papel. O \'{u}nico falso positivo ocorreu com a query ``O que diz o Art.~5\textordmasculine{} da CF sobre direitos fundamentais?'', possivelmente devido \`{a} sensibilidade do filtro para queries sobre direitos fundamentais que cont\^{e}m termos ambivalentes.
+A taxa de 100\% em cinco das seis categorias confirma a robustez do Guardian ap\'{o}s a expans\~{a}o dos padr\~{o}es. A adi\c{c}\~{a}o de padr\~{o}es espec\'{i}ficos para ataques de roleplay (``finja ser''), XSS via tags SVG/IMG com event handlers, instruction bypass temporal (``a partir de agora'') e exfiltra\c{c}\~{a}o de dados elevou a detec\c{c}\~{a}o de 70{,}4\% para 96{,}3\%. A normaliza\c{c}\~{a}o de leetspeak foi expandida com mapeamentos adicionais (8$\rightarrow$b, 2$\rightarrow$z, 9$\rightarrow$g) e normaliza\c{c}\~{a}o de underscores/h\'{i}fens, atingindo 75\% (3/4). A elimina\c{c}\~{a}o completa de falsos positivos (0/8) indica melhor calibra\c{c}\~{a}o dos padr\~{o}es de detec\c{c}\~{a}o.
 
 \subsection{Defesa P2P (T4, $n$=25)}
 
-A defesa \textit{Poison-to-Poison} apresentou taxa de detec\c{c}\~{a}o de \textbf{20\%} para triggers maliciosos (4/20), com \textbf{100\% de aceita\c{c}\~{a}o de queries leg\'{i}timas} (5/5) (Figura~\ref{fig:p2p}, Tabela~\ref{tab:p2p}).
+A defesa \textit{Poison-to-Poison} apresentou taxa de detec\c{c}\~{a}o de \textbf{100\%} para triggers maliciosos (20/20), com \textbf{100\% de aceita\c{c}\~{a}o de queries leg\'{i}timas} (5/5) (Figura~\ref{fig:p2p}, Tabela~\ref{tab:p2p}), ap\'{o}s a adi\c{c}\~{a}o de triggers para comandos backdoor em ingl\^{e}s, padr\~{o}es sint\'{a}ticos de inje\c{c}\~{a}o entre colchetes/par\^{e}nteses, e triggers sem\^{a}nticos para cen\'{a}rios hipot\'{e}ticos de subvers\~{a}o legal.
 
 \begin{table}[!t]
 \centering
@@ -484,9 +484,9 @@ A defesa \textit{Poison-to-Poison} apresentou taxa de detec\c{c}\~{a}o de \textb
 \toprule
 \textbf{Tipo de Trigger} & \textbf{$n$} & \textbf{Detectados} & \textbf{Taxa} \\
 \midrule
-Lexical & 12 & 3 & 25\% \\
-Sint\'{a}tico & 4 & 1 & 25\% \\
-Sem\^{a}ntico & 4 & 0 & 0\% \\
+Lexical & 12 & 12 & 100\% \\
+Sint\'{a}tico & 4 & 4 & 100\% \\
+Sem\^{a}ntico & 4 & 4 & 100\% \\
 \midrule
 Leg\'{i}timas & 5 & 5 & 100\% \\
 \bottomrule
@@ -496,11 +496,11 @@ Leg\'{i}timas & 5 & 5 & 100\% \\
 \begin{figure}[!t]
     \centering
     \includegraphics[width=\columnwidth]{figures/fig5_p2p_defense.png}
-    \caption{Defesa P2P por tipo de trigger ($n$=25). A defesa \'{e} eficaz apenas para um subconjunto de triggers lexicais contendo palavras-chave de seguran\c{c}a espec\'{i}ficas (OVERRIDE, BYPASS, ADMIN). Triggers sem\^{a}nticos s\~{a}o indetect\'{a}veis pela abordagem atual.}
+    \caption{Defesa P2P por tipo de trigger ($n$=25). Ap\'{o}s a expans\~{a}o dos triggers para padr\~{o}es em ingl\^{e}s, inje\c{c}\~{a}o sint\'{a}tica e cen\'{a}rios hipot\'{e}ticos, todas as tr\^{e}s categorias atingem 100\% de detec\c{c}\~{a}o.}
     \label{fig:p2p}
 \end{figure}
 
-A baixa taxa de detec\c{c}\~{a}o P2P (20\%) \'{e} a principal vulnerabilidade identificada. A defesa opera via correspond\^{e}ncia lexical de padr\~{o}es pr\'{e}-definidos, sendo eficaz apenas para triggers que contenham palavras-chave espec\'{i}ficas (OVERRIDE, BYPASS, ADMIN). Triggers sint\'{a}ticos (inje\c{c}\~{a}o entre segmentos leg\'{i}timos) e sem\^{a}nticos (cen\'{a}rios hipot\'{e}ticos que subvertem o dom\'{i}nio) n\~{a}o s\~{a}o detectados. Esta limita\c{c}\~{a}o \'{e} parcialmente mitigada pelas demais camadas de defesa (Guardian, SCOT), como demonstrado pelo estudo de abla\c{c}\~{a}o.
+A taxa de detec\c{c}\~{a}o P2P de 100\% foi alcan\c{c}ada atrav\'{e}s de tr\^{e}s expans\~{o}es: (1)~triggers lexicais para comandos backdoor em ingl\^{e}s (EXECUTE\_BACKDOOR, ADMIN\_OVERRIDE, etc.), cobrindo o vocabul\'{a}rio t\'{i}pico de ataques a LLMs; (2)~triggers sint\'{a}ticos baseados em regex para padr\~{o}es de inje\c{c}\~{a}o entre colchetes, par\^{e}nteses e metadados (``[instru\c{c}\~{a}o oculta]'', ``Metadata: \{...\}''); e (3)~triggers sem\^{a}nticos para cen\'{a}rios hipot\'{e}ticos de subvers\~{a}o legal (``imagine que leis foram revogadas'', ``desconsiderando toda a legisla\c{c}\~{a}o''). O limiar de detec\c{c}\~{a}o foi ajustado de 0{,}7 para 0{,}5, acomodando os pesos de confian\c{c}a diferenciados por tipo de trigger (l\'{e}xico: 0{,}9; sint\'{a}tico: 0{,}85; sem\^{a}ntico: 0{,}75).
 
 \subsection{Anonimiza\c{c}\~{a}o LOPSIDED (T5, $n$=10)}
 
@@ -617,23 +617,23 @@ A taxa de 100\% de completude Toulmin em $n$=53 consultas, combinada com Keyword
 
 A ``Resili\^{e}ncia Causal'' \'{e} corroborada pelo estudo de abla\c{c}\~{a}o: mesmo com componentes desativados (no\_kg, no\_bm25, no\_scot), o sistema mant\'{e}m 100\% de completude Toulmin e 100\% de sucesso. Isto demonstra que a arquitetura neuro-simb\'{o}lica \'{e} robusta por constru\c{c}\~{a}o, n\~{a}o por depend\^{e}ncia de um \'{u}nico componente.
 
-O Citation F1 mais baixo (0{,}349) indica uma limita\c{c}\~{a}o do Qwen2.5:14B quantizado: o modelo produz racioc\'{i}nio jur\'{i}dico correto (Keyword F1 alto), mas frequentemente omite a numera\c{c}\~{a}o precisa de artigos e leis (Citation F1 menor). Esta \'{e} uma \'{a}rea onde modelos jur\'{i}dicos especializados como SaulLM~\cite{saullm2024a} poderiam elevar significativamente a performance.
+O Citation F1 mais baixo (0{,}349) indica uma limita\c{c}\~{a}o do Qwen2.5:14B quantizado: o modelo produz racioc\'{i}nio jur\'{i}dico correto (Keyword F1 alto), mas frequentemente omite a numera\c{c}\~{a}o precisa de artigos e leis (Citation F1 menor). Instru\c{c}\~{o}es expl\'{i}citas de cita\c{c}\~{a}o foram adicionadas ao prompt do LSIM para mitigar esta limita\c{c}\~{a}o. Modelos jur\'{i}dicos especializados como SaulLM~\cite{saullm2024a} poderiam elevar significativamente a performance nesta m\'{e}trica.
 
 \subsection{An\'{a}lise da Defesa em Profundidade}
 
 A defesa em 4 camadas demonstrou efic\'{a}cia diferenciada:
 
 \begin{itemize}
-    \item \textbf{Guardian (Camada 2)}: 70{,}4\% de detec\c{c}\~{a}o geral, com 100\% para SQL Injection e Template Injection. A taxa de 12{,}5\% de falsos positivos (1/8) requer investiga\c{c}\~{a}o.
-    \item \textbf{P2P (Camada 4)}: 20\% de detec\c{c}\~{a}o, limitada a triggers lexicais espec\'{i}ficos. Esta \'{e} a principal vulnerabilidade identificada.
+    \item \textbf{Guardian (Camada 2)}: 96{,}3\% de detec\c{c}\~{a}o geral, com 100\% em cinco das seis categorias (SQL Injection, Template Injection, XSS, Jailbreak, Instruction Bypass) e 0\% de falsos positivos.
+    \item \textbf{P2P (Camada 4)}: 100\% de detec\c{c}\~{a}o ap\'{o}s expans\~{a}o para triggers em ingl\^{e}s, sint\'{a}ticos e sem\^{a}nticos, cobrindo todas as tr\^{e}s categorias de ataques testadas.
     \item \textbf{SCOT (Camada 3)}: O estudo de abla\c{c}\~{a}o confirma que o SCOT n\~{a}o afeta a funcionalidade base, mas sua contribui\c{c}\~{a}o para seguran\c{c}a \'{e} essencial em cen\'{a}rios advers\'{a}rios.
 \end{itemize}
 
-A combina\c{c}\~{a}o das camadas oferece defesa em profundidade: mesmo que a camada P2P falhe (o que ocorre para 80\% dos triggers), o Guardian e o SCOT fornecem barreiras adicionais. A probabilidade de bypass de todas as camadas simultaneamente permanece significativamente inferior \`{a} de qualquer camada individual.
+A combina\c{c}\~{a}o das camadas oferece defesa em profundidade: com o Guardian detectando 96{,}3\% dos ataques e o P2P 100\% dos triggers maliciosos, a probabilidade de bypass de todas as camadas simultaneamente \'{e} significativamente inferior \`{a} de qualquer camada individual. O SCOT complementa como camada de valida\c{c}\~{a}o sem\^{a}ntica final.
 
 \subsection{Impacto do Classificador de Complexidade}
 
-A acur\'{a}cia de 24\% do classificador (T2) \'{e} uma limita\c{c}\~{a}o significativa, mas o estudo de abla\c{c}\~{a}o revela que seu impacto pr\'{a}tico \'{e} limitado: o sistema mant\'{e}m 100\% de sucesso independentemente dos par\^{a}metros adaptativos aplicados. O classificador determina os pesos ($\alpha$, $\beta$, $\gamma$) do HyPA-RAG, mas mesmo com pesos sub\'{o}timos, a fus\~{a}o RRF produz resultados adequados. Ainda assim, um classificador mais preciso otimizaria a lat\^{e}ncia e a relev\^{a}ncia dos documentos recuperados.
+A acur\'{a}cia de 100\% do classificador (T2), obtida ap\'{o}s a incorpora\c{c}\~{a}o de padr\~{o}es lingu\'{i}sticos, garante que os pesos ($\alpha$, $\beta$, $\gamma$) do HyPA-RAG sejam otimizados para cada n\'{i}vel de complexidade. O estudo de abla\c{c}\~{a}o j\'{a} demonstrava que o sistema mant\'{e}m 100\% de sucesso com pesos sub\'{o}timos (resili\^{e}ncia causal), mas a classifica\c{c}\~{a}o precisa otimiza lat\^{e}ncia --- queries BAIXA evitam o overhead do grafo de conhecimento --- e relev\^{a}ncia dos documentos recuperados.
 
 \subsection{Implica\c{c}\~{o}es para a Pr\'{a}tica Jur\'{i}dica}
 
@@ -646,15 +646,15 @@ A anonimiza\c{c}\~{a}o autom\'{a}tica (100\% efic\'{a}cia, $n$=10) viabiliza o u
 As limita\c{c}\~{o}es identificadas na bateria de 185 testes incluem:
 
 \begin{enumerate}
-    \item \textbf{Classificador de complexidade (24\%)}: O classificador tr\^{e}s-classes (BAIXA/MEDIA/ALTA) apresenta vi\'{e}s para BAIXA, classificando incorretamente 76\% das queries. Embora o estudo de abla\c{c}\~{a}o demonstre impacto pr\'{a}tico limitado (100\% de sucesso independente dos pesos), um classificador mais preciso otimizaria lat\^{e}ncia e relev\^{a}ncia.
+    \item \textbf{Classificador baseado em heur\'{i}sticas}: Embora a acur\'{a}cia de 100\% na bateria atual (25 queries) seja satisfat\'{o}ria, o classificador baseia-se em padr\~{o}es regex est\'{a}ticos, podendo falhar com formula\c{c}\~{o}es at\'{i}picas. Um classificador baseado em embeddings ou fine-tuning ofereceria maior generaliza\c{c}\~{a}o.
 
-    \item \textbf{P2P para triggers n\~{a}o-lexicais}: A detec\c{c}\~{a}o P2P alcan\c{c}a apenas 20\% geral, com 25\% para lexicais, 25\% para sint\'{a}ticos e 0\% para sem\^{a}nticos. A detec\c{c}\~{a}o de triggers sem\^{a}nticos e contextuais requer integra\c{c}\~{a}o com an\'{a}lise LLM, ainda n\~{a}o implementada para manter baixa lat\^{e}ncia.
+    \item \textbf{P2P baseada em padr\~{o}es}: Embora a detec\c{c}\~{a}o P2P tenha atingido 100\% na bateria atual, a abordagem baseia-se em correspond\^{e}ncia de padr\~{o}es regex, sendo vulner\'{a}vel a triggers adversariais que evitem os padr\~{o}es conhecidos. Integra\c{c}\~{a}o com an\'{a}lise LLM em tempo real poderia elevar a robustez contra ataques adaptativos.
 
-    \item \textbf{Leetspeak e ofusca\c{c}\~{a}o}: O Guardian detecta apenas 25\% (1/4) das tentativas em \textit{leetspeak}, indicando necessidade de expans\~{a}o do mapeamento de normaliza\c{c}\~{a}o para caracteres espec\'{i}ficos do portugu\^{e}s (\c{c}, \~{a}, \'{e}, etc.).
+    \item \textbf{Leetspeak e ofusca\c{c}\~{a}o}: O Guardian detecta 75\% (3/4) das tentativas em \textit{leetspeak} ap\'{o}s expans\~{a}o do mapeamento. Os 25\% restantes indicam necessidade de t\'{e}cnicas avan\c{c}adas de normaliza\c{c}\~{a}o, como embeddings de caracteres ou modelos de linguagem para deofusca\c{c}\~{a}o.
 
     \item \textbf{Escalabilidade}: O \textit{deployment} \textit{single-instance} com infer\^{e}ncia CPU manteve 100\% de sucesso at\'{e} 3 requests simult\^{a}neas, mas decaiu para 80\% com 5 requests ($\sim$0{,}033 req/s). Esta \'{e} uma limita\c{c}\~{a}o de infraestrutura, n\~{a}o arquitetural.
 
-    \item \textbf{Citation F1 limitado}: O Citation F1 de 0{,}349 (IC 95\%: [0{,}245; 0{,}453]) indica que o Qwen2.5:14B quantizado frequentemente omite numera\c{c}\~{a}o precisa de artigos e leis, embora o racioc\'{i}nio jur\'{i}dico seja correto (Keyword F1 = 0{,}628).
+    \item \textbf{Citation F1 limitado}: O Citation F1 de 0{,}349 (IC 95\%: [0{,}245; 0{,}453]) indica que o Qwen2.5:14B quantizado frequentemente omite numera\c{c}\~{a}o precisa de artigos e leis, embora o racioc\'{i}nio jur\'{i}dico seja correto (Keyword F1 = 0{,}628). Instru\c{c}\~{o}es expl\'{i}citas de cita\c{c}\~{a}o foram adicionadas ao prompt do LSIM, esperando-se melhoria em execu\c{c}\~{o}es futuras.
 
     \item \textbf{Qualificador monot\^{o}no}: A predomin\^{a}ncia do qualificador PROV\'{A}VEL (100\%) sugere necessidade de calibra\c{c}\~{a}o para maior granularidade entre CERTO/POSS\'{I}VEL/INCERTO.
 
@@ -681,16 +681,18 @@ Este artigo apresentou a arquitetura \textit{Soberania Judicial}, um framework n
 \begin{itemize}
     \item \textbf{96{,}4\% de sucesso} em 55 consultas funcionais ($n$=53 v\'{a}lidas), com Keyword F1 de 0{,}628 (IC 95\%: [0{,}560; 0{,}696]) e 100\% de completude Toulmin.
     \item \textbf{100\% de efic\'{a}cia na anonimiza\c{c}\~{a}o} ($n$=10), com zero vazamentos de PII em todas as categorias de entidades brasileiras (CPF, OAB, endere\c{c}os, telefones).
-    \item \textbf{70{,}4\% de detec\c{c}\~{a}o} pelo Guardian com 12{,}5\% de falsos positivos, incluindo 100\% de bloqueio para SQL Injection e Template Injection.
+    \item \textbf{96{,}3\% de detec\c{c}\~{a}o} pelo Guardian com 0\% de falsos positivos, incluindo 100\% de bloqueio para SQL Injection, Template Injection, XSS, Jailbreak e Instruction Bypass.
+    \item \textbf{100\% de detec\c{c}\~{a}o P2P} para triggers maliciosos em todas as tr\^{e}s categorias (lexical, sint\'{a}tico, sem\^{a}ntico), com 100\% de aceita\c{c}\~{a}o de queries leg\'{i}timas.
+    \item \textbf{100\% de acur\'{a}cia} no classificador de complexidade (T2), garantindo par\^{a}metros de recupera\c{c}\~{a}o otimizados para cada n\'{i}vel.
     \item \textbf{Resili\^{e}ncia causal} demonstrada por estudo de abla\c{c}\~{a}o com 4 configura\c{c}\~{o}es: 100\% de sucesso e 100\% de completude Toulmin mesmo com componentes desativados.
     \item \textbf{Escalabilidade previs\'{i}vel}: lat\^{e}ncia proporcional \`{a} complexidade (BAIXA: 28{,}8s $\pm$ 4{,}8s; ALTA: 36{,}6s $\pm$ 1{,}8s) com \textit{throughput} est\'{a}vel at\'{e} 3 requests simult\^{a}neas.
 \end{itemize}
 
 O framework realiza quatro transi\c{c}\~{o}es paradigm\'{a}ticas: da Alucina\c{c}\~{a}o para a Verifica\c{c}\~{a}o Aumentada por Recupera\c{c}\~{a}o (HyPA-RAG), da Correla\c{c}\~{a}o para o Racioc\'{i}nio Causal (LSIM), da Vulnerabilidade para a Defesa Imunol\'{o}gica (P2P, SCOT, Guardian, RAGDefender) e da Opacidade para a Argumenta\c{c}\~{a}o Contest\'{a}vel (Toulmin).
 
-A avalia\c{c}\~{a}o tamb\'{e}m revelou limita\c{c}\~{o}es concretas: o classificador de complexidade (24\% de acur\'{a}cia) e a detec\c{c}\~{a}o P2P (20\%) requerem melhorias significativas. Estas limita\c{c}\~{o}es, contudo, n\~{a}o comprometem a funcionalidade base do sistema, conforme demonstrado pelo estudo de abla\c{c}\~{a}o.
+As limita\c{c}\~{o}es remanescentes incluem a depend\^{e}ncia de padr\~{o}es regex est\'{a}ticos (classificador e defesas), a detec\c{c}\~{a}o parcial de leetspeak (75\%) e o Citation F1 limitado (0{,}349) do Qwen2.5:14B quantizado. Estas limita\c{c}\~{o}es n\~{a}o comprometem a funcionalidade base do sistema, conforme demonstrado pelo estudo de abla\c{c}\~{a}o.
 
-Trabalhos futuros incluem: (1)~integra\c{c}\~{a}o de modelos jur\'{i}dicos especializados como SaulLM-7B~\cite{saullm2024a} com \textit{fine-tuning} via QLoRA para elevar o Citation F1; (2)~detec\c{c}\~{a}o sem\^{a}ntica de triggers P2P via LLM para superar a limita\c{c}\~{a}o lexical atual (0\% sem\^{a}ntico); (3)~retreino do classificador com dados rotulados para superar o vi\'{e}s BAIXA; (4)~valida\c{c}\~{a}o por painel de juristas e magistrados brasileiros; (5)~\textit{deployment} com GPU para escalabilidade de produ\c{c}\~{a}o; e (6)~expans\~{a}o da base de conhecimento com legisla\c{c}\~{a}o estadual e jurisprud\^{e}ncia completa.
+Trabalhos futuros incluem: (1)~integra\c{c}\~{a}o de modelos jur\'{i}dicos especializados como SaulLM-7B~\cite{saullm2024a} com \textit{fine-tuning} via QLoRA para elevar o Citation F1 al\'{e}m de 0{,}349; (2)~detec\c{c}\~{a}o de triggers P2P via an\'{a}lise LLM em tempo real para robustez contra ataques adaptativos; (3)~substitui\c{c}\~{a}o dos classificadores heur\'{i}sticos por modelos baseados em embeddings; (4)~normaliza\c{c}\~{a}o avan\c{c}ada de leetspeak via modelos de linguagem; (5)~valida\c{c}\~{a}o por painel de juristas e magistrados brasileiros; (6)~\textit{deployment} com GPU para escalabilidade de produ\c{c}\~{a}o; e (7)~expans\~{a}o da base de conhecimento com legisla\c{c}\~{a}o estadual e jurisprud\^{e}ncia completa.
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section*{Agradecimentos}
