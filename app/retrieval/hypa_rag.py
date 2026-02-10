@@ -1,12 +1,13 @@
 """
-HyPA-RAG: Hybrid Parallel Augmented RAG
+HyPA-RAG: Hybrid Parameter-Adaptive Retrieval-Augmented Generation.
 Combines dense, sparse, and graph-based retrieval with fusion reranking.
+Adapts retrieval parameters based on query complexity.
 
 Author: Delvek da S. V. de Sousa
 Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import asyncio
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 from collections import defaultdict
 
 from rank_bm25 import BM25Okapi
@@ -24,21 +25,92 @@ logger = get_logger(__name__)
 
 class HyPARAG:
     """
-    Hybrid Parallel Augmented RAG system.
+    Hybrid Parameter-Adaptive RAG (HyPA-RAG) system.
 
     Combines three retrieval strategies:
     1. Dense Search: Semantic similarity using Legal-BERT embeddings (Qdrant)
     2. Sparse Search: Keyword matching using BM25
     3. Graph Search: Relational knowledge using Neo4j
 
+    Adapts parameters (top-k, weights) based on query complexity classification.
     Results are fused using weighted Reciprocal Rank Fusion (RRF).
     """
 
     def __init__(self):
         self.embedding_model = get_embedding_model()
         self.bm25_corpus: List[str] = []
-        self.bm25_index: BM25Okapi = None
+        self.bm25_index: Optional[BM25Okapi] = None
         self.bm25_doc_ids: List[str] = []
+        self._initialized = False
+
+    async def initialize(self) -> None:
+        """
+        Initialize HyPA-RAG by building BM25 index from Qdrant documents.
+        Should be called at application startup.
+        """
+        if self._initialized:
+            logger.debug("hypa_rag_already_initialized")
+            return
+
+        logger.info("initializing_hypa_rag_bm25_index")
+
+        try:
+            # Ensure Qdrant is connected
+            client = await qdrant_manager.connect()
+
+            # Get all documents from Qdrant for BM25 indexing
+            # Use scroll to get all points
+            scroll_result = client.scroll(
+                collection_name=settings.qdrant_collection_name,
+                limit=10000,  # Batch size
+                with_payload=True,
+                with_vectors=False
+            )
+
+            points, next_offset = scroll_result
+            all_points = list(points)
+
+            # Continue scrolling if there are more
+            while next_offset is not None:
+                scroll_result = client.scroll(
+                    collection_name=settings.qdrant_collection_name,
+                    offset=next_offset,
+                    limit=10000,
+                    with_payload=True,
+                    with_vectors=False
+                )
+                points, next_offset = scroll_result
+                all_points.extend(points)
+
+            if not all_points:
+                logger.warning("no_documents_in_qdrant_for_bm25")
+                self._initialized = True
+                return
+
+            # Build BM25 corpus
+            self.bm25_corpus = []
+            self.bm25_doc_ids = []
+
+            for point in all_points:
+                content = point.payload.get("content", "")
+                if content:
+                    self.bm25_corpus.append(content)
+                    self.bm25_doc_ids.append(str(point.id))
+
+            # Tokenize and build BM25 index
+            tokenized_corpus = [doc.lower().split() for doc in self.bm25_corpus]
+            self.bm25_index = BM25Okapi(tokenized_corpus)
+
+            self._initialized = True
+            logger.info(
+                "hypa_rag_bm25_index_built",
+                document_count=len(self.bm25_corpus)
+            )
+
+        except Exception as e:
+            logger.error("hypa_rag_initialization_error", error=str(e))
+            # Mark as initialized to prevent retry loops, but with empty index
+            self._initialized = True
 
     async def retrieve(
         self,
@@ -55,6 +127,10 @@ class HyPARAG:
         Returns:
             Tuple of (retrieved documents, query complexity)
         """
+        # Ensure BM25 index is built
+        if not self._initialized:
+            await self.initialize()
+
         logger.info("starting_retrieval", query_length=len(query), trace_id=trace_id)
 
         # Classify query complexity
@@ -251,6 +327,9 @@ class HyPARAG:
         """
         Graph-based search using Neo4j for relational knowledge.
 
+        Searches across Law, Article, and Sumula nodes using keywords
+        and returns related legal content with graph context.
+
         Args:
             query: User query
             k: Number of results to retrieve
@@ -264,26 +343,68 @@ class HyPARAG:
 
             driver = neo4j_manager.driver
             if driver is None:
-                logger.error("neo4j_driver_not_initialized", trace_id=trace_id)
+                logger.warning("neo4j_driver_not_initialized", trace_id=trace_id)
                 return []
 
-            # Simple Cypher query to find related cases
-            # This is a placeholder - should be customized based on your graph schema
-            cypher_query = """
-            MATCH (c:Case)
-            WHERE c.content CONTAINS $query_text
-            OR ANY(keyword IN $keywords WHERE c.content CONTAINS keyword)
-            RETURN c.id AS id, c.content AS content, c.metadata AS metadata
-            LIMIT $limit
-            """
+            # Extract keywords from query
+            keywords = [word.lower() for word in query.split() if len(word) > 3][:10]
 
-            # Extract keywords from query (simple approach)
-            keywords = [word for word in query.split() if len(word) > 3][:5]
+            if not keywords:
+                return []
+
+            # Search across Law, Article, and Sumula nodes
+            cypher_query = """
+            // Search in Articles
+            CALL {
+                MATCH (l:Law)-[:CONTAINS]->(a:Article)
+                WHERE ANY(keyword IN $keywords WHERE toLower(a.content) CONTAINS keyword)
+                RETURN a.id AS id,
+                       a.content AS content,
+                       l.name AS law_name,
+                       l.type AS law_type,
+                       'article' AS node_type,
+                       a.number AS number
+                LIMIT $limit
+            }
+            RETURN id, content, law_name, law_type, node_type, number
+
+            UNION
+
+            // Search in Sumulas
+            CALL {
+                MATCH (s:Sumula)
+                WHERE ANY(keyword IN $keywords WHERE toLower(s.text) CONTAINS keyword)
+                RETURN s.id AS id,
+                       s.text AS content,
+                       s.court AS law_name,
+                       s.type AS law_type,
+                       'sumula' AS node_type,
+                       s.number AS number
+                LIMIT $limit
+            }
+            RETURN id, content, law_name, law_type, node_type, number
+
+            UNION
+
+            // Search in Laws (by name/tags)
+            CALL {
+                MATCH (l:Law)
+                WHERE ANY(keyword IN $keywords WHERE toLower(l.name) CONTAINS keyword)
+                   OR ANY(keyword IN $keywords WHERE ANY(tag IN l.tags WHERE toLower(tag) CONTAINS keyword))
+                RETURN l.id AS id,
+                       l.name AS content,
+                       l.name AS law_name,
+                       l.type AS law_type,
+                       'law' AS node_type,
+                       '' AS number
+                LIMIT $limit
+            }
+            RETURN id, content, law_name, law_type, node_type, number
+            """
 
             async with driver.session(database=settings.neo4j_database) as session:
                 result = await session.run(
                     cypher_query,
-                    query_text=query,
                     keywords=keywords,
                     limit=k
                 )
@@ -293,11 +414,19 @@ class HyPARAG:
                 # Convert to Document objects
                 documents = []
                 for i, record in enumerate(records):
+                    metadata = {
+                        "law_name": record.get("law_name", ""),
+                        "law_type": record.get("law_type", ""),
+                        "node_type": record.get("node_type", ""),
+                        "number": record.get("number", ""),
+                        "source": "neo4j_graph"
+                    }
+
                     doc = Document(
-                        id=record["id"],
-                        content=record["content"],
-                        metadata=record.get("metadata", {}),
-                        score=1.0 / (i + 1),  # Simple ranking by position
+                        id=str(record["id"]),
+                        content=record["content"] or "",
+                        metadata=metadata,
+                        score=1.0 / (i + 1),  # Ranking by position
                         source="neo4j"
                     )
                     documents.append(doc)
@@ -308,10 +437,10 @@ class HyPARAG:
                 trace_id=trace_id
             )
 
-            return documents
+            return documents[:k]  # Ensure we don't exceed k
 
         except Exception as e:
-            logger.error(
+            logger.warning(
                 "graph_search_error",
                 error=str(e),
                 error_type=type(e).__name__,

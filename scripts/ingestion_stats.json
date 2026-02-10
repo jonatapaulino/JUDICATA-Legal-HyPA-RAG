@@ -1,0 +1,24 @@
+{
+  "started_at": "2026-02-09T22:49:03.271374",
+  "completed_at": "2026-02-09T23:15:04.074856",
+  "duration_seconds": 1560.803482,
+  "legislation": {
+    "fetched": 77,
+    "indexed": 75
+  },
+  "sumulas": {
+    "fetched": 67,
+    "indexed": 67
+  },
+  "jurisprudence": {
+    "fetched": 0,
+    "indexed": 0
+  },
+  "totals": {
+    "chunks": 10374,
+    "vectors": 10374,
+    "graph_nodes": 10449,
+    "graph_edges": 0
+  },
+  "errors": []
+}

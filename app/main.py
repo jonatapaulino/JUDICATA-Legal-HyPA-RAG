@@ -38,6 +38,7 @@ from app.models.responses import (
     StatusResponse
 )
 from app.agents.orchestrator import orchestrator
+from app.retrieval.hypa_rag import hypa_rag
 
 # Configure logging before creating logger
 configure_logging()
@@ -72,6 +73,11 @@ async def lifespan(app: FastAPI) -> AsyncGenerator:
 
     try:
         await connect_databases()
+
+        # Initialize HyPA-RAG (build BM25 index from Qdrant)
+        logger.info("initializing_hypa_rag")
+        await hypa_rag.initialize()
+
         logger.info("application_ready")
     except Exception as e:
         logger.error("startup_failed", error=str(e))

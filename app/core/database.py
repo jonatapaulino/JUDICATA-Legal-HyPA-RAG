@@ -22,40 +22,81 @@ class QdrantManager:
     """
     Singleton manager for Qdrant vector database connections.
     Handles collection initialization and hybrid search configuration.
+    Supports fallback to local/memory mode if server is unavailable.
     """
 
     _instance: Optional["QdrantManager"] = None
     _client: Optional[QdrantClient] = None
+    _is_local: bool = False
 
     def __new__(cls) -> "QdrantManager":
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    async def connect(self) -> QdrantClient:
+    async def connect(self, force_local: bool = False) -> QdrantClient:
         """
         Connect to Qdrant and ensure collection exists.
+        Falls back to local/disk mode if server is unavailable.
+
+        Args:
+            force_local: Force local mode instead of remote server
 
         Returns:
             QdrantClient instance
         """
         if self._client is None:
-            logger.info(
-                "connecting_to_qdrant",
-                host=settings.qdrant_host,
-                port=settings.qdrant_port
-            )
+            # Try remote first, fallback to local
+            if not force_local:
+                try:
+                    logger.info(
+                        "connecting_to_qdrant",
+                        host=settings.qdrant_host,
+                        port=settings.qdrant_port
+                    )
 
-            self._client = QdrantClient(
-                host=settings.qdrant_host,
-                port=settings.qdrant_port,
-                timeout=30
-            )
+                    self._client = QdrantClient(
+                        host=settings.qdrant_host,
+                        port=settings.qdrant_port,
+                        timeout=10
+                    )
+                    # Test connection
+                    self._client.get_collections()
+                    self._is_local = False
+                    logger.info("qdrant_connected_remote")
+
+                except Exception as e:
+                    logger.warning(
+                        "qdrant_remote_unavailable",
+                        error=str(e),
+                        fallback="local"
+                    )
+                    self._client = None
+
+            # Fallback to local persistent storage
+            if self._client is None:
+                import os
+                local_path = os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
+                    "data",
+                    "qdrant_local"
+                )
+                os.makedirs(local_path, exist_ok=True)
+
+                logger.info("connecting_to_qdrant_local", path=local_path)
+                self._client = QdrantClient(path=local_path)
+                self._is_local = True
+                logger.info("qdrant_connected_local")
 
             # Ensure collection exists
             await self._ensure_collection()
 
         return self._client
+
+    @property
+    def is_local(self) -> bool:
+        """Check if using local storage."""
+        return self._is_local
 
     async def _ensure_collection(self) -> None:
         """Create collection if it doesn't exist."""

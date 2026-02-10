@@ -36,8 +36,8 @@ class Settings(BaseSettings):
         description="Qdrant collection name"
     )
     qdrant_embedding_dim: int = Field(
-        default=768,
-        description="Embedding dimension (Legal-BERT)"
+        default=1024,
+        description="Embedding dimension (BERT-large-portuguese)"
     )
 
     # Neo4j Configuration
@@ -60,7 +60,7 @@ class Settings(BaseSettings):
         default="http://localhost:11434",
         description="Ollama API base URL"
     )
-    ollama_model: str = Field(default="saul-54b:q4_k_m", description="Ollama model name (e.g., saul-54b:q4_k_m)")
+    ollama_model: str = Field(default="qwen2.5:14b", description="Ollama model name")
     ollama_temperature: float = Field(
         default=0.1,
         description="LLM temperature for deterministic outputs"

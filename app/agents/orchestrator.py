@@ -17,8 +17,14 @@ from app.agents.tools import retrieve_documents_tool, reason_with_lsim_tool
 from app.agents.guardian import guardian
 from app.reasoning.toulmin import toulmin_formatter
 from app.privacy.anonymizer import anonymize_text
+from app.defense.p2p_defense import P2PDefense
+from app.defense.safety_validator import SafetyValidator
 
 logger = get_logger(__name__)
+
+# Initialize P2P Defense system
+p2p_defense = P2PDefense()
+safety_validator = SafetyValidator(p2p_defense=p2p_defense)
 
 
 class JudicialOrchestrator:
@@ -103,9 +109,10 @@ class JudicialOrchestrator:
     # Node implementations
 
     async def _validate_input_node(self, state: JudicialState) -> JudicialState:
-        """Validate user input with Guardian."""
+        """Validate user input with Guardian and P2P Defense."""
         logger.info("node_validate_input", trace_id=state["trace_id"])
 
+        # Guardian validation
         validation = guardian.validate_input(state["query"], source="user_query")
 
         state["guardian_checks"].append({
@@ -116,6 +123,19 @@ class JudicialOrchestrator:
         if not validation.safe:
             state["errors"].append(f"Input validation failed: {validation.reason}")
             logger.warning("input_validation_failed", trace_id=state["trace_id"])
+
+        # P2P Defense validation
+        p2p_response = p2p_defense.get_safe_response(state["query"])
+        if p2p_response:
+            logger.warning("p2p_defense_triggered", trace_id=state["trace_id"])
+            state["guardian_checks"].append({
+                "stage": "p2p_defense",
+                "result": {
+                    "triggered": True,
+                    "safe_response": p2p_response
+                }
+            })
+            state["errors"].append(f"P2P Defense activated: {p2p_response}")
 
         return state
 
@@ -181,7 +201,7 @@ class JudicialOrchestrator:
         return state
 
     async def _validate_reasoning_node(self, state: JudicialState) -> JudicialState:
-        """Validate reasoning output."""
+        """Validate reasoning output with Guardian and P2P Defense."""
         logger.info("node_validate_reasoning", trace_id=state["trace_id"])
 
         if not state["thought_trace"]:
@@ -189,7 +209,7 @@ class JudicialOrchestrator:
 
         trace = state["thought_trace"]
 
-        # Validate final conclusion
+        # Guardian validation
         validation = guardian.validate_output(
             trace.final_conclusion,
             context="final_conclusion"
@@ -202,6 +222,23 @@ class JudicialOrchestrator:
 
         if not validation.safe:
             state["errors"].append(f"Reasoning validation failed: {validation.reason}")
+
+        # P2P Defense output validation
+        is_safe, reason = p2p_defense.validate_output(
+            state["query"],
+            trace.final_conclusion
+        )
+
+        if not is_safe:
+            logger.warning("p2p_output_validation_failed", trace_id=state["trace_id"])
+            state["guardian_checks"].append({
+                "stage": "p2p_output",
+                "result": {
+                    "safe": False,
+                    "reason": reason
+                }
+            })
+            # Log but don't block - SCOT will handle final validation
 
         return state
 

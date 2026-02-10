@@ -144,7 +144,7 @@ Sua tarefa é responder perguntas baseando-se ESTRITAMENTE no contexto fornecido
             facts_text = "\n".join([f"- {f.text}" for f in facts])
             rules_text = "\n".join([f"- {r.text} (Fonte: {r.source})" for r in rules])
 
-            prompt = self.system_prompt + """
+            prompt = self.system_prompt + f"""
 Você é um jurista que raciocina de forma estruturada.
 
 Consulta: {query}
@@ -235,7 +235,7 @@ Faça no máximo 3 passos."""
                 for c in intermediate_conclusions
             ])
 
-            prompt = self.system_prompt + """
+            prompt = self.system_prompt + f"""
 Com base no raciocínio desenvolvido, forneça uma conclusão final clara e objetiva.
 
 Consulta original: {query}
@@ -267,7 +267,7 @@ Forneça uma conclusão final que responda diretamente à consulta."""
         try:
             facts_text = "\n".join([f"- {f.text}" for f in facts])
 
-            prompt = self.system_prompt + """
+            prompt = self.system_prompt + f"""
 Você é um validador de segurança jurídica.
 
 Fatos estabelecidos:
