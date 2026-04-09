@@ -311,7 +311,6 @@ copies or substantial portions of the Software.
 
 ---
 
-**Developed by [Authors] © 2026**
-=======
-# LLM-data-poisoning
-Projeto de LLM
+JUDICATA: Sovereign Neuro-Symbolic Legal RAG Framework > Developed by Jonatã Paulino, Delvek da S. V. de Sousa, Julio, Cauã, and Professor Renato Frances (Advisor) © 2026.
+
+This project is licensed under the MIT License - see the LICENSE file for details.
