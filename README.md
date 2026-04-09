@@ -1,10 +1,11 @@
 # Backend de Soberania Judiciária
 ## Sistema Neuro-Simbólico e Agêntico para Raciocínio Jurídico
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19489309.svg)](https://doi.org/10.5281/zenodo.19489309)
 
 **Autores**: [Anonymized for blind review] 
 **Copyright**: © 2026 [Authors]  
 **Versão**: 1.0.0  
-**Licença**: MIT
+**Licença**: [MIT](LICENSE)
 
 ---
 
