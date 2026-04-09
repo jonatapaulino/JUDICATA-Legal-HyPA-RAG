@@ -2,7 +2,7 @@
 ## Sistema Neuro-Simbólico e Agêntico para Raciocínio Jurídico
 
 **Autores**: [Anonymized for blind review] 
-**Copyright**: © 2025 [Authors]  
+**Copyright**: © 2026 [Authors]  
 **Versão**: 1.0.0  
 **Licença**: MIT
 
@@ -311,7 +311,7 @@ copies or substantial portions of the Software.
 
 ---
 
-**Developed by [Authors] © 2025**
+**Developed by [Authors] © 2026**
 =======
 # LLM-data-poisoning
 Projeto de LLM
