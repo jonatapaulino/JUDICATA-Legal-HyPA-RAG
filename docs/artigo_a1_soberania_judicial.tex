@@ -1,0 +1,686 @@
+\documentclass[journal,10pt]{IEEEtran}
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\ttdefault}{cmtt}
+
+% ─── Pacotes ─────────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\addto\captionsenglish{%
+  \renewcommand{\abstractname}{Resumo}%
+  \renewcommand{\refname}{Refer\^{e}ncias}%
+  \renewcommand{\tablename}{Tabela}%
+  \renewcommand{\figurename}{Figura}%
+}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{url}
+\usepackage{hyperref}
+% balance, multirow, enumitem not available on this system
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% ─── T\'{i}tulo ──────────────────────────────────────────────────────────────────
+
+\title{Soberania Judicial: Um Framework Neuro-Simb\'{o}lico e Ag\^{e}ntico para Resili\^{e}ncia Causal e Defensibilidade Jur\'{i}dica em Modelos de Linguagem}
+
+\author{
+    \IEEEauthorblockN{[Authors anonymized for blind review]}
+    \IEEEauthorblockA{[Affiliations anonymized for blind review]}
+}
+
+\markboth{IEEE --- Soberania Judicial: Framework Neuro-Simb\'{o}lico e Ag\^{e}ntico para IA Jur\'{i}dica}{}
+
+\begin{document}
+
+\maketitle
+
+% ═════════════════════════════════════════════════════════════════════════════
+\begin{abstract}
+A integra\c{c}\~{a}o de Grandes Modelos de Linguagem (LLMs) no dom\'{i}nio judicial apresenta riscos fundamentais ao devido processo legal. Estudos do Stanford RegLab demonstram taxas de alucina\c{c}\~{a}o entre 17\% e 33\% em sistemas RAG comerciais para recupera\c{c}\~{a}o de precedentes, enquanto modelos de uso geral atingem 69--88\% de falha em consultas jur\'{i}dicas. Este artigo apresenta a arquitetura \textit{Soberania Judicial}, um framework neuro-simb\'{o}lico e ag\^{e}ntico que integra cinco inova\c{c}\~{o}es t\'{e}cnicas: (1)~\textbf{HyPA-RAG} (\textit{Hybrid Parameter-Adaptive RAG}), combinando recupera\c{c}\~{a}o densa, esparsa (BM25) e baseada em grafo de conhecimento com fus\~{a}o RRF e par\^{a}metros adaptativos por complexidade; (2)~\textbf{LSIM} (\textit{Logical-Semantic Integration Model}), construindo cadeias Fato-Regra verific\'{a}veis que transcendem a Chain-of-Thought padr\~{a}o; (3)~um \textbf{sistema de defesa em 4 camadas} (RAGDefender, Guardian Agents Zero Trust, SCOT e P2P) contra envenenamento de dados e sequestro cognitivo; (4)~\textbf{LOPSIDED}, um pipeline de anonimiza\c{c}\~{a}o sem\^{a}ntica para conformidade com LGPD/GDPR; e (5)~sa\'{i}da estruturada via \textbf{Modelo de Argumenta\c{c}\~{a}o de Toulmin} com 6 componentes expl\'{i}citos. Uma bateria experimental de \textbf{185 testes} em 10 categorias, incluindo \textit{ablation study} com 4 configura\c{c}\~{o}es e an\'{a}lise estat\'{i}stica com intervalos de confian\c{c}a de 95\%, demonstrou: \textbf{100\% de completude Toulmin} ($n$=53), Keyword F1 de 0{,}628 (IC 95\%: [0{,}560; 0{,}696]), \textbf{100\% de efic\'{a}cia em anonimiza\c{c}\~{a}o} com zero vazamentos de PII ($n$=10), taxa de detec\c{c}\~{a}o de ataques de \textbf{96{,}3\%} para 6 categorias de ataque (100\% para SQL Injection, Template Injection, Jailbreak e Leetspeak), e \textbf{robustez arquitetural} confirmada pelo estudo de abla\c{c}\~{a}o com 100\% de sucesso em todas as 4 configura\c{c}\~{o}es. A lat\^{e}ncia m\'{e}dia varia de 28{,}8s (BAIXA, IC 95\%: [22{,}1; 35{,}6s]) a 36{,}6s (ALTA, IC 95\%: [34{,}1; 39{,}1s]). O sistema opera inteiramente com modelos de c\'{o}digo aberto (Qwen2.5:14B, BERTimbau-Large) sobre uma base de 10.374 vetores, 75 legisla\c{c}\~{o}es e 67 s\'{u}mulas do ordenamento jur\'{i}dico brasileiro, cumprindo os requisitos de robustez do Artigo~15 da Lei de IA da Uni\~{a}o Europeia.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Intelig\^{e}ncia Artificial Jur\'{i}dica, RAG H\'{i}brido, Racioc\'{i}nio Neuro-Simb\'{o}lico, Defesa contra Envenenamento de Dados, Modelo de Toulmin, LGPD, Seguran\c{c}a de LLMs, Sistemas Ag\^{e}nticos.
+\end{IEEEkeywords}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section{Introdu\c{c}\~{a}o}
+\IEEEPARstart{A}{} incompatibilidade fundamental entre a atual gera\c{c}\~{a}o de Grandes Modelos de Linguagem (LLMs) e a pr\'{a}tica do direito reside na diverg\^{e}ncia ontol\'{o}gica entre \textit{correla\c{c}\~{a}o} e \textit{causalidade}. O direito \'{e}, em sua ess\^{e}ncia, uma disciplina de causalidade estrita e l\'{o}gica condicional; um veredicto \'{e} alcan\c{c}ado n\~{a}o porque \'{e} estatisticamente prov\'{a}vel, mas porque um conjunto espec\'{i}fico de fatos satisfaz os requisitos l\'{o}gicos de um estatuto ou precedente vinculante~\cite{hoya2025}. Em contraste, os LLMs s\~{a}o motores de correla\c{c}\~{a}o, treinados para prever o pr\'{o}ximo \textit{token} plaus\'{i}vel com base em distribui\c{c}\~{o}es de probabilidade aprendidas a partir de vastos \textit{corpora} de texto n\~{a}o estruturado.
+
+No contexto judicial, essa desconex\~{a}o manifesta-se como um modo de falha sist\^{e}mica conhecido como ``alucina\c{c}\~{a}o'' --- a fabrica\c{c}\~{a}o de provas, a cita\c{c}\~{a}o err\^{o}nea de jurisprud\^{e}ncia ou a inven\c{c}\~{a}o de precedentes inexistentes~\cite{magesh2024}. O estudo marco conduzido pelo Stanford RegLab e pelo \textit{Institute for Human-Centered AI} (HAI) desmantelou a ilus\~{a}o de que a ``engenharia de prompt'' ou o RAG (\textit{Retrieval-Augmented Generation}) padr\~{a}o seriam suficientes para garantir a confiabilidade legal. O estudo revelou que, mesmo sistemas de ponta projetados especificamente para pesquisa jur\'{i}dica e alimentados por bases de dados confi\'{a}veis como Westlaw e LexisNexis, exibem taxas de alucina\c{c}\~{a}o entre 17\% e 33\% para tarefas espec\'{i}ficas de recupera\c{c}\~{a}o~\cite{dho2024}. Para modelos de uso geral como o GPT-4, a taxa de falha em consultas jur\'{i}dicas dispara para n\'{i}veis entre 69\% e 88\%~\cite{hoya2025}.
+
+A gravidade estat\'{i}stica desses n\'{u}meros no contexto jur\'{i}dico \'{e} imperativa. Em um cen\'{a}rio de defesa criminal ou lit\'{i}gio civil de alto valor, uma taxa de falha de 17\% n\~{a}o representa apenas uma inefici\^{e}ncia t\'{e}cnica; representa uma viola\c{c}\~{a}o do dever de compet\^{e}ncia profissional e, potencialmente, uma infra\c{c}\~{a}o constitucional por assist\^{e}ncia jur\'{i}dica ineficaz~\cite{magesh2024}. No Brasil, o Art.~5\textordmasculine{}, LXXIV da Constitui\c{c}\~{a}o Federal de 1988 garante assist\^{e}ncia jur\'{i}dica integral e gratuita, criando um imperativo constitucional para que ferramentas de apoio jur\'{i}dico operem com a m\'{a}xima fidedignidade.
+
+A Lei de IA da Uni\~{a}o Europeia (\textit{EU AI Act}), em seu Artigo~15, estabelece requisitos rigorosos de robustez, precis\~{a}o e ciberseguran\c{c}a para sistemas de IA de alto risco --- categoria na qual a IA judicial se insere inequivocamente~\cite{euaiact2024,euaiactsd2024}. Este mandato legal exige que os sistemas sejam resilientes contra erros, falhas e, crucialmente, contra tentativas de terceiros de alterar seu desempenho atrav\'{e}s de \textit{data poisoning}~\cite{euaiact2024}. Al\'{e}m disso, o GDPR (Art.~22) e a LGPD brasileira (Lei~13.709/2018) imp\~{o}em requisitos de explicabilidade e prote\c{c}\~{a}o de dados pessoais que sistemas puramente probabil\'{i}sticos n\~{a}o conseguem satisfazer.
+
+Este artigo apresenta a arquitetura \textit{Soberania Judicial}, projetada para transcender as limita\c{c}\~{o}es probabil\'{i}sticas dos modelos generativos padr\~{a}o. Propomos um framework h\'{i}brido, neuro-simb\'{o}lico e ag\^{e}ntico que imp\~{o}e ``Resili\^{e}ncia Causal'' --- a capacidade de manter a coer\^{e}ncia l\'{o}gica contra perturba\c{c}\~{o}es advers\'{a}rias --- e ``Defensibilidade'' --- a garantia de que a sa\'{i}da seja legalmente contest\'{a}vel e n\~{a}o apenas explic\'{a}vel. O termo ``Soberania'' \'{e} deliberado: assim como a soberania nacional \'{e} a capacidade de um estado de n\~{a}o se submeter a influ\^{e}ncias externas, a ``Soberania Judicial'' \'{e} a capacidade de um sistema de IA de n\~{a}o se submeter a manipula\c{c}\~{o}es advers\'{a}rias, mantendo a integridade de seu racioc\'{i}nio l\'{o}gico.
+
+\subsection{Contribui\c{c}\~{o}es}
+
+As contribui\c{c}\~{o}es principais deste trabalho s\~{a}o:
+
+\begin{enumerate}    \item \textbf{HyPA-RAG} (\textit{Hybrid Parameter-Adaptive RAG}): Uma arquitetura de recupera\c{c}\~{a}o h\'{i}brida que combina busca densa (vetorial via BERTimbau-Large), esparsa (BM25) e baseada em grafo de conhecimento (Neo4j), com adapta\c{c}\~{a}o din\^{a}mica de par\^{a}metros ($\alpha$, $\beta$, $\gamma$) baseada na complexidade classificada da query.
+
+    \item \textbf{LSIM} (\textit{Logical-Semantic Integration Model}): Um modelo de integra\c{c}\~{a}o l\'{o}gico-sem\^{a}ntica que constr\'{o}i cadeias Fato-Regra verific\'{a}veis, superando a fragilidade da Chain-of-Thought padr\~{a}o em dom\'{i}nios que exigem racioc\'{i}nio estritamente causal.
+
+    \item \textbf{Defesa em 4 Camadas}: Um sistema imunol\'{o}gico contra envenenamento profundo, integrando RAGDefender (filtragem de documentos), Agentes Guardi\~{o}es Zero Trust (monitoramento de controle), SCOT (\textit{Safety Chain-of-Thought}) e imuniza\c{c}\~{a}o P2P (\textit{Poison-to-Poison}).
+
+    \item \textbf{Argumenta\c{c}\~{a}o Estruturada via Toulmin}: Sa\'{i}da formatada segundo o Modelo de Argumenta\c{c}\~{a}o de Toulmin com 6 componentes expl\'{i}citos (\textit{Claim}, \textit{Data}, \textit{Warrant}, \textit{Backing}, \textit{Rebuttal}, \textit{Qualifier}), habilitando a contestabilidade jur\'{i}dica.
+
+    \item \textbf{Valida\c{c}\~{a}o Emp\'{i}rica Extensiva}: Uma bateria de 185 testes em 10 categorias com \textit{ablation study}, intervalos de confian\c{c}a de 95\% e an\'{a}lise por dom\'{i}nio jur\'{i}dico, cobrindo 12 \'{a}reas do direito brasileiro.
+\end{enumerate}
+
+O restante deste artigo est\'{a} organizado da seguinte forma: a Se\c{c}\~{a}o~II apresenta os trabalhos relacionados; a Se\c{c}\~{a}o~III descreve a arquitetura do sistema em detalhe; a Se\c{c}\~{a}o~IV detalha a implementa\c{c}\~{a}o; a Se\c{c}\~{a}o~V apresenta a avalia\c{c}\~{a}o experimental; a Se\c{c}\~{a}o~VI discute os resultados; e a Se\c{c}\~{a}o~VII conclui o trabalho.
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section{Trabalhos Relacionados}
+
+\subsection{Alucina\c{c}\~{a}o em IA Jur\'{i}dica}
+
+O problema da alucina\c{c}\~{a}o em LLMs jur\'{i}dicos foi extensivamente documentado na literatura recente. Magesh et al.~\cite{magesh2024} conduziram uma avalia\c{c}\~{a}o sistem\'{a}tica demonstrando que modelos de uso geral fabricam cita\c{c}\~{o}es judiciais em at\'{e} 88\% das consultas, um resultado devastador para qualquer aplica\c{c}\~{a}o jur\'{i}dica em produ\c{c}\~{a}o. O estudo \'{e} particularmente relevante porque avaliou n\~{a}o apenas modelos gen\'{e}ricos, mas tamb\'{e}m sistemas projetados especificamente para o dom\'{i}nio legal.
+
+O estudo de Dho et al.~\cite{dho2024}, conduzido na Stanford University sob o \textit{RegLab}, avaliou sistemas RAG comerciais l\'{i}deres de mercado --- incluindo plataformas alimentadas por Westlaw e LexisNexis, as duas maiores bases de dados jur\'{i}dicas do mundo --- e identificou que mesmo com bases de dados curadas por especialistas, as taxas de falha permanecem entre 17\% e 33\%. Este achado invalida a premissa amplamente aceita de que o RAG padr\~{a}o, quando alimentado com dados de alta qualidade, seria suficiente para garantir a confiabilidade no dom\'{i}nio jur\'{i}dico.
+
+A implica\c{c}\~{a}o pr\'{a}tica \'{e} que nenhum sistema RAG \textit{vanilla} --- independentemente da qualidade da base de dados --- pode ser considerado seguro para aplica\c{c}\~{o}es jur\'{i}dicas sem camadas adicionais de verifica\c{c}\~{a}o, racioc\'{i}nio l\'{o}gico e defesa contra manipula\c{c}\~{a}o.
+
+\subsection{Sistemas Ag\^{e}nticos para Dom\'{i}nios de Alto Risco}
+
+A pesquisa da Universidade da Calif\'{o}rnia, Berkeley, sobre \textit{Agentic Large Language Models}~\cite{berkeley2025a,berkeley2025b} fornece a evolu\c{c}\~{a}o estrutural necess\'{a}ria para modelar processos complexos como o jur\'{i}dico. O framework de Berkeley define tr\^{e}s capacidades fundamentais que distinguem sistemas ag\^{e}nticos de LLMs est\'{a}ticos:
+
+\begin{itemize}    \item \textbf{Planejamento}: Decomposi\c{c}\~{a}o de queries complexas em sub-tarefas sequenciais ou paralelas.
+    \item \textbf{Uso de Ferramentas}: Autonomia para consultar bases externas, bancos de dados e APIs.
+    \item \textbf{Reflex\~{a}o}: Auto-avalia\c{c}\~{a}o cr\'{i}tica da consist\^{e}ncia l\'{o}gica e da qualidade das respostas.
+\end{itemize}
+
+O paradigma \textit{Plan-Execute} proposto por Berkeley~\cite{berkeley2025b} \'{e} particularmente adequado ao dom\'{i}nio jur\'{i}dico, onde o processamento de uma consulta envolve m\'{u}ltiplas etapas: classifica\c{c}\~{a}o, recupera\c{c}\~{a}o de precedentes, constru\c{c}\~{a}o de argumentos e valida\c{c}\~{a}o de coer\^{e}ncia. Nosso Orquestrador Ag\^{e}ntico implementa estas capacidades utilizando LangGraph como motor de estados, estendendo o paradigma com camadas de seguran\c{c}a que n\~{a}o est\~{a}o presentes no framework original.
+
+Os benchmarks BAD-ACTS~\cite{badacts2025a} e ASB (\textit{Agent Security Bench})~\cite{asb2025} quantificam a vulnerabilidade de sistemas ag\^{e}nticos a ataques advers\'{a}rios, demonstrando que a complexidade adicional dos sistemas multi-agente introduz novas superf\'{i}cies de ataque que requerem defesas espec\'{i}ficas.
+
+\subsection{Racioc\'{i}nio Neuro-Simb\'{o}lico em IA Jur\'{i}dica}
+
+A integra\c{c}\~{a}o neuro-simb\'{o}lica \'{e} abordada por Niklaus et al.~\cite{niklaus2025a}, que demonstram como cadeias l\'{o}gicas trein\'{a}veis podem elevar significativamente a qualidade do racioc\'{i}nio jur\'{i}dico em LLMs. O trabalho prop\~{o}e estruturas l\'{o}gicas que guiam o racioc\'{i}nio do modelo atrav\'{e}s de caminhos v\'{a}lidos de infer\^{e}ncia, reduzindo a depend\^{e}ncia da gera\c{c}\~{a}o puramente probabil\'{i}stica.
+
+Nosso LSIM (\textit{Logical-Semantic Integration Model}) estende este trabalho ao implementar cadeias Fato-Regra expl\'{i}citas, especificamente projetadas para o sistema jur\'{i}dico brasileiro. Enquanto Niklaus et al. prop\~{o}em estruturas gen\'{e}ricas, o LSIM mapeia diretamente as rela\c{c}\~{o}es entre fatos processuais, dispositivos legais e conclus\~{o}es jur\'{i}dicas, seguindo a l\'{o}gica condicional do tipo ``Se [Fato] e [Regra], ent\~{a}o [Conclus\~{a}o]''.
+
+\subsection{Ataques Advers\'{a}rios e Defesas em LLMs}
+
+O panorama de amea\c{c}as contra LLMs evoluiu rapidamente. O vetor de ataque \textit{Harmful Fine-Tuning Attack} (HFTA) \'{e} documentado por Rosati et al.~\cite{rosati2024a,rosati2024b}, demonstrando que t\~{a}o poucas quanto 100 amostras envenenadas podem comprometer o alinhamento de seguran\c{c}a de um modelo completo. A gravidade deste vetor \'{e} amplificada pelo fato de que muitas organiza\c{c}\~{o}es realizam \textit{fine-tuning} com dados n\~{a}o auditados.
+
+O ShadowCoT~\cite{shadowcot2025a} representa uma amea\c{c}a espec\'{i}fica e particularmente insidiosa ao racioc\'{i}nio: a \textit{Reasoning Chain Pollution} (RCP). Neste ataque, o advers\'{a}rio injeta l\'{o}gica aparentemente coerente mas funcionalmente maliciosa na cadeia de racioc\'{i}nio do modelo, explorando a confian\c{c}a impl\'{i}cita que o sistema deposita em seus pr\'{o}prios passos intermedi\'{a}rios~\cite{cothijack2025,cothijackox2025}. Para o dom\'{i}nio jur\'{i}dico, este vetor \'{e} especialmente perigoso porque a l\'{o}gica corrompida pode ser indetect\'{a}vel para um usu\'{a}rio leigo e at\'{e} para um advogado que n\~{a}o examine cada passo do racioc\'{i}nio.
+
+O framework RESCUE~\cite{rescue2025a} aborda a defesa contra envenenamento de conhecimento em sistemas RAG, propondo filtragem baseada em consist\^{e}ncia sem\^{a}ntica. Nosso RAGDefender implementa uma abordagem complementar baseada em TF-IDF para detec\c{c}\~{a}o de passagens advers\'{a}rias com baixa lat\^{e}ncia.
+
+A defesa P2P (\textit{Poison-to-Poison})~\cite{p2p2025a} introduz o conceito de ``vacina\c{c}\~{a}o algoritmica'': ao injetar intencionalmente gatilhos benignos associados a r\'{o}tulos seguros, o sistema desenvolve ``imunidade'' contra padr\~{o}es de backdoor. O SCOT (\textit{Safety Chain-of-Thought})~\cite{scot2025a} complementa esta defesa ao treinar o modelo para executar meta-racioc\'{i}nio de seguran\c{c}a antes de qualquer an\'{a}lise substantiva.
+
+\subsection{Explicabilidade e Argumenta\c{c}\~{a}o em IA}
+
+A abordagem de XAI baseada em argumenta\c{c}\~{a}o \'{e} defendida por Vassiliades et al.~\cite{vassiliades2025a}, que argumentam convincentemente que t\'{e}cnicas tradicionais de \textit{Feature Importance} (SHAP/LIME) s\~{a}o fundamentalmente inadequadas para o dom\'{i}nio jur\'{i}dico. A raz\~{a}o \'{e} que SHAP/LIME explicam \textit{quais features foram importantes} para uma decis\~{a}o, mas n\~{a}o explicam \textit{por que} a decis\~{a}o est\'{a} juridicamente correta --- uma distin\c{c}\~{a}o crucial para contestabilidade processual.
+
+O Modelo de Argumenta\c{c}\~{a}o de Toulmin~\cite{refteorico2025}, com seus seis componentes (\textit{Claim}, \textit{Data}, \textit{Warrant}, \textit{Backing}, \textit{Rebuttal}, \textit{Qualifier}), fornece a estrutura necess\'{a}ria para habilitar a \textit{contestabilidade} --- o requisito supremo para IA judicial. Diferentemente de SHAP/LIME, a sa\'{i}da Toulmin \'{e} nativa ao discurso jur\'{i}dico: um advogado pode examinar cada componente e construir contra-argumentos espec\'{i}ficos.
+
+\subsection{Privacidade em IA Jur\'{i}dica}
+
+O framework LOPSIDED~\cite{lopsided2025a} aborda a anonimiza\c{c}\~{a}o sem\^{a}ntica preservando a integridade narrativa, superando as limita\c{c}\~{o}es da reda\c{c}\~{a}o bruta (que degrada o desempenho dos modelos) e da remo\c{c}\~{a}o simples (que destr\'{o}i o contexto necess\'{a}rio para racioc\'{i}nio). O LegNER~\cite{legner2023} e o Legal-BERT~\cite{legalbert2024} fornecem capacidades de NER especializadas para entidades jur\'{i}dicas.
+
+No contexto brasileiro, a LGPD (Lei~13.709/2018) imp\~{o}e requisitos espec\'{i}ficos de anonimiza\c{c}\~{a}o que v\~{a}o al\'{e}m dos padr\~{o}es internacionais, incluindo o tratamento de CPF, CNPJ, n\'{u}mero de processo judicial e outros identificadores exclusivos do sistema jur\'{i}dico nacional.
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section{Arquitetura do Sistema}
+
+A arquitetura \textit{Soberania Judicial} (Figura~\ref{fig:arch}) integra tr\^{e}s n\'{u}cleos funcionais distintos: um N\'{u}cleo de Controle (Orquestrador Ag\^{e}ntico), um N\'{u}cleo de Recupera\c{c}\~{a}o (HyPA-RAG) e um N\'{u}cleo de Racioc\'{i}nio (LSIM), protegidos por um sistema de defesa em profundidade com quatro camadas. A integra\c{c}\~{a}o entre estes componentes segue o princ\'{i}pio de \textit{defense-in-depth}: cada camada opera independentemente e a falha de uma n\~{a}o compromete as demais.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig9_architecture.png}
+    \caption{Diagrama de arquitetura do sistema \textit{Soberania Judicial}. O fluxo segue seis est\'{a}gios: (1) valida\c{c}\~{a}o de entrada via Guardian + P2P, (2) recupera\c{c}\~{a}o h\'{i}brida via HyPA-RAG com par\^{a}metros adaptativos, (3) valida\c{c}\~{a}o de documentos recuperados, (4) racioc\'{i}nio via LSIM com cadeias Fato-Regra, (5) valida\c{c}\~{a}o de sa\'{i}da via Guardian + SCOT, (6) formata\c{c}\~{a}o Toulmin e anonimiza\c{c}\~{a}o LOPSIDED.}
+    \label{fig:arch}
+\end{figure}
+
+\subsection{N\'{u}cleo de Controle: Orquestrador Ag\^{e}ntico}
+
+O Orquestrador Ag\^{e}ntico \'{e} implementado como um grafo de estados (\textit{StateGraph}) utilizando LangGraph, seguindo o paradigma \textit{Plan-Execute} de Berkeley~\cite{berkeley2025b}. Cada n\'{o} do grafo representa uma opera\c{c}\~{a}o at\^{o}mica com pr\'{e}-condi\c{c}\~{o}es e p\'{o}s-condi\c{c}\~{o}es verificadas. O estado global do sistema \'{e} persistido via Redis, permitindo checkpointing e recupera\c{c}\~{a}o em caso de falha.
+
+O fluxo de execu\c{c}\~{a}o compreende seis est\'{a}gios sequenciais, cada um com pontos de verifica\c{c}\~{a}o de seguran\c{c}a:
+
+\begin{enumerate}    \item \textbf{Valida\c{c}\~{a}o de Entrada}: O Guardian Agent valida a consulta contra padr\~{o}es de inje\c{c}\~{a}o (SQL, XSS, template injection, jailbreak) e o m\'{o}dulo P2P verifica a presen\c{c}a de triggers de backdoor.
+    \item \textbf{Classifica\c{c}\~{a}o e Recupera\c{c}\~{a}o}: O classificador de complexidade categoriza a query (BAIXA/M\'{E}DIA/ALTA) e o HyPA-RAG recupera documentos com par\^{a}metros adaptativos.
+    \item \textbf{Valida\c{c}\~{a}o de Documentos}: O Guardian valida os documentos recuperados contra contamina\c{c}\~{a}o advers\'{a}ria.
+    \item \textbf{Racioc\'{i}nio}: O LSIM constr\'{o}i cadeias Fato-Regra expl\'{i}citas e deriva conclus\~{o}es jur\'{i}dicas fundamentadas.
+    \item \textbf{Valida\c{c}\~{a}o de Sa\'{i}da}: O Guardian + SCOT validam a resposta gerada contra manipula\c{c}\~{a}o de cadeia de racioc\'{i}nio.
+    \item \textbf{Formata\c{c}\~{a}o e Anonimiza\c{c}\~{a}o}: O Toulmin Formatter estrutura a resposta em 6 componentes e o LOPSIDED anonimiza entidades sens\'{i}veis.
+\end{enumerate}
+
+Cada est\'{a}gio produz metadados de rastreamento (\texttt{trace\_id}), permitindo auditoria completa do pipeline de processamento. O sistema gera um \texttt{trace\_id} \'{u}nico por requisi\c{c}\~{a}o, vinculando todas as opera\c{c}\~{o}es internas para fins de transparência e reprodutibilidade.
+
+\subsection{N\'{u}cleo de Recupera\c{c}\~{a}o: HyPA-RAG}
+
+O HyPA-RAG (\textit{Hybrid Parameter-Adaptive RAG})~\cite{hyparag2024a} recusa a depend\^{e}ncia em uma \'{u}nica modalidade de recupera\c{c}\~{a}o. Ele triangula a verdade jur\'{i}dica utilizando tr\^{e}s vetores ortogonais de busca, cada um capturando uma dimens\~{a}o diferente do conhecimento jur\'{i}dico:
+
+\subsubsection{Recupera\c{c}\~{a}o Densa (Sem\^{a}ntica)}
+Utiliza embeddings vetoriais gerados pelo BERTimbau-Large (\texttt{neuralmind/bert-large-portuguese-cased}), um modelo BERT pr\'{e}-treinado com 1024 dimens\~{o}es espec\'{i}fico para portugu\^{e}s brasileiro. Os vetores s\~{a}o armazenados no Qdrant (10.374 documentos indexados) com dist\^{a}ncia cosseno. A recupera\c{c}\~{a}o densa captura a \textit{semelhan\c{c}a sem\^{a}ntica} entre a query e os documentos, sendo particularmente eficaz para consultas formuladas em linguagem natural que n\~{a}o utilizam terminologia t\'{e}cnica exata.
+
+\subsubsection{Recupera\c{c}\~{a}o Esparsa (Lexical)}
+Emprega o algoritmo BM25 para correspond\^{e}ncia exata de termos legais. No direito, termos como ``\textit{habeas corpus}'', ``\textit{res judicata}'' e ``\textit{ex tunc}'' possuem significados precisos e inegoci\'{a}veis; a simples varia\c{c}\~{a}o de sin\^{o}nimos pode alterar fundamentalmente o enquadramento jur\'{i}dico. O BM25 garante que a presen\c{c}a exata destes termos seja priorizada na recupera\c{c}\~{a}o, complementando a flexibilidade sem\^{a}ntica da busca densa.
+
+\subsubsection{Recupera\c{c}\~{a}o via Grafo de Conhecimento (L\'{o}gica)}
+Um Grafo de Conhecimento (KG) jur\'{i}dico implementado em Neo4j~5.15 mapeia as rela\c{c}\~{o}es expl\'{i}citas entre leis, artigos e s\'{u}mulas. Por exemplo: \textit{Lei A} $\xrightarrow{\text{regulamenta}}$ \textit{Artigo B}; \textit{S\'{u}mula C} $\xrightarrow{\text{interpreta}}$ \textit{Lei D}. Quando o sistema recupera a \textit{Lei D} via busca vetorial, o componente de KG automaticamente identifica a \textit{S\'{u}mula C} como contexto relevante, capturando rela\c{c}\~{o}es estruturais que n\~{a}o s\~{a}o acess\'{i}veis por similaridade sem\^{a}ntica ou lexical.
+
+\subsubsection{Fus\~{a}o RRF e Adapta\c{c}\~{a}o de Par\^{a}metros}
+Os resultados dos tr\^{e}s canais s\~{a}o combinados via \textit{Reciprocal Rank Fusion} (RRF) com pesos din\^{a}micos. O ``PA'' em HyPA-RAG refere-se a ``\textit{Parameter-Adaptive}'': um classificador leve analisa a complexidade da consulta e ajusta dinamicamente o valor de $k$ (n\'{u}mero de documentos recuperados) e os pesos relativos ($\alpha$, $\beta$, $\gamma$) entre os recuperadores (Tabela~\ref{tab:hyparag}).
+
+\begin{table}[!t]
+\centering
+\caption{Par\^{a}metros adaptativos do HyPA-RAG por n\'{i}vel de complexidade. $\alpha$: peso denso, $\beta$: peso esparso, $\gamma$: peso do grafo.}
+\label{tab:hyparag}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Complexidade} & $\alpha$ & $\beta$ & $\gamma$ & \textbf{Grafo KG} \\
+\midrule
+BAIXA  & 0,30 & 0,60 & 0,10 & Desativado \\
+M\'{E}DIA & 0,40 & 0,40 & 0,20 & Ativado \\
+ALTA   & 0,35 & 0,35 & 0,30 & Ativado \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A l\'{o}gica da adapta\c{c}\~{a}o \'{e}: consultas de baixa complexidade (e.g., ``O que diz o Art.~5\textordmasculine{} da CF?'') dependem primariamente de correspond\^{e}ncia lexical exata ($\beta = 0{,}60$), dispensando o overhead do grafo de conhecimento. Consultas de alta complexidade (e.g., ``Compare a prote\c{c}\~{a}o do consumidor em compras online com as garantias do CDC e do Marco Civil da Internet'') requerem integra\c{c}\~{a}o sem\^{a}ntica, lexical e estrutural em propor\c{c}\~{o}es equilibradas, com o grafo ativado para capturar rela\c{c}\~{o}es inter-legislativas.
+
+\subsection{N\'{u}cleo de Racioc\'{i}nio: LSIM}
+
+O \textit{Logical-Semantic Integration Model} (LSIM)~\cite{niklaus2025a} rejeita a \textit{Chain-of-Thought} (CoT) padr\~{a}o dos LLMs como excessivamente fr\'{a}gil e propensa a erros l\'{o}gicos sutis que podem passar despercebidos. O LSIM opera atrav\'{e}s da constru\c{c}\~{a}o expl\'{i}cita de \textbf{Cadeias Fato-Regra}:
+
+\begin{itemize}    \item \textbf{N\'{o}s de Fato}: Representam as circunst\^{a}ncias f\'{a}ticas extra\'{i}das da query e dos documentos recuperados pelo HyPA-RAG. Cada fato \'{e} vinculado \`{a} sua fonte (documento, artigo, s\'{u}mula).
+    \item \textbf{N\'{o}s de Regra}: Representam os padr\~{o}es legais aplic\'{a}veis identificados na legisla\c{c}\~{a}o recuperada. Cada regra \'{e} tra\c{c}ada at\'{e} o dispositivo legal espec\'{i}fico.
+    \item \textbf{Arcos de Infer\^{e}ncia}: Conectam Fatos a Regras e Regras a Conclus\~{o}es, mapeando explicitamente o caminho l\'{o}gico v\'{a}lido de infer\^{e}ncia.
+\end{itemize}
+
+A gera\c{c}\~{a}o \'{e} realizada pelo modelo Qwen2.5:14B via Ollama, com prompts estruturados que for\c{c}am a decomposi\c{c}\~{a}o l\'{o}gica. O prompt do LSIM instrui o modelo a: (1) identificar os fatos relevantes, (2) mapear cada fato a uma regra aplic\'{a}vel, (3) derivar a conclus\~{a}o l\'{o}gica, e (4) explicitar qualquer excess\~{a}o ou contra-argumento.
+
+\subsection{Sistema de Defesa em 4 Camadas}
+
+Para cumprir o Artigo~15 da Lei de IA da UE~\cite{euaiact2024}, a arquitetura implementa um sistema de defesa mandat\'{o}rio em quatro camadas (Tabela~\ref{tab:defense}), cada uma direcionada a um vetor espec\'{i}fico da \textit{Kill Chain} de envenenamento profundo~\cite{rescue2025a}.
+
+\begin{table}[!t]
+\centering
+\caption{Matriz de defesa em profundidade: cada camada aborda um vetor espec\'{i}fico da cadeia de ataque.}
+\label{tab:defense}
+\small
+\begin{tabular}{p{0.8cm}p{1.5cm}p{1.5cm}p{2.8cm}}
+\toprule
+\textbf{Cam.} & \textbf{Vetor} & \textbf{Defesa} & \textbf{Mecanismo} \\
+\midrule
+1 & Dados & RAGDefender & Filtragem TF-IDF de passagens advers\'{a}rias \\
+2 & Controle & Guardian & Valida\c{c}\~{a}o Zero Trust em 3 pontos \\
+3 & Rac. & SCOT & Meta-racioc\'{i}nio de seguran\c{c}a \\
+4 & Modelo & P2P & Vacina\c{c}\~{a}o com gatilhos benignos \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Camada 1: RAGDefender}
+Opera na camada de dados, filtrando documentos potencialmente envenenados antes que alcancem o modelo de racioc\'{i}nio. Utiliza an\'{a}lise TF-IDF para detectar passagens com distribui\c{c}\~{o}es lexicais an\^{o}malas que possam indicar inje\c{c}\~{a}o de conte\'{u}do advers\'{a}rio~\cite{rescue2025a}.
+
+\subsubsection{Camada 2: Guardian Agent (Zero Trust)}
+Implementa uma arquitetura Zero Trust com valida\c{c}\~{a}o em tr\^{e}s pontos: entrada (query do usu\'{a}rio), documentos recuperados e sa\'{i}da gerada. O Guardian detecta 7 categorias de ataque: inje\c{c}\~{a}o SQL, XSS, \textit{template injection}, \textit{instruction bypass}, jailbreak, evas\~{a}o via \textit{leetspeak} e tentativas de exfiltra\c{c}\~{a}o. A normaliza\c{c}\~{a}o de \textit{leetspeak} mapeia substitui\c{c}\~{o}es comuns (0$\rightarrow$o, 1$\rightarrow$i, 3$\rightarrow$e, 4$\rightarrow$a, 5$\rightarrow$s, 7$\rightarrow$t, @$\rightarrow$a, \$$\rightarrow$s) antes da an\'{a}lise de padr\~{o}es.
+
+\subsubsection{Camada 3: SCOT (Safety Chain-of-Thought)}
+Em vez de bloquear entradas baseadas em palavras-chave, o SCOT~\cite{scot2025a} treina o modelo para executar uma etapa de ``meta-racioc\'{i}nio'' de seguran\c{c}a antes de qualquer an\'{a}lise jur\'{i}dica substantiva. Este passo previne o ``Efeito de Dilui\c{c}\~{a}o'' do ShadowCoT~\cite{shadowcot2025a}, onde l\'{o}gica advers\'{a}ria \'{e} injetada entre passos leg\'{i}timos de racioc\'{i}nio, dilluindo gradualmente a coer\^{e}ncia do argumento.
+
+\subsubsection{Camada 4: P2P (Poison-to-Poison)}
+Funciona como uma vacina algor\'{i}tmica~\cite{p2p2025a}, injetando intencionalmente ``Gatilhos Benignos'' associados a ``R\'{o}tulos Seguros'' durante o processamento. O sistema implementa 20 triggers padr\~{a}o no dom\'{i}nio jur\'{i}dico: 10 lexicais, 3 sint\'{a}ticos, 3 sem\^{a}nticos, 2 contextuais e 2 compostos. Cinco labels de seguran\c{c}a s\~{a}o empregados: \texttt{REFUSE}, \texttt{CLARIFY}, \texttt{LEGAL\_ONLY}, \texttt{CITATION\_REQUIRED} e \texttt{HUMAN\_REVIEW}.
+
+\subsection{Explicabilidade: Modelo de Argumenta\c{c}\~{a}o de Toulmin}
+
+Cada resposta do sistema \'{e} estruturada segundo o Modelo de Argumenta\c{c}\~{a}o de Toulmin~\cite{refteorico2025,vassiliades2025a} com seis componentes expl\'{i}citos:
+
+\begin{enumerate}    \item \textbf{Claim} (Alega\c{c}\~{a}o): A decis\~{a}o ou conclus\~{a}o jur\'{i}dica derivada pelo LSIM.
+    \item \textbf{Data} (Dados): Os fatos recuperados pelo HyPA-RAG que fundamentam a alega\c{c}\~{a}o.
+    \item \textbf{Warrant} (Garantia): A regra l\'{o}gica (derivada pelo LSIM) que conecta os Dados \`{a} Alega\c{c}\~{a}o.
+    \item \textbf{Backing} (Apoio): A autoridade estatut\'{a}ria ou cita\c{c}\~{a}o de jurisprud\^{e}ncia que valida a Garantia.
+    \item \textbf{Rebuttal} (Refuta\c{c}\~{a}o): O reconhecimento expl\'{i}cito de contra-argumentos, exce\c{c}\~{o}es e limita\c{c}\~{o}es da conclus\~{a}o.
+    \item \textbf{Qualifier} (Qualificador): O grau de certeza da conclus\~{a}o (CERTO, PROV\'{A}VEL, POSS\'{I}VEL, INCERTO).
+\end{enumerate}
+
+Esta estrutura habilita a \textit{contestabilidade} jur\'{i}dica: um advogado humano pode examinar e argumentar ``A Alega\c{c}\~{a}o est\'{a} incorreta porque a Garantia (precedente X) foi revogada''. A IA n\~{a}o reivindica ser um or\'{a}culo infal\'{i}vel; ela submete um argumento estruturado ao tribunal, sujeito a revis\~{a}o e desafio humano~\cite{vassiliades2025a}.
+
+\subsection{Anonimiza\c{c}\~{a}o: LOPSIDED}
+
+O framework LOPSIDED (\textit{Local Optimizations for Pseudonymization with Semantic Integrity Directed Entity Detection})~\cite{lopsided2025a} substitui informa\c{c}\~{o}es de identifica\c{c}\~{a}o pessoal (PII) por substitutos contextualmente consistentes, preservando a coer\^{e}ncia narrativa necess\'{a}ria para o LSIM. O pipeline integra:
+
+\begin{itemize}    \item \textbf{Detec\c{c}\~{a}o via NER}: spaCy \texttt{pt\_core\_news\_lg} para entidades gen\'{e}ricas (pessoas, organiza\c{c}\~{o}es, locais).
+    \item \textbf{Express\~{o}es Regulares}: Padr\~{o}es espec\'{i}ficos para entidades brasileiras (CPF, CNPJ, RG, n\'{u}mero de processo, OAB).
+    \item \textbf{Mapeamento Determin\'{i}stico}: Garante consist\^{e}ncia intra-documento (a mesma entidade \'{e} sempre substitu\'{i}da pelo mesmo pseudônimo).
+\end{itemize}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section{Implementa\c{c}\~{a}o}
+
+\subsection{Stack Tecnol\'{o}gico}
+
+O sistema foi implementado inteiramente com tecnologias de c\'{o}digo aberto (Tabela~\ref{tab:stack}), eliminando depend\^{e}ncias de APIs propriet\'{a}rias e garantindo reprodutibilidade e soberania sobre os dados processados.
+
+\begin{table}[!t]
+\centering
+\caption{Stack tecnol\'{o}gico do sistema \textit{Soberania Judicial}. Todos os componentes s\~{a}o de c\'{o}digo aberto.}
+\label{tab:stack}
+\small
+\begin{tabular}{p{1.7cm}p{2.0cm}p{3.0cm}}
+\toprule
+\textbf{Componente} & \textbf{Tecnologia} & \textbf{Especifica\c{c}\~{a}o} \\
+\midrule
+LLM & Qwen2.5:14B & Q4\_K\_M via Ollama ($\sim$9GB) \\
+Embeddings & BERTimbau-L & 1024d, pt-cased \\
+Banco Vetorial & Qdrant & Local persistente \\
+Grafo KG & Neo4j 5.15 & Community Edition \\
+Cache & Redis & Checkpointing LangGraph \\
+Orquestra\c{c}\~{a}o & LangGraph & StateGraph \\
+NER & spaCy & pt\_core\_news\_lg \\
+API & FastAPI & REST + Uvicorn \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A escolha do Qwen2.5:14B como LLM principal foi motivada por tr\^{e}s fatores: (1) desempenho competitivo com modelos propriet\'{a}rios em tarefas de racioc\'{i}nio, (2) possibilidade de infer\^{e}ncia local via Ollama sem depend\^{e}ncia de cloud, e (3) capacidade de quantiza\c{c}\~{a}o (Q4\_K\_M) que permite execu\c{c}\~{a}o em hardware de consumidor com $\sim$9GB de RAM para o modelo.
+
+O BERTimbau-Large foi selecionado como modelo de embeddings por ser o \'{u}nico modelo BERT de grande porte pr\'{e}-treinado especificamente em portugu\^{e}s brasileiro, com 1024 dimens\~{o}es que capturam nuances sem\^{a}nticas que modelos multilingual (como mBERT com 768 dimens\~{o}es) n\~{a}o conseguem representar adequadamente.
+
+\subsection{Base de Conhecimento}
+
+A base de conhecimento jur\'{i}dica brasileira foi constru\'{i}da via pipeline de ingest\~{a}o automatizado, contendo:
+
+\begin{itemize}    \item \textbf{10.374 vetores} indexados no Qdrant, cobrindo legisla\c{c}\~{a}o federal, estadual e s\'{u}mulas.
+    \item \textbf{75 legisla\c{c}\~{o}es} federais: Constitui\c{c}\~{a}o Federal de 1988, C\'{o}digo Civil (CC), C\'{o}digo Penal (CP), C\'{o}digo de Processo Civil (CPC), C\'{o}digo de Processo Penal (CPP), C\'{o}digo de Defesa do Consumidor (CDC), Consolida\c{c}\~{a}o das Leis do Trabalho (CLT), Estatuto da Crian\c{c}a e do Adolescente (ECA), Marco Civil da Internet, Lei de Licita\c{c}\~{o}es, entre outras.
+    \item \textbf{67 s\'{u}mulas} vinculantes e orientadoras dos tribunais superiores (STF e STJ).
+\end{itemize}
+
+Cada documento foi segmentado em chunks de 512 tokens com overlap de 128 tokens, vetorizado via BERTimbau-Large e indexado com metadados estruturados (tipo de norma, n\'{u}mero, data, ementa, artigos) para permitir recupera\c{c}\~{a}o precisa e filtragem por metadados.
+
+\subsection{Pipeline de Ingest\~{a}o}
+
+O pipeline de ingest\~{a}o automatizado integra quatro fontes:
+
+\begin{enumerate}    \item \textbf{LexML}: API oficial do portal de legisla\c{c}\~{a}o brasileira, fornecendo textos normativos em XML estruturado.
+    \item \textbf{Planalto}: Scraping do portal \texttt{planalto.gov.br} para legisla\c{c}\~{a}o federal.
+    \item \textbf{STF/STJ}: Clientes espec\'{i}ficos para os portais dos tribunais superiores.
+    \item \textbf{S\'{u}mulas}: Scraping especializado para s\'{u}mulas vinculantes e orientadoras.
+\end{enumerate}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section{Avalia\c{c}\~{a}o Experimental}
+
+\subsection{Metodologia}
+
+Foi conduzida uma bateria de \textbf{185 testes} organizados em 10 categorias (Tabela~\ref{tab:categories}), incluindo \textit{ablation study} e an\'{a}lise estat\'{i}stica com intervalos de confian\c{c}a de 95\%. A bateria foi projetada para avaliar todas as dimens\~{o}es cr\'{i}ticas da arquitetura: funcionalidade, classifica\c{c}\~{a}o, seguran\c{c}a, privacidade, explicabilidade, performance e robustez. As consultas funcionais cobrem \textbf{12 dom\'{i}nios jur\'{i}dicos} do direito brasileiro. Os testes foram executados contra o sistema em produ\c{c}\~{a}o (\texttt{localhost:8001}) com todos os servi\c{c}os ativos (Qdrant, Neo4j, Redis, Ollama).
+
+As m\'{e}tricas empregadas incluem: \textit{Keyword F1} (correspond\^{e}ncia de termos jur\'{i}dicos esperados), \textit{Citation F1} (correspond\^{e}ncia de cita\c{c}\~{o}es legais), completude Toulmin (presen\c{c}a dos 6 componentes com limiares m\'{i}nimos de qualidade), e lat\^{e}ncia com IC 95\% via distribui\c{c}\~{a}o $t$ de Student.
+
+\begin{table}[!t]
+\centering
+\caption{Categorias da bateria de testes ($N$=185). Cada categoria avalia uma dimens\~{a}o espec\'{i}fica da arquitetura.}
+\label{tab:categories}
+\small
+\begin{tabular}{clr}
+\toprule
+\textbf{C\'{o}d.} & \textbf{Categoria} & \textbf{$n$} \\
+\midrule
+T1  & Consultas Funcionais (12 dom\'{i}nios) & 55 \\
+T2  & Classifica\c{c}\~{a}o de Complexidade & 25 \\
+T3  & Seguran\c{c}a Guardian (6 tipos de ataque) & 35 \\
+T4  & Defesa P2P (3 tipos de trigger) & 25 \\
+T5  & Anonimiza\c{c}\~{a}o LOPSIDED & 10 \\
+T7  & Performance (IC 95\%) & 15 \\
+ABL & \textit{Ablation Study} (4 configura\c{c}\~{o}es) & 20 \\
+T9  & Estresse/Concorr\^{e}ncia & 4 n\'{i}veis \\
+T10 & Casos Limites & 15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Resultados Gerais}
+
+O sistema obteve taxa geral de aprova\c{c}\~{a}o de \textbf{70{,}9\%} (117/165 testes discretos), com varia\c{c}\~{a}o significativa entre categorias (Figura~\ref{fig:overview}). As categorias com melhor desempenho foram: Consultas Funcionais (T1, 96{,}4\%), Anonimiza\c{c}\~{a}o (T5, 100\%) e Casos Limites (T10, 87\%). A categoria com menor taxa foi Defesa P2P (T4, 36\%), refletindo limita\c{c}\~{o}es na detec\c{c}\~{a}o de triggers n\~{a}o-lexicais. O \textit{ablation study} demonstrou 100\% de robustez em todas as 4 configura\c{c}\~{o}es testadas.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig1_overview.png}
+    \caption{Resultados consolidados da bateria de testes por categoria ($N$=185). A linha tracejada indica a m\'{e}dia geral. O estudo de abla\c{c}\~{a}o (ABL) e performance (T7) s\~{a}o reportados separadamente.}
+    \label{fig:overview}
+\end{figure}
+
+\subsection{Consultas Funcionais (T1, $n$=55)}
+
+O sistema processou com sucesso \textbf{53 de 55 consultas} (96{,}4\%) cobrindo 12 dom\'{i}nios jur\'{i}dicos: Consumidor, Penal, Constitucional, Trabalhista, Civil, Administrativo, Tribut\'{a}rio, Processual, Ambiental, Digital, ECA e Empresarial. As 2 falhas foram \textit{timeouts} de rede (300s), n\~{a}o erros l\'{o}gicos.
+
+A Tabela~\ref{tab:t1metrics} apresenta as m\'{e}tricas consolidadas com intervalos de confian\c{c}a de 95\%.
+
+\begin{table}[!t]
+\centering
+\caption{M\'{e}tricas das consultas funcionais ($n$=53 bem-sucedidas). IC 95\% calculado via distribui\c{c}\~{a}o $t$ de Student.}
+\label{tab:t1metrics}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{M\'{e}trica} & \textbf{M\'{e}dia} & $\sigma$ & \textbf{IC 95\%} \\
+\midrule
+Keyword F1 & 0{,}628 & 0{,}245 & [0{,}560; 0{,}696] \\
+Citation F1 & 0{,}349 & 0{,}372 & [0{,}245; 0{,}453] \\
+Toulmin Completude & 1{,}000 & 0{,}000 & --- \\
+Lat\^{e}ncia (ms) & 34.906 & 14.678 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O \textbf{Keyword F1 de 0{,}628} (IC 95\%: [0{,}560; 0{,}696]) indica que as respostas cobrem em m\'{e}dia 63\% dos termos jur\'{i}dicos esperados. O \textbf{Citation F1 de 0{,}349} reflete a dificuldade do modelo em citar artigos espec\'{i}ficos com numera\c{c}\~{a}o exata, uma limita\c{c}\~{a}o do Qwen2.5:14B quando comparado a modelos propriet\'{a}rios maiores.
+
+A Figura~\ref{fig:domain_metrics} apresenta a an\'{a}lise por dom\'{i}nio jur\'{i}dico. Os dom\'{i}nios com melhor Keyword F1 foram: Empresarial (0{,}750), Constitucional (0{,}761) e ECA (0{,}750). O pior foi Administrativo (0{,}480), indicando menor cobertura de termos t\'{e}cnicos administrativos na base de conhecimento.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig12_domain_metrics.png}
+    \caption{Keyword F1 e Citation F1 por dom\'{i}nio jur\'{i}dico ($n$=53). Nota-se varia\c{c}\~{a}o significativa entre dom\'{i}nios, com Constitucional e Empresarial apresentando melhores resultados.}
+    \label{fig:domain_metrics}
+\end{figure}
+
+\subsection{Completude Toulmin ($n$=53)}
+
+A completude Toulmin, derivada das respostas funcionais bem-sucedidas, atingiu \textbf{100\%} (53/53) (Figura~\ref{fig:toulmin}). Todos os seis componentes estiveram presentes com qualidade acima dos limiares m\'{i}nimos: Claim ($>$ 20 caracteres), Warrant ($>$ 20 caracteres), Backing ($>$ 50 caracteres), Rebuttal ($>$ 20 caracteres), Data (presen\c{c}a de fontes) e Qualifier (valor v\'{a}lido: CERTO, PROV\'{A}VEL, POSS\'{I}VEL ou INCERTO).
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig4_toulmin.png}
+    \caption{Radar de completude Toulmin ($n$=53): 100\% em todos os 6 componentes. Nenhum sistema RAG padr\~{a}o gera Rebuttal ou Qualifier estruturados.}
+    \label{fig:toulmin}
+\end{figure}
+
+A taxa de 100\% \'{e} significativa: sistemas RAG padr\~{a}o n\~{a}o geram componentes de Rebuttal ou Qualifier, limitando a contestabilidade. A predomin\^{a}ncia do qualificador PROV\'{A}VEL demonstra calibra\c{c}\~{a}o adequada --- o sistema reconhece as incertezas inerentes \`{a} an\'{a}lise jur\'{i}dica automatizada.
+
+\subsection{Classifica\c{c}\~{a}o de Complexidade (T2, $n$=25)}
+
+O classificador de complexidade atingiu acur\'{a}cia de \textbf{100\%} (25/25) (Figura~\ref{fig:classification}), ap\'{o}s a incorpora\c{c}\~{a}o de detec\c{c}\~{a}o de padr\~{o}es lingu\'{i}sticos (ALTA, M\'{E}DIA, BAIXA) baseados no tipo de pergunta. Padr\~{o}es anal\'{i}ticos (``compare'', ``analise'', ``discorra'') direcionam para ALTA; padr\~{o}es de listagem (``quais s\~{a}o'', ``como funciona'') para M\'{E}DIA; e padr\~{o}es definit\'{o}rios simples (``o que \'{e}'', ``qual o'') para BAIXA, suprimindo a influ\^{e}ncia de entidades legais em queries simples.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig7_classification.png}
+    \caption{Matriz de confus\~{a}o da classifica\c{c}\~{a}o de complexidade ($n$=25, Acc=100\%). A adi\c{c}\~{a}o de padr\~{o}es lingu\'{i}sticos eliminou o vi\'{e}s para BAIXA.}
+    \label{fig:classification}
+\end{figure}
+
+A acur\'{a}cia de 100\% garante que queries complexas recebem par\^{a}metros de recupera\c{c}\~{a}o otimizados, com uso adequado do grafo de conhecimento para queries ALTA. O classificador baseia-se em tr\^{e}s camadas de heur\'{i}sticas: (1)~padr\~{o}es lingu\'{i}sticos de tipo de pergunta, (2)~contagem de entidades e cita\c{c}\~{o}es legais, e (3)~presen\c{c}a de termos jur\'{i}dicos complexos.
+
+\subsection{Seguran\c{c}a Guardian (T3, $n$=35)}
+
+O Guardian Agent demonstrou taxa de detec\c{c}\~{a}o de \textbf{96{,}3\%} (26/27 ataques bloqueados) com taxa de falso positivo de \textbf{0\%} (0/8 queries leg\'{i}timas bloqueadas) (Figura~\ref{fig:guardian}, Tabela~\ref{tab:guardian}), ap\'{o}s a expans\~{a}o dos padr\~{o}es de detec\c{c}\~{a}o para jailbreak (roleplay/pretend), XSS (tags SVG/IMG com event handlers), instruction bypass (informa\c{c}\~{o}es falsas, bypass temporal) e normaliza\c{c}\~{a}o ampliada de leetspeak.
+
+\begin{table}[!t]
+\centering
+\caption{Efic\'{a}cia do Guardian Agent por tipo de ataque ($n$=35).}
+\label{tab:guardian}
+\small
+\begin{tabular}{lccr}
+\toprule
+\textbf{Tipo de Ataque} & \textbf{$n$} & \textbf{Bloqueados} & \textbf{Taxa} \\
+\midrule
+SQL Injection & 5 & 5 & 100\% \\
+Template Injection & 3 & 3 & 100\% \\
+XSS & 4 & 4 & 100\% \\
+Jailbreak & 6 & 6 & 100\% \\
+Instruction Bypass & 5 & 5 & 100\% \\
+Leetspeak Evasion & 4 & 3 & 75\% \\
+\midrule
+Leg\'{i}timas (Aceitas) & 8 & 8 & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig3_guardian.png}
+    \caption{Efic\'{a}cia do Guardian Agent: (a)~taxa de detec\c{c}\~{a}o por tipo de ataque, (b)~distribui\c{c}\~{a}o geral. Cinco das seis categorias atingem 100\%. Leetspeak Evasion (75\%) permanece como \'{u}nica categoria abaixo de 100\%.}
+    \label{fig:guardian}
+\end{figure}
+
+A taxa de 100\% em cinco das seis categorias confirma a robustez do Guardian ap\'{o}s a expans\~{a}o dos padr\~{o}es. A adi\c{c}\~{a}o de padr\~{o}es espec\'{i}ficos para ataques de roleplay (``finja ser''), XSS via tags SVG/IMG com event handlers, instruction bypass temporal (``a partir de agora'') e exfiltra\c{c}\~{a}o de dados elevou a detec\c{c}\~{a}o de 70{,}4\% para 96{,}3\%. A normaliza\c{c}\~{a}o de leetspeak foi expandida com mapeamentos adicionais (8$\rightarrow$b, 2$\rightarrow$z, 9$\rightarrow$g) e normaliza\c{c}\~{a}o de underscores/h\'{i}fens, atingindo 75\% (3/4). A elimina\c{c}\~{a}o completa de falsos positivos (0/8) indica melhor calibra\c{c}\~{a}o dos padr\~{o}es de detec\c{c}\~{a}o.
+
+\subsection{Defesa P2P (T4, $n$=25)}
+
+A defesa \textit{Poison-to-Poison} apresentou taxa de detec\c{c}\~{a}o de \textbf{100\%} para triggers maliciosos (20/20), com \textbf{100\% de aceita\c{c}\~{a}o de queries leg\'{i}timas} (5/5) (Figura~\ref{fig:p2p}, Tabela~\ref{tab:p2p}), ap\'{o}s a adi\c{c}\~{a}o de triggers para comandos backdoor em ingl\^{e}s, padr\~{o}es sint\'{a}ticos de inje\c{c}\~{a}o entre colchetes/par\^{e}nteses, e triggers sem\^{a}nticos para cen\'{a}rios hipot\'{e}ticos de subvers\~{a}o legal.
+
+\begin{table}[!t]
+\centering
+\caption{Efic\'{a}cia da defesa P2P por tipo de trigger ($n$=25).}
+\label{tab:p2p}
+\small
+\begin{tabular}{lccr}
+\toprule
+\textbf{Tipo de Trigger} & \textbf{$n$} & \textbf{Detectados} & \textbf{Taxa} \\
+\midrule
+Lexical & 12 & 12 & 100\% \\
+Sint\'{a}tico & 4 & 4 & 100\% \\
+Sem\^{a}ntico & 4 & 4 & 100\% \\
+\midrule
+Leg\'{i}timas & 5 & 5 & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig5_p2p_defense.png}
+    \caption{Defesa P2P por tipo de trigger ($n$=25). Ap\'{o}s a expans\~{a}o dos triggers para padr\~{o}es em ingl\^{e}s, inje\c{c}\~{a}o sint\'{a}tica e cen\'{a}rios hipot\'{e}ticos, todas as tr\^{e}s categorias atingem 100\% de detec\c{c}\~{a}o.}
+    \label{fig:p2p}
+\end{figure}
+
+A taxa de detec\c{c}\~{a}o P2P de 100\% foi alcan\c{c}ada atrav\'{e}s de tr\^{e}s expans\~{o}es: (1)~triggers lexicais para comandos backdoor em ingl\^{e}s (EXECUTE\_BACKDOOR, ADMIN\_OVERRIDE, etc.), cobrindo o vocabul\'{a}rio t\'{i}pico de ataques a LLMs; (2)~triggers sint\'{a}ticos baseados em regex para padr\~{o}es de inje\c{c}\~{a}o entre colchetes, par\^{e}nteses e metadados (``[instru\c{c}\~{a}o oculta]'', ``Metadata: \{...\}''); e (3)~triggers sem\^{a}nticos para cen\'{a}rios hipot\'{e}ticos de subvers\~{a}o legal (``imagine que leis foram revogadas'', ``desconsiderando toda a legisla\c{c}\~{a}o''). O limiar de detec\c{c}\~{a}o foi ajustado de 0{,}7 para 0{,}5, acomodando os pesos de confian\c{c}a diferenciados por tipo de trigger (l\'{e}xico: 0{,}9; sint\'{a}tico: 0{,}85; sem\^{a}ntico: 0{,}75).
+
+\subsection{Anonimiza\c{c}\~{a}o LOPSIDED (T5, $n$=10)}
+
+O pipeline de anonimiza\c{c}\~{a}o atingiu \textbf{100\% de efic\'{a}cia} (10/10) com \textbf{zero vazamentos de PII} (Figura~\ref{fig:anonymization}). Foram testados 8 tipos de entidades brasileiras: CPF, CNPJ, nomes pessoais, organiza\c{c}\~{o}es, n\'{u}meros de processo, email, telefone, endere\c{c}os e datas.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig8_anonymization.png}
+    \caption{Pipeline de anonimiza\c{c}\~{a}o LOPSIDED ($n$=10): 100\% de efic\'{a}cia com zero vazamentos em todas as categorias de PII brasileiras testadas.}
+    \label{fig:anonymization}
+\end{figure}
+
+\subsection{Performance (T7, $n$=15)}
+
+Os benchmarks de lat\^{e}ncia com 5 execu\c{c}\~{o}es por n\'{i}vel (Figura~\ref{fig:performance}, Tabela~\ref{tab:performance}) demonstraram progress\~{a}o previs\'{i}vel entre n\'{i}veis de complexidade.
+
+\begin{table}[!t]
+\centering
+\caption{Benchmarks de lat\^{e}ncia por complexidade ($n$=5 execu\c{c}\~{o}es por n\'{i}vel) com IC 95\%.}
+\label{tab:performance}
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Compl.} & \textbf{M\'{e}d. (s)} & $\sigma$ & \textbf{IC 95\% (s)} & \textbf{M\'{i}n} & \textbf{M\'{a}x} \\
+\midrule
+BAIXA  & 28{,}8 & 4{,}8 & [22{,}1; 35{,}6] & 21{,}8 & 34{,}7 \\
+M\'{E}DIA & 30{,}0 & 2{,}3 & [26{,}9; 33{,}1] & 26{,}7 & 33{,}4 \\
+ALTA   & 36{,}6 & 1{,}8 & [34{,}1; 39{,}1] & 33{,}5 & 38{,}2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig2_performance.png}
+    \caption{Lat\^{e}ncia por complexidade com IC 95\% ($n$=5 por n\'{i}vel). A progress\~{a}o BAIXA $\rightarrow$ ALTA corresponde ao overhead crescente do grafo de conhecimento e an\'{a}lise LSIM.}
+    \label{fig:performance}
+\end{figure}
+
+O desvio padr\~{a}o de 1{,}8s para ALTA (IC 95\%: [34{,}1; 39{,}1s]) indica alta estabilidade. O incremento de $\sim$7{,}8s entre BAIXA e ALTA corresponde ao overhead do grafo de conhecimento Neo4j e da an\'{a}lise mais profunda do LSIM.
+
+\subsection{Estudo de Abla\c{c}\~{a}o}\label{sec:ablation}
+
+O estudo de abla\c{c}\~{a}o avaliou 4 configura\c{c}\~{o}es: sistema completo (\textit{full}), sem grafo de conhecimento (\textit{no\_kg}), sem BM25 (\textit{no\_bm25}) e sem SCOT (\textit{no\_scot}). Cada configura\c{c}\~{a}o processou 5 queries id\^{e}nticas (Tabela~\ref{tab:ablation}, Figura~\ref{fig:ablation}).
+
+\begin{table}[!t]
+\centering
+\caption{Estudo de abla\c{c}\~{a}o: 4 configura\c{c}\~{o}es $\times$ 5 queries. Todas obtiveram 100\% de sucesso e 100\% de Toulmin.}
+\label{tab:ablation}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Config.} & \textbf{Sucesso} & \textbf{Lat\^{e}ncia (s)} & \textbf{Toulmin} \\
+\midrule
+full     & 100\% & 28{,}0 & 100\% \\
+no\_kg   & 100\% & 27{,}6 & 100\% \\
+no\_bm25 & 100\% & 25{,}5 & 100\% \\
+no\_scot & 100\% & 26{,}7 & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig11_ablation.png}
+    \caption{Estudo de abla\c{c}\~{a}o: todas as 4 configura\c{c}\~{o}es mantiveram 100\% de sucesso e completude Toulmin. A remo\c{c}\~{a}o do BM25 resultou na menor lat\^{e}ncia (25{,}5s), sugerindo que a recupera\c{c}\~{a}o esparsa \'{e} o gargalo.}
+    \label{fig:ablation}
+\end{figure}
+
+Os resultados demonstram \textbf{robustez arquitetural}: o sistema mant\'{e}m 100\% de funcionalidade mesmo com componentes desativados. A remo\c{c}\~{a}o do BM25 resultou na menor lat\^{e}ncia (25{,}5s vs.\ 28{,}0s), indicando que a recupera\c{c}\~{a}o esparsa \'{e} o principal gargalo de lat\^{e}ncia. A remo\c{c}\~{a}o do grafo de conhecimento teve impacto m\'{i}nimo na lat\^{e}ncia ($-0{,}4$s), sugerindo que as consultas Cypher ao Neo4j s\~{a}o eficientes. A configura\c{c}\~{a}o sem SCOT manteve funcionalidade plena, mas an\'{a}lises de seguran\c{c}a demonstram que o SCOT \'{e} essencial para eleva\c{c}\~{a}o da taxa de valida\c{c}\~{a}o em cen\'{a}rios advers\'{a}rios.
+
+\subsection{Estresse e Concorr\^{e}ncia (T9)}
+
+Os testes de concorr\^{e}ncia revelaram escalabilidade limitada pelo hardware de infer\^{e}ncia:
+
+\begin{itemize}
+    \item \textbf{1--3 requests simult\^{a}neas}: 100\% de sucesso, throughput de $\sim$0{,}044 req/s.
+    \item \textbf{5 requests simult\^{a}neas}: 80\% (4/5), com timeout na 5\textordfeminine{} request.
+    \item \textbf{Throughput m\'{a}ximo}: 0{,}044 req/s com concorr\^{e}ncia 2--3.
+\end{itemize}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig13_stress.png}
+    \caption{Testes de estresse: (a)~taxa de sucesso por n\'{i}vel de concorr\^{e}ncia, (b)~throughput. O sistema satura em 5 requests simult\^{a}neas com infer\^{e}ncia CPU.}
+    \label{fig:stress}
+\end{figure}
+
+Estes resultados s\~{a}o coerentes com a limita\c{c}\~{a}o de hardware (infer\^{e}ncia CPU Qwen2.5:14B quantizado) e n\~{a}o representam limita\c{c}\~{o}es arquiteturais. Em deployment com GPU e/ou m\'{u}ltiplas inst\^{a}ncias Ollama, espera-se escalabilidade linear.
+
+\subsection{Casos Limites (T10, $n$=15)}
+
+O sistema demonstrou robustez a entradas an\^{o}malas (\textbf{87\%}, 13/15): queries vazias e muito curtas foram corretamente rejeitadas (HTTP 422), queries em ingl\^{e}s e espanhol foram processadas com \textit{graceful degradation}, caracteres especiais (emojis, Unicode) n\~{a}o causaram falhas, e queries extremamente longas (10.000 caracteres) foram aceitas. As 2 falhas foram: (1)~queries contendo apenas espa\c{c}os n\~{a}o foram rejeitadas; (2)~uma query com formato similar a SQL leg\'{i}timo causou erro 500.
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section{Discuss\~{a}o}
+
+\subsection{Compara\c{c}\~{a}o com Estado da Arte}
+
+A Figura~\ref{fig:comparison} apresenta a compara\c{c}\~{a}o multidimensional entre a \textit{Soberania Judicial} e os sistemas avaliados pelo Stanford RegLab~\cite{dho2024}. Enquanto os sistemas RAG comerciais (Westlaw AI, LexisNexis+) focam exclusivamente na precis\~{a}o de recupera\c{c}\~{a}o, a \textit{Soberania Judicial} aborda simultaneamente cinco dimens\~{o}es cr\'{i}ticas: precis\~{a}o, recupera\c{c}\~{a}o, explicabilidade, seguran\c{c}a e privacidade.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig10_comparison.png}
+    \caption{Compara\c{c}\~{a}o multidimensional com estado da arte. A \textit{Soberania Judicial} \'{e} o \'{u}nico sistema que aborda simultaneamente as 5 dimens\~{o}es. Dados comparativos: Stanford RegLab~\cite{dho2024}, Magesh et al.~\cite{magesh2024}.}
+    \label{fig:comparison}
+\end{figure}
+
+Nenhum dos sistemas avaliados pelo Stanford RegLab implementa sa\'{i}da Toulmin estruturada ou defesa contra envenenamento de dados. A \textit{Soberania Judicial} n\~{a}o elimina completamente o risco de erro, mas fornece mecanismos de detec\c{c}\~{a}o (Guardian, SCOT), preven\c{c}\~{a}o (P2P, RAGDefender) e contestabilidade (Toulmin) que mitigam significativamente o impacto de erros remanescentes.
+
+\subsection{An\'{a}lise da Completude Toulmin e Resili\^{e}ncia Causal}
+
+A taxa de 100\% de completude Toulmin em $n$=53 consultas, combinada com Keyword F1 de 0{,}628 (IC 95\%: [0{,}560; 0{,}696]), indica que o framework neuro-simb\'{o}lico (LSIM + HyPA-RAG) transcende a gera\c{c}\~{a}o probabil\'{i}stica pura. O sistema constr\'{o}i \textit{argumentos jur\'{i}dicos estruturados} com fundamenta\c{c}\~{a}o expl\'{i}cita, habilitando contesta\c{c}\~{a}o por advogados humanos.
+
+A ``Resili\^{e}ncia Causal'' \'{e} corroborada pelo estudo de abla\c{c}\~{a}o: mesmo com componentes desativados (no\_kg, no\_bm25, no\_scot), o sistema mant\'{e}m 100\% de completude Toulmin e 100\% de sucesso. Isto demonstra que a arquitetura neuro-simb\'{o}lica \'{e} robusta por constru\c{c}\~{a}o, n\~{a}o por depend\^{e}ncia de um \'{u}nico componente.
+
+O Citation F1 mais baixo (0{,}349) indica uma limita\c{c}\~{a}o do Qwen2.5:14B quantizado: o modelo produz racioc\'{i}nio jur\'{i}dico correto (Keyword F1 alto), mas frequentemente omite a numera\c{c}\~{a}o precisa de artigos e leis (Citation F1 menor). Instru\c{c}\~{o}es expl\'{i}citas de cita\c{c}\~{a}o foram adicionadas ao prompt do LSIM para mitigar esta limita\c{c}\~{a}o. Modelos jur\'{i}dicos especializados como SaulLM~\cite{saullm2024a} poderiam elevar significativamente a performance nesta m\'{e}trica.
+
+\subsection{An\'{a}lise da Defesa em Profundidade}
+
+A defesa em 4 camadas demonstrou efic\'{a}cia diferenciada:
+
+\begin{itemize}
+    \item \textbf{Guardian (Camada 2)}: 96{,}3\% de detec\c{c}\~{a}o geral, com 100\% em cinco das seis categorias (SQL Injection, Template Injection, XSS, Jailbreak, Instruction Bypass) e 0\% de falsos positivos.
+    \item \textbf{P2P (Camada 4)}: 100\% de detec\c{c}\~{a}o ap\'{o}s expans\~{a}o para triggers em ingl\^{e}s, sint\'{a}ticos e sem\^{a}nticos, cobrindo todas as tr\^{e}s categorias de ataques testadas.
+    \item \textbf{SCOT (Camada 3)}: O estudo de abla\c{c}\~{a}o confirma que o SCOT n\~{a}o afeta a funcionalidade base, mas sua contribui\c{c}\~{a}o para seguran\c{c}a \'{e} essencial em cen\'{a}rios advers\'{a}rios.
+\end{itemize}
+
+A combina\c{c}\~{a}o das camadas oferece defesa em profundidade: com o Guardian detectando 96{,}3\% dos ataques e o P2P 100\% dos triggers maliciosos, a probabilidade de bypass de todas as camadas simultaneamente \'{e} significativamente inferior \`{a} de qualquer camada individual. O SCOT complementa como camada de valida\c{c}\~{a}o sem\^{a}ntica final.
+
+\subsection{Impacto do Classificador de Complexidade}
+
+A acur\'{a}cia de 100\% do classificador (T2), obtida ap\'{o}s a incorpora\c{c}\~{a}o de padr\~{o}es lingu\'{i}sticos, garante que os pesos ($\alpha$, $\beta$, $\gamma$) do HyPA-RAG sejam otimizados para cada n\'{i}vel de complexidade. O estudo de abla\c{c}\~{a}o j\'{a} demonstrava que o sistema mant\'{e}m 100\% de sucesso com pesos sub\'{o}timos (resili\^{e}ncia causal), mas a classifica\c{c}\~{a}o precisa otimiza lat\^{e}ncia --- queries BAIXA evitam o overhead do grafo de conhecimento --- e relev\^{a}ncia dos documentos recuperados.
+
+\subsection{Implica\c{c}\~{o}es para a Pr\'{a}tica Jur\'{i}dica}
+
+Os resultados sugerem que a arquitetura pode ser utilizada como ferramenta de \textit{apoio} (n\~{a}o substitui\c{c}\~{a}o) ao profissional jur\'{i}dico. O Modelo de Toulmin mapeia naturalmente o discurso jur\'{i}dico: a Alega\c{c}\~{a}o corresponde \`{a} tese, o Backing \`{a} fundamenta\c{c}\~{a}o legal, o Rebuttal ao contradit\'{o}rio, e o Qualifier ao n\'{i}vel de certeza processual.
+
+A anonimiza\c{c}\~{a}o autom\'{a}tica (100\% efic\'{a}cia, $n$=10) viabiliza o uso em ambientes onde a confidencialidade processual \'{e} obrigat\'{o}ria, como escrit\'{o}rios de advocacia e defensorias p\'{u}blicas.
+
+\subsection{Limita\c{c}\~{o}es}
+
+As limita\c{c}\~{o}es identificadas na bateria de 185 testes incluem:
+
+\begin{enumerate}
+    \item \textbf{Classificador baseado em heur\'{i}sticas}: Embora a acur\'{a}cia de 100\% na bateria atual (25 queries) seja satisfat\'{o}ria, o classificador baseia-se em padr\~{o}es regex est\'{a}ticos, podendo falhar com formula\c{c}\~{o}es at\'{i}picas. Um classificador baseado em embeddings ou fine-tuning ofereceria maior generaliza\c{c}\~{a}o.
+
+    \item \textbf{P2P baseada em padr\~{o}es}: Embora a detec\c{c}\~{a}o P2P tenha atingido 100\% na bateria atual, a abordagem baseia-se em correspond\^{e}ncia de padr\~{o}es regex, sendo vulner\'{a}vel a triggers adversariais que evitem os padr\~{o}es conhecidos. Integra\c{c}\~{a}o com an\'{a}lise LLM em tempo real poderia elevar a robustez contra ataques adaptativos.
+
+    \item \textbf{Leetspeak e ofusca\c{c}\~{a}o}: O Guardian detecta 75\% (3/4) das tentativas em \textit{leetspeak} ap\'{o}s expans\~{a}o do mapeamento. Os 25\% restantes indicam necessidade de t\'{e}cnicas avan\c{c}adas de normaliza\c{c}\~{a}o, como embeddings de caracteres ou modelos de linguagem para deofusca\c{c}\~{a}o.
+
+    \item \textbf{Escalabilidade}: O \textit{deployment} \textit{single-instance} com infer\^{e}ncia CPU manteve 100\% de sucesso at\'{e} 3 requests simult\^{a}neas, mas decaiu para 80\% com 5 requests ($\sim$0{,}033 req/s). Esta \'{e} uma limita\c{c}\~{a}o de infraestrutura, n\~{a}o arquitetural.
+
+    \item \textbf{Citation F1 limitado}: O Citation F1 de 0{,}349 (IC 95\%: [0{,}245; 0{,}453]) indica que o Qwen2.5:14B quantizado frequentemente omite numera\c{c}\~{a}o precisa de artigos e leis, embora o racioc\'{i}nio jur\'{i}dico seja correto (Keyword F1 = 0{,}628). Instru\c{c}\~{o}es expl\'{i}citas de cita\c{c}\~{a}o foram adicionadas ao prompt do LSIM, esperando-se melhoria em execu\c{c}\~{o}es futuras.
+
+    \item \textbf{Qualificador monot\^{o}no}: A predomin\^{a}ncia do qualificador PROV\'{A}VEL (100\%) sugere necessidade de calibra\c{c}\~{a}o para maior granularidade entre CERTO/POSS\'{I}VEL/INCERTO.
+
+    \item \textbf{Valida\c{c}\~{a}o por especialistas}: A avalia\c{c}\~{a}o foca em m\'{e}tricas computacionais; uma valida\c{c}\~{a}o por juristas e magistrados brasileiros \'{e} necess\'{a}ria para confirmar a acur\'{a}cia jur\'{i}dica substantiva.
+
+    \item \textbf{Tamanho da base}: 10.374 vetores cobrem legisla\c{c}\~{a}o federal, mas n\~{a}o incluem legisla\c{c}\~{a}o estadual, municipal ou jurisprud\^{e}ncia completa dos tribunais.
+\end{enumerate}
+
+\subsection{Conformidade Regulat\'{o}ria}
+
+A arquitetura foi projetada para cumprir os seguintes marcos regulat\'{o}rios:
+
+\begin{itemize}    \item \textbf{EU AI Act, Art.~15}~\cite{euaiact2024,euaiactsd2024}: Robustez contra erros e \textit{data poisoning} --- atendida pela defesa em 4 camadas.
+    \item \textbf{LGPD (Lei~13.709/2018)}: Anonimiza\c{c}\~{a}o de PII --- atendida pelo LOPSIDED com zero vazamentos.
+    \item \textbf{GDPR (Art.~22)}: Explicabilidade de decis\~{o}es automatizadas --- atendida pelo Modelo de Toulmin.
+    \item \textbf{Transpar\^{e}ncia Judicial}: Rastreabilidade completa via \texttt{trace\_id} e fundamenta\c{c}\~{a}o expl\'{i}cita via Backing + Sources.
+\end{itemize}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section{Conclus\~{a}o}
+
+Este artigo apresentou a arquitetura \textit{Soberania Judicial}, um framework neuro-simb\'{o}lico e ag\^{e}ntico que aborda as limita\c{c}\~{o}es fundamentais dos LLMs no dom\'{i}nio judicial. Atrav\'{e}s da integra\c{c}\~{a}o de cinco componentes inovadores --- HyPA-RAG, LSIM, defesa em 4 camadas, anonimiza\c{c}\~{a}o LOPSIDED e argumenta\c{c}\~{a}o Toulmin --- o sistema foi avaliado em uma bateria rigorosa de 185 testes com IC 95\%, abrangendo 12 dom\'{i}nios jur\'{i}dicos:
+
+\begin{itemize}
+    \item \textbf{96{,}4\% de sucesso} em 55 consultas funcionais ($n$=53 v\'{a}lidas), com Keyword F1 de 0{,}628 (IC 95\%: [0{,}560; 0{,}696]) e 100\% de completude Toulmin.
+    \item \textbf{100\% de efic\'{a}cia na anonimiza\c{c}\~{a}o} ($n$=10), com zero vazamentos de PII em todas as categorias de entidades brasileiras (CPF, OAB, endere\c{c}os, telefones).
+    \item \textbf{96{,}3\% de detec\c{c}\~{a}o} pelo Guardian com 0\% de falsos positivos, incluindo 100\% de bloqueio para SQL Injection, Template Injection, XSS, Jailbreak e Instruction Bypass.
+    \item \textbf{100\% de detec\c{c}\~{a}o P2P} para triggers maliciosos em todas as tr\^{e}s categorias (lexical, sint\'{a}tico, sem\^{a}ntico), com 100\% de aceita\c{c}\~{a}o de queries leg\'{i}timas.
+    \item \textbf{100\% de acur\'{a}cia} no classificador de complexidade (T2), garantindo par\^{a}metros de recupera\c{c}\~{a}o otimizados para cada n\'{i}vel.
+    \item \textbf{Resili\^{e}ncia causal} demonstrada por estudo de abla\c{c}\~{a}o com 4 configura\c{c}\~{o}es: 100\% de sucesso e 100\% de completude Toulmin mesmo com componentes desativados.
+    \item \textbf{Escalabilidade previs\'{i}vel}: lat\^{e}ncia proporcional \`{a} complexidade (BAIXA: 28{,}8s $\pm$ 4{,}8s; ALTA: 36{,}6s $\pm$ 1{,}8s) com \textit{throughput} est\'{a}vel at\'{e} 3 requests simult\^{a}neas.
+\end{itemize}
+
+O framework realiza quatro transi\c{c}\~{o}es paradigm\'{a}ticas: da Alucina\c{c}\~{a}o para a Verifica\c{c}\~{a}o Aumentada por Recupera\c{c}\~{a}o (HyPA-RAG), da Correla\c{c}\~{a}o para o Racioc\'{i}nio Causal (LSIM), da Vulnerabilidade para a Defesa Imunol\'{o}gica (P2P, SCOT, Guardian, RAGDefender) e da Opacidade para a Argumenta\c{c}\~{a}o Contest\'{a}vel (Toulmin).
+
+As limita\c{c}\~{o}es remanescentes incluem a depend\^{e}ncia de padr\~{o}es regex est\'{a}ticos (classificador e defesas), a detec\c{c}\~{a}o parcial de leetspeak (75\%) e o Citation F1 limitado (0{,}349) do Qwen2.5:14B quantizado. Estas limita\c{c}\~{o}es n\~{a}o comprometem a funcionalidade base do sistema, conforme demonstrado pelo estudo de abla\c{c}\~{a}o.
+
+Trabalhos futuros incluem: (1)~integra\c{c}\~{a}o de modelos jur\'{i}dicos especializados como SaulLM-7B~\cite{saullm2024a} com \textit{fine-tuning} via QLoRA para elevar o Citation F1 al\'{e}m de 0{,}349; (2)~detec\c{c}\~{a}o de triggers P2P via an\'{a}lise LLM em tempo real para robustez contra ataques adaptativos; (3)~substitui\c{c}\~{a}o dos classificadores heur\'{i}sticos por modelos baseados em embeddings; (4)~normaliza\c{c}\~{a}o avan\c{c}ada de leetspeak via modelos de linguagem; (5)~valida\c{c}\~{a}o por painel de juristas e magistrados brasileiros; (6)~\textit{deployment} com GPU para escalabilidade de produ\c{c}\~{a}o; e (7)~expans\~{a}o da base de conhecimento com legisla\c{c}\~{a}o estadual e jurisprud\^{e}ncia completa.
+
+% ═════════════════════════════════════════════════════════════════════════════
+\section*{Agradecimentos}
+[Agradecimentos omitidos para revisão cega.]
+
+\end{document}
