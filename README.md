@@ -188,6 +188,20 @@ pytest tests/unit/test_rag_defender.py -v      # 20 testes
 
 ---
 
+## 📦 Dataset (PeerJ Submission)
+
+The self-curated evaluation dataset (165 queries across 10 categories +
+catalogue of 77 Brazilian legislations) lives in [`dataset/`](dataset/).
+See [`dataset/DATASET.md`](dataset/DATASET.md) for the full data dictionary,
+sources, and reproduction instructions.
+
+```bash
+# Re-export the CSVs from source code
+python dataset/build_dataset.py
+```
+
+---
+
 ## 🔧 Configuração (.env)
 
 ```bash
@@ -313,7 +327,3 @@ copies or substantial portions of the Software.
 ---
 
 **Desenvolvido por Delvek da S. V. de Sousa and Jonatã P. Costa © 2025**
-=======
-# LLM-data-poisoning
-Projeto de LLM
->>>>>>> 3ef6bcff8a9b057c11d6290e1d3ff7fb47abd5a5

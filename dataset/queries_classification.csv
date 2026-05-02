@@ -1,0 +1,26 @@
+id,category,query,expected
+T2.001,T2,O que é habeas corpus?,BAIXA
+T2.002,T2,Qual o prazo de garantia no CDC?,BAIXA
+T2.003,T2,O que diz o Art. 5 da CF?,BAIXA
+T2.004,T2,O que é legítima defesa?,BAIXA
+T2.005,T2,O que são férias?,BAIXA
+T2.006,T2,Qual o conceito de dolo?,BAIXA
+T2.007,T2,O que é petição inicial?,BAIXA
+T2.008,T2,Qual o prazo para recurso de apelação?,BAIXA
+T2.009,T2,O que é crime culposo?,BAIXA
+T2.010,T2,O que diz o Art. 37 da CF sobre administração pública?,BAIXA
+T2.011,T2,Quais são as excludentes de ilicitude no direito penal?,MEDIA
+T2.012,T2,Como funciona a inversão do ônus da prova no CDC?,MEDIA
+T2.013,T2,Quais são os remédios constitucionais?,MEDIA
+T2.014,T2,O que é improbidade administrativa e suas penalidades?,MEDIA
+T2.015,T2,Quais são as hipóteses de justa causa na CLT?,MEDIA
+T2.016,T2,O que é tutela de urgência?,MEDIA
+T2.017,T2,Quais são os crimes contra a honra?,MEDIA
+T2.018,T2,Como funciona a licitação pública?,MEDIA
+T2.019,T2,O que é responsabilidade civil objetiva?,MEDIA
+T2.020,T2,Quais são as medidas protetivas do ECA?,MEDIA
+T2.021,T2,"Compare a proteção do consumidor em compras online com as garantias do CDC e do Marco Civil da Internet, considerando jurisprudência do STJ",ALTA
+T2.022,T2,"Analise a constitucionalidade da reforma trabalhista à luz dos direitos fundamentais sociais, considerando o princípio da vedação ao retrocesso",ALTA
+T2.023,T2,Qual a diferença entre dolo eventual e culpa consciente e como a jurisprudência distingue ambos nos crimes de trânsito?,ALTA
+T2.024,T2,Discorra sobre o controle difuso e concentrado de constitucionalidade e seus efeitos no ordenamento jurídico brasileiro,ALTA
+T2.025,T2,Analise a responsabilidade civil ambiental à luz da teoria do risco integral e do princípio do poluidor-pagador,ALTA

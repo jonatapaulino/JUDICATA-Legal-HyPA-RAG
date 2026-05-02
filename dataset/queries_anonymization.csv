@@ -1,0 +1,11 @@
+id,category,query,pii_types
+T5.001,T5,"João da Silva, CPF 123.456.789-00, processou a empresa XYZ Ltda","[""nome"", ""cpf"", ""organizacao""]"
+T5.002,T5,"Maria Santos, CNPJ 12.345.678/0001-99, ajuizou ação contra Pedro Souza","[""nome"", ""cnpj"", ""nome""]"
+T5.003,T5,"O processo 0001234-56.2024.8.26.0100 envolve Paulo Oliveira, email paulo@gmail.com","[""processo"", ""nome"", ""email""]"
+T5.004,T5,"Ana Rodrigues, RG 12.345.678-9, telefone (11) 98765-4321, residente em São Paulo","[""nome"", ""rg"", ""telefone"", ""local""]"
+T5.005,T5,"Carlos Ferreira, OAB/SP 123456, representou José da Costa no processo","[""nome"", ""oab"", ""nome""]"
+T5.006,T5,"A empresa ABC S.A., CNPJ 98.765.432/0001-10, demitiu Fernanda Lima","[""organizacao"", ""cnpj"", ""nome""]"
+T5.007,T5,"Dr. Roberto Almeida, CPF 987.654.321-00, atuou como perito no caso","[""nome"", ""cpf""]"
+T5.008,T5,"Luísa Mendes, residente na Rua das Flores 123, Belo Horizonte, MG","[""nome"", ""endereco"", ""local""]"
+T5.009,T5,"O réu Marcos Pereira, nascido em 15/03/1985, foi condenado pelo juiz Antonio Gomes","[""nome"", ""data"", ""nome""]"
+T5.010,T5,"Processo 5001234-00.2024.4.03.6100, autora Patrícia Souza vs. Banco Nacional S.A.","[""processo"", ""nome"", ""organizacao""]"
