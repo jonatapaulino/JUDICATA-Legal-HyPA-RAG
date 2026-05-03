@@ -3,6 +3,8 @@ HyPA-RAG: Hybrid Parameter-Adaptive Retrieval-Augmented Generation.
 Combines dense, sparse, and graph-based retrieval with fusion reranking.
 Adapts retrieval parameters based on query complexity.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import asyncio
 from typing import List, Dict, Tuple, Optional

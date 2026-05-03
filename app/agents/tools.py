@@ -2,6 +2,8 @@
 Tools available to the LangGraph agents.
 Wraps core functionality for use in the agent workflow.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List, Tuple
 

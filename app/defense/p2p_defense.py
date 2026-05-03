@@ -14,6 +14,8 @@ Key Concepts:
 - Forces the model to super-optimize on safe paths
 - Overwrites latent malicious backdoors without identifying them individually
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import re

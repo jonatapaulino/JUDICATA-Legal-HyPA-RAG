@@ -2,6 +2,8 @@
 Seed script for Neo4j graph database.
 Creates sample legal knowledge graph with cases, laws, and relationships.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import asyncio
 import sys

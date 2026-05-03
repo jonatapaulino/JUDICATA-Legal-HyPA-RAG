@@ -1,6 +1,8 @@
 """
 Pytest configuration and fixtures for testing.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import pytest
 import asyncio

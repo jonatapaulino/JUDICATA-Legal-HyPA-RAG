@@ -2,6 +2,8 @@
 Anonymization pipeline for sensitive legal data.
 Implements the LOPSIDED approach (Local Privacy with Selective Identification Erasure and Deidentification).
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import Dict
 import hashlib

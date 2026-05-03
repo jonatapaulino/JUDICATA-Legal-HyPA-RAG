@@ -2,6 +2,8 @@
 LangGraph state definition for the judicial reasoning workflow.
 Defines the shared state that flows through the agent graph.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List, Optional, TypedDict, Annotated
 from operator import add

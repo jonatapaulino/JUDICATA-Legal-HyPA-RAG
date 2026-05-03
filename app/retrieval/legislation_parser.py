@@ -2,6 +2,7 @@
 Brazilian Legislation Parser.
 Parses raw legal text into structured chunks (Articles, Paragraphs) following LC 95/98 standards.
 
+Author: Delvek da S. V. de Sousa
 """
 import re
 from typing import List, Dict, Optional

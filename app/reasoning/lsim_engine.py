@@ -2,6 +2,8 @@
 LSIM Engine: Logical-Semantic Integration Module
 Combines symbolic reasoning with neural LLM generation using Thought Traces.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List
 from langchain_community.chat_models import ChatOllama

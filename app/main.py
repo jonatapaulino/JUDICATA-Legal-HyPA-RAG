@@ -2,6 +2,8 @@
 FastAPI main application for Judicial Sovereignty Backend.
 Provides the /adjudicate endpoint for judicial reasoning.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 License: MIT
 """
 import uuid

@@ -2,6 +2,8 @@
 Testes unitários para Query Classifier.
 Testa a classificação de complexidade e parâmetros RAG.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import pytest
 from app.retrieval.query_classifier import QueryClassifier, classify_query, get_rag_params_for_query

@@ -2,6 +2,8 @@
 Structured logging configuration using structlog.
 Provides JSON-formatted logs for production and human-readable logs for development.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import logging
 import sys

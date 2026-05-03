@@ -2,6 +2,8 @@
 Testes unitários para RAG Defender.
 Testa detecção e filtragem de documentos envenenados (poisoned).
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import pytest
 from app.retrieval.rag_defender import RAGDefender, filter_documents

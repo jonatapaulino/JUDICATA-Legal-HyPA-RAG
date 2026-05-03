@@ -2,6 +2,8 @@
 Testes de integração da API FastAPI.
 Testa endpoints com mocks dos serviços externos.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import pytest
 from unittest.mock import AsyncMock, patch, MagicMock

@@ -2,6 +2,8 @@
 Sumulas Scraper.
 Aggregates sumulas from multiple courts including STF, STJ, TST, TSE.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import asyncio

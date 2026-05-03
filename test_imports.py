@@ -2,6 +2,8 @@
 Script para testar imports de todos os módulos.
 Verifica se há erros de sintaxe ou imports circulares.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import sys
 import traceback

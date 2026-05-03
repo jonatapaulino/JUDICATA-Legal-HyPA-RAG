@@ -5,6 +5,8 @@ Integrates with the official Supreme Court APIs for jurisprudence and sumulas.
 STF API: https://portal.stf.jus.br/
 STJ API: https://scon.stj.jus.br/
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import asyncio

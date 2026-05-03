@@ -13,6 +13,7 @@ Testes abrangentes cobrindo todas as dimensões da arquitetura:
   T9  - Testes de Estresse/Concorrência
   T10 - Casos Limítrofes (Edge Cases)
 
+Author: Delvek da S. V. de Sousa
 Date: 2026-02-10
 """
 

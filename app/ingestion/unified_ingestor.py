@@ -2,6 +2,8 @@
 Unified Legal Data Ingestor.
 Coordinates ingestion from all sources into Qdrant (vector) and Neo4j (graph) databases.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import asyncio

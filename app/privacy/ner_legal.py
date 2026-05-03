@@ -2,6 +2,8 @@
 Legal Named Entity Recognition for Portuguese.
 Identifies sensitive entities in legal text for anonymization.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List, Tuple, Optional
 import re

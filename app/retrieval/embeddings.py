@@ -2,6 +2,8 @@
 Embedding generation using Legal-BERT for Portuguese legal text.
 Provides singleton wrapper around sentence-transformers for efficient embedding generation.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List, Optional
 import numpy as np

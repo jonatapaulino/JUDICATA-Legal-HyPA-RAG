@@ -5,6 +5,8 @@ Integrates with the official Brazilian legal data API for searching and retrievi
 LexML Brasil: https://www.lexml.gov.br/
 API Documentation: https://www.lexml.gov.br/busca/SRU
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import asyncio

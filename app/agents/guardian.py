@@ -2,6 +2,8 @@
 Guardian Agent - Zero Trust security layer.
 Validates all inputs and outputs to prevent injection attacks and jailbreaks.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import re
 from typing import List

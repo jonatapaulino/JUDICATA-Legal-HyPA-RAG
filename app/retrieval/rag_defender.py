@@ -2,6 +2,8 @@
 RAG Defender - Protection against data poisoning attacks.
 Uses TF-IDF clustering to detect and filter outlier documents.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List
 import numpy as np

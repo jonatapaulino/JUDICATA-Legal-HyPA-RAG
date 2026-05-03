@@ -1,11 +1,10 @@
 # Backend de Soberania Judiciária
 ## Sistema Neuro-Simbólico e Agêntico para Raciocínio Jurídico
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19489309.svg)](https://doi.org/10.5281/zenodo.19489309)
 
-**Autores**: [Anonymized for blind review] 
-**Copyright**: © 2026 [Authors]  
+**Autores**: Delvek da S. V. de Sousa, Jonatã P. Costa 
+**Copyright**: © 2025 Delvek da S. V. de Sousa and Jonatã P. Costa  
 **Versão**: 1.0.0  
-**Licença**: [MIT](LICENSE)
+**Licença**: MIT
 
 ---
 
@@ -189,6 +188,20 @@ pytest tests/unit/test_rag_defender.py -v      # 20 testes
 
 ---
 
+## 📦 Dataset (PeerJ Submission)
+
+The self-curated evaluation dataset (165 queries across 10 categories +
+catalogue of 77 Brazilian legislations) lives in [`dataset/`](dataset/).
+See [`dataset/DATASET.md`](dataset/DATASET.md) for the full data dictionary,
+sources, and reproduction instructions.
+
+```bash
+# Re-export the CSVs from source code
+python dataset/build_dataset.py
+```
+
+---
+
 ## 🔧 Configuração (.env)
 
 ```bash
@@ -278,7 +291,8 @@ docker-compose down
 
 **MIT License**
 
-[Author 2]
+Copyright (c) 2025 Delvek da S. V. de Sousa, 
+Jonatã P. Costa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -294,7 +308,7 @@ copies or substantial portions of the Software.
 
 ## 📞 Contato
 
-**Autores**: [Anonymized for blind review]
+**Autores**: Delvek da S. V. de Sousa, Jonatã P. Costa
 
 ---
 
@@ -312,6 +326,4 @@ copies or substantial portions of the Software.
 
 ---
 
-JUDICATA: Sovereign Neuro-Symbolic Legal RAG Framework > Developed by Jonatã Paulino, Delvek da S. V. de Sousa, Julio, Cauã, and Professor Renato Frances (Advisor) © 2026.
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+**Desenvolvido por Delvek da S. V. de Sousa and Jonatã P. Costa © 2025**

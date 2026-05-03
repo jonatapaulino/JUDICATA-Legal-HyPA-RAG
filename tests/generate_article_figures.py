@@ -3,6 +3,7 @@ Gerador de Figuras para Artigo A1 - Soberania Judicial
 =======================================================
 Gera todas as visualizações necessárias para o artigo acadêmico.
 
+Author: Delvek da S. V. de Sousa
 Date: 2026-02-10
 """
 

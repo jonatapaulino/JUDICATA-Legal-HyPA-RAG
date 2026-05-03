@@ -4,6 +4,8 @@ Trigger Generator for P2P Defense.
 Generates diverse benign triggers to create comprehensive vaccination coverage
 against potential backdoor attacks.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import random

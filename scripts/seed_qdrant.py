@@ -2,6 +2,8 @@
 Seed script for Qdrant vector database.
 Populates with sample legal documents and their embeddings.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import asyncio
 import sys

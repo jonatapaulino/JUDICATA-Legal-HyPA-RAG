@@ -1,6 +1,8 @@
 """
 Teste simples de imports - apenas sintaxe, sem carregar modelos pesados.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import sys
 

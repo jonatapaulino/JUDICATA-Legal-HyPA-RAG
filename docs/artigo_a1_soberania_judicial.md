@@ -1,6 +1,6 @@
 # Soberania Judicial: Um Framework Neuro-Simbolico e Agentico para Resiliencia Causal e Defensibilidade Juridica em Modelos de Linguagem
 
-**[Author 1]**
+**Delvek da S. V. de Sousa**
 
 *Universidade Federal do Tocantins (UFT) - Curso de Ciencia da Computacao*
 

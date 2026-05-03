@@ -2,6 +2,8 @@
 Ingestion module for Brazilian legal data.
 Includes scrapers for Planalto, LexML API, STF/STJ jurisprudence, and sumulas.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 from .planalto_scraper import PlanaltoScraper

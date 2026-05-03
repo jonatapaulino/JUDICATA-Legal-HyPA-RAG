@@ -2,6 +2,8 @@
 Testes de integração do pipeline completo.
 Testa a integração entre Guardian, Query Classifier, RAG Defender e LSIM.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import pytest
 from unittest.mock import AsyncMock, patch, MagicMock

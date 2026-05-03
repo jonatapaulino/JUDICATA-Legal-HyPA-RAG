@@ -2,6 +2,8 @@
 Orchestrator using LangGraph for judicial reasoning workflow.
 Implements the Plan-Execute pattern with Guardian validation.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import Literal
 import time

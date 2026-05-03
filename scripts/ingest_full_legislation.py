@@ -20,6 +20,8 @@ Categories available:
     processual_penal, administrativo, consumidor, ambiental, empresarial,
     familia, previdenciario, eleitoral, militar, etc.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import asyncio

@@ -1,6 +1,8 @@
 """
 Configuration module using Pydantic Settings for type-safe environment variables.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List, Optional
 from pydantic import Field, field_validator
@@ -44,7 +46,7 @@ class Settings(BaseSettings):
         description="Neo4j connection URI"
     )
     neo4j_user: str = Field(default="neo4j", description="Neo4j username")
-    neo4j_password: str = Field(default="CHANGE_ME_IN_ENV", description="Neo4j password")
+    neo4j_password: str = Field(default="judicial123", description="Neo4j password")
     neo4j_database: str = Field(default="neo4j", description="Neo4j database name")
 
     # Redis Configuration

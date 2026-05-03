@@ -2,6 +2,8 @@
 Testes unitários reais para o Guardian Agent.
 Estes testes NÃO são viesados - testam cenários reais de ataque.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 import pytest
 from app.agents.guardian import GuardianAgent

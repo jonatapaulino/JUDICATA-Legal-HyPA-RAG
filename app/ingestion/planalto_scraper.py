@@ -2,6 +2,8 @@
 Planalto.gov.br Scraper for Brazilian Legislation.
 Downloads and parses legal texts from the official government portal.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import asyncio

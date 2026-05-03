@@ -4,6 +4,8 @@ Safety Validator for P2P Defense.
 Validates inputs and outputs against P2P defense rules and integrates
 with the broader security architecture.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 
 import re

@@ -2,6 +2,8 @@
 Rule matching from legal knowledge base and retrieved documents.
 Identifies applicable legal rules given a set of facts.
 
+Author: Delvek da S. V. de Sousa
+Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List
 from langchain_community.chat_models import ChatOllama
