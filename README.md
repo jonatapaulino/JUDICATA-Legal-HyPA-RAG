@@ -1,7 +1,18 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19489308.svg)](https://doi.org/10.5281/zenodo.19489308)
 
-# Backend de Soberania Judiciária
-## Sistema Neuro-Simbólico e Agêntico para Raciocínio Jurídico
+# JUDICATA
+## Pipeline aberto e local de apoio à fundamentação jurídica com verificação de fontes (Direito brasileiro)
+
+> **Escopo.** O JUDICATA é uma ferramenta de **apoio à pesquisa e à fundamentação** para Defensorias Públicas e
+> assessorias (análise inicial de casos). **Não decide casos, não substitui a decisão judicial nem a
+> orientação de um profissional.** Cada resposta é um rascunho a ser verificado por um profissional habilitado.
+> O uso por tribunais para formular juízos conclusivos sobre fatos concretos é de alto risco nos termos da
+> Resolução CNJ 615/2025 (Anexo, AR4).
+
+> **Revisão PLOS ONE (PONE-D-26-42993).** O código e os resultados correspondentes ao manuscrito revisado
+> estão neste repositório a partir da tag `v2.0.2-frozen` (sistema congelado) e na pasta
+> [`evaluation/`](evaluation/) (scripts, saídas armazenadas e `results/RESULTS.md`). Ver a seção
+> [Reprodução da avaliação](#-reprodução-da-avaliação-plos-one).
 
 **Autores**: Delvek da S. V. de Sousa, Jonatã P. Costa 
 **Copyright**: © 2025 Delvek da S. V. de Sousa and Jonatã P. Costa  
@@ -12,18 +23,23 @@
 
 ## 📋 Sobre o Projeto
 
-Sistema backend completo para raciocínio jurídico automatizado utilizando arquitetura neuro-simbólica e agêntica. Combina recuperação de informação (RAG) com raciocínio lógico (LSIM) para fornecer fundamentações jurídicas estruturadas no modelo Toulmin.
+Pipeline LangGraph que combina recuperação híbrida sobre legislação federal e súmulas, uma camada de
+raciocínio Fato–Regra–Conclusão (LSIM), defesas baseadas em regras, pseudonimização de dados pessoais
+**antes** de qualquer chamada a modelo, trilha de auditoria por etapa e saída no modelo de Toulmin com
+**verificação das fontes citadas** e hierarquia de fontes (SV/RG/repetitivo > CF > lei > súmula > orientação).
+Todos os modelos rodam localmente via Ollama; nenhuma configuração de referência usa serviço em nuvem.
 
 ### Características Principais
 
-- **HyPA-RAG**: Hybrid Parallel Augmented RAG (dense + sparse + graph retrieval)
-- **LSIM**: Logical-Semantic Integration Module para raciocínio estruturado
-- **Guardian Agent**: Zero Trust security layer (anti-injection, anti-jailbreak)
-- **RAG Defender**: Proteção contra data poisoning com TF-IDF clustering
-- **Toulmin Model**: Argumentação estruturada (Claim, Data, Warrant, Backing, Rebuttal, Qualifier)
-- **SCOT**: Safety Chain-of-Thought validation
-- **LOPSIDED**: Local Privacy with Selective Identification Erasure
-- **LangGraph Orchestration**: Workflow agêntico com state machine
+- **HyPA-RAG**: recuperação densa (BERTimbau-Large/Qdrant) + esparsa (BM25) + grafo (Neo4j, busca por palavra-chave), fusão RRF com pesos por complexidade
+- **LSIM**: cadeia Fato–Regra–Conclusão (modela no máximo a justificação interna)
+- **Verificação de Backing**: todo dispositivo citado é conferido contra os documentos recuperados e contra o status de vigência; o Qualifier deriva dessa verificação
+- **Guardian**: 29 expressões regulares de entrada/saída (filtro inicial; frágil a paráfrases — ver avaliação)
+- **P2P**: detector de gatilhos por regras (não altera nem "vacina" o modelo)
+- **RAG Defender**: filtro de passagens anômalas por TF-IDF
+- **SCOT**: validação **posterior** do raciocínio por LLM (fail-closed)
+- **Pseudonimização na entrada**: nomes de pessoas naturais, CPF, RG, e-mail, telefone e número CNJ
+- **Trilha de auditoria**: estado de cada nó gravado em SQLite (`data/audit/checkpoints.sqlite`)
 
 ---
 
@@ -65,8 +81,8 @@ Docs: **http://localhost:8000/docs**
 
 ### Principal
 
-#### `POST /adjudicate`
-Raciocínio jurídico completo.
+#### `POST /analyze`
+Análise com argumento Toulmin e fontes verificadas (apoio à fundamentação; não é decisão).
 
 **Request**:
 ```json
@@ -80,12 +96,15 @@ Raciocínio jurídico completo.
 **Response**:
 ```json
 {
-  "claim": "O proprietário pode rescindir o contrato...",
-  "data": ["Inadimplência de 6 meses", "Lei 8.245/91 Art. 9º"],
-  "warrant": "Rescisão permitida por inadimplência",
-  "backing": "Jurisprudência do STJ...",
-  "rebuttal": "Embora haja defesas possíveis...",
-  "qualifier": "CERTO",
+  "claim": "Há fundamento para a ação de despejo por falta de pagamento...",
+  "data": ["Inadimplência de 6 meses"],
+  "warrant": "A falta de pagamento do aluguel autoriza o desfazimento da locação",
+  "backing": "Lei 8.245/1991, art. 9º, III (fonte recuperada)",
+  "rebuttal": "Purga da mora (art. 62, II) ...",
+  "qualifier": "PROVAVEL",
+  "qualifier_basis": "1/1 dispositivos citados constam das fontes recuperadas.",
+  "citation_check": {"cited": ["ART:8245:9"], "grounded": ["ART:8245:9"], "ungrounded": [], "revoked": []},
+  "disclaimer": "Apoio à pesquisa e à fundamentação. Não constitui decisão ...",
   "trace_id": "req_abc123",
   "processing_time_ms": 1234
 }
@@ -176,7 +195,7 @@ Health check básico.
 
 ## 🧪 Testes
 
-**92/92 testes passando (100%)**
+Testes unitários: `pytest tests/unit -q` (100 testes na versão congelada).
 
 ```bash
 # Executar todos
@@ -190,10 +209,11 @@ pytest tests/unit/test_rag_defender.py -v      # 20 testes
 
 ---
 
-## 📦 Dataset (PeerJ Submission)
+## 📦 Dataset interno (versão anterior)
 
-The self-curated evaluation dataset (165 queries across 10 categories +
-catalogue of 77 Brazilian legislations) lives in [`dataset/`](dataset/).
+O conjunto interno de 165 queries ([`dataset/`](dataset/)) foi usado durante o desenvolvimento e algumas
+regras foram ajustadas após inspecionar falhas nele (commit `475cc9c`). Ele **não** é usado como conjunto de
+teste na revisão; os resultados nele são reportados apenas como conjunto de desenvolvimento.
 See [`dataset/DATASET.md`](dataset/DATASET.md) for the full data dictionary,
 sources, and reproduction instructions.
 
@@ -235,29 +255,16 @@ RAG_TOP_K_HIGH=15
 
 ## 🛡️ Segurança
 
-### Guardian Agent
-Bloqueia:
-- Injection attacks
-- XSS/SQL injection
-- Jailbreak attempts
-
-### RAG Defender
-- Anti-poisoning via TF-IDF
-- Filtra documentos anômalos
-
-### SCOT
-- Valida raciocínio do LLM
-- Detecta alucinações
+As defesas são filtros baseados em regras e **não constituem garantia de segurança**. Na avaliação com
+ataques de terceiros (não vistos ao escrever as regras), a taxa de detecção é baixa — ver
+`evaluation/results/RESULTS.md`. Ataques via corpus (poisoning) não foram avaliados.
 
 ---
 
 ## 📊 Performance
 
-| Complexidade | Tempo        | Docs Recuperados |
-|--------------|--------------|------------------|
-| BAIXA        | ~500ms       | 3-5              |
-| MEDIA        | ~1500ms      | 8-12             |
-| ALTA         | ~3000ms      | 15-20            |
+Latências medidas estão em `evaluation/results/RESULTS.md` (pipeline completo com Qwen2.5 14B local:
+dezenas de segundos por consulta numa RTX 5090 Laptop).
 
 ---
 
@@ -318,7 +325,7 @@ copies or substantial portions of the Software.
 
 | Endpoint | Método | Descrição |
 |----------|--------|-----------|
-| `/adjudicate` | POST | Raciocínio jurídico completo |
+| `/analyze` | POST | Argumento Toulmin com fontes verificadas |
 | `/api/v1/classify` | POST | Classificar query |
 | `/api/v1/validate` | POST | Validar texto |
 | `/api/v1/status` | GET | Status de serviços |
@@ -329,3 +336,20 @@ copies or substantial portions of the Software.
 ---
 
 **Desenvolvido por Delvek da S. V. de Sousa and Jonatã P. Costa © 2025**
+
+
+---
+
+## 🔁 Reprodução da avaliação (PLOS ONE)
+
+```bash
+git checkout v2.0.2-frozen
+pip install -r requirements.txt
+python scripts/run_ingest_all.py            # corpus: legislação + súmulas + documentos de saúde
+python evaluation/build_sets.py             # conjuntos externos (OAB, oab-bench, ataques) + casos Temas 6/1234
+python evaluation/translate_attacks.py      # amostra de ataques traduzida (tradução automática, declarada)
+python evaluation/security_eval.py          # E1: defesas em ataques de terceiros (sem LLM)
+python evaluation/job_queue.py              # E2–E5: condições, ablações, extração, juízes, auditoria de PII
+python evaluation/analyze.py                # todas as tabelas -> evaluation/results/RESULTS.md
+```
+Modelos (Ollama, locais): `qwen2.5:14b`, `mistral:7b` (sistemas avaliados); `gemma3:27b`, `llama3.1:8b` (juízes).

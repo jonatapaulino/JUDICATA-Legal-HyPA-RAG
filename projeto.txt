@@ -1,3 +1,5 @@
+NOTA (revisão 2026): documento histórico de concepção, mantido por transparência. O JUDICATA NÃO é um sistema judicial autônomo: é uma ferramenta de apoio à pesquisa e à fundamentação, cujo resultado deve ser verificado por um profissional. Ver README.md.
+
 Master Prompt: Backend da Arquitetura de Soberania Judicial
 Contexto:
 Você atuará como Arquiteto de Software Sênior e Engenheiro de ML. Sua tarefa é criar o código do Backend para um sistema judicial autônomo baseado em uma arquitetura "Neuro-Simbólica e Agêntica". Este sistema deve ser robusto, modular e rodar localmente.
