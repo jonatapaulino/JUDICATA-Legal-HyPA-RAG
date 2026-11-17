@@ -23,6 +23,15 @@ from app.retrieval.rag_defender import filter_documents
 logger = get_logger(__name__)
 
 
+import re as _re
+import unicodedata as _ud
+
+
+def _tokenize(text: str):
+    t = "".join(c for c in _ud.normalize("NFD", text.lower()) if _ud.category(c) != "Mn")
+    return _re.findall(r"[a-z0-9]+", t)
+
+
 class HyPARAG:
     """
     Hybrid Parameter-Adaptive RAG (HyPA-RAG) system.
@@ -91,14 +100,17 @@ class HyPARAG:
             self.bm25_corpus = []
             self.bm25_doc_ids = []
 
+            self.bm25_metadata = []
             for point in all_points:
                 content = point.payload.get("content", "")
                 if content:
                     self.bm25_corpus.append(content)
                     self.bm25_doc_ids.append(str(point.id))
+                    # keep metadata (was dropped before: BM25 hits lost law/article info)
+                    self.bm25_metadata.append(point.payload.get("metadata", {}) or {})
 
-            # Tokenize and build BM25 index
-            tokenized_corpus = [doc.lower().split() for doc in self.bm25_corpus]
+            # Tokenize and build BM25 index (accent/punctuation-insensitive)
+            tokenized_corpus = [_tokenize(doc) for doc in self.bm25_corpus]
             self.bm25_index = BM25Okapi(tokenized_corpus)
 
             self._initialized = True
@@ -135,7 +147,12 @@ class HyPARAG:
 
         # Classify query complexity
         complexity = classify_query(query)
-        params = query_classifier.get_rag_params(complexity)
+        # Ablation switch: fixed (MEDIA) weights instead of complexity-dependent ones
+        params = query_classifier.get_rag_params(
+            complexity if settings.adaptive_weights_enabled else QueryComplexity.MEDIA)
+        if not settings.kg_enabled:
+            params.use_graph = False
+            params.graph_weight = 0.0
 
         logger.info(
             "query_classified",
@@ -177,6 +194,11 @@ class HyPARAG:
             graph_docs=graph_docs,
             params=params
         )
+
+        # Drop norms marked as revoked in the validity catalog
+        if settings.exclude_revoked_norms:
+            fused_docs = [d for d in fused_docs
+                          if (d.metadata or {}).get("status", "vigente") != "revogada"]
 
         # Apply RAG Defender to filter poisoned documents
         safe_docs = filter_documents(fused_docs)
@@ -280,7 +302,7 @@ class HyPARAG:
                 return []
 
             # Tokenize query
-            tokenized_query = query.lower().split()
+            tokenized_query = _tokenize(query)
 
             # Get BM25 scores
             scores = self.bm25_index.get_scores(tokenized_query)
@@ -295,7 +317,7 @@ class HyPARAG:
                     doc = Document(
                         id=self.bm25_doc_ids[idx],
                         content=self.bm25_corpus[idx],
-                        metadata={},
+                        metadata=self.bm25_metadata[idx] if idx < len(getattr(self, "bm25_metadata", [])) else {},
                         score=float(scores[idx]),
                         source="bm25"
                     )

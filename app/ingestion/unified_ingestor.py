@@ -245,8 +245,13 @@ class UnifiedLegalIngestor:
                 })
 
                 # Process each chunk
+                seen_numbers: Dict[str, int] = {}
                 for chunk in chunks:
-                    chunk_id = self._generate_id(metadata.id, chunk.article_number)
+                    # Article numbers repeat inside one text (e.g. CF body vs ADCT); the
+                    # occurrence index keeps them distinct instead of silently dropping them.
+                    occ = seen_numbers.get(chunk.article_number, 0)
+                    seen_numbers[chunk.article_number] = occ + 1
+                    chunk_id = self._generate_id(metadata.id, chunk.article_number, occ)
 
                     if chunk_id in self._indexed_ids:
                         continue
@@ -269,7 +274,10 @@ class UnifiedLegalIngestor:
                                 'article': chunk.article_number,
                                 'hierarchy': chunk.hierarchy,
                                 'date': metadata.date,
-                                'tags': metadata.tags
+                                'tags': metadata.tags,
+                                'status': metadata.status,
+                                'source_url': metadata.url,
+                                'retrieved_at': datetime.now().strftime('%Y-%m-%d')
                             }
                         }
                     )
@@ -280,7 +288,7 @@ class UnifiedLegalIngestor:
                     graph_operations.append({
                         'type': 'article',
                         'data': {
-                            'id': f"{metadata.id}_Art_{chunk.article_number}",
+                            'id': f"{metadata.id}_Art_{chunk.article_number}_{occ}",
                             'law_id': metadata.id,
                             'number': chunk.article_number,
                             'content': chunk.content[:500] if chunk.content else ''

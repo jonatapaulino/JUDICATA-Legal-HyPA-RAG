@@ -241,6 +241,7 @@ BRAZILIAN_LEGISLATION_CATALOG: List[LegislationMetadata] = [
         name="Estatuto de Defesa do Torcedor (Lei 10.671/2003)",
         type="LEI",
         url="http://www.planalto.gov.br/ccivil_03/leis/2003/l10.671.htm",
+        status="revogada",  # revoked by Lei 14.597/2023 (Lei Geral do Esporte), art. 217
         date="2003-05-15",
         category="esporte",
         tags=["torcedor", "esporte", "futebol", "evento_esportivo"]
@@ -280,6 +281,9 @@ BRAZILIAN_LEGISLATION_CATALOG: List[LegislationMetadata] = [
         type="LEI",
         url="http://www.planalto.gov.br/ccivil_03/leis/l8666cons.htm",
         date="1993-06-21",
+        # Revoked by Lei 14.133/2021 (art. 193, II) on 30/12/2023. Kept in the
+        # catalog only so the validity checker can flag citations to it.
+        status="revogada",
         category="administrativo",
         tags=["licitacao", "contrato_administrativo", "pregao"]
     ),
@@ -296,7 +300,9 @@ BRAZILIAN_LEGISLATION_CATALOG: List[LegislationMetadata] = [
         id="LEI_ACAO_CIVIL_PUBLICA",
         name="Lei da Acao Civil Publica (Lei 7.347/1985)",
         type="LEI",
-        url="http://www.planalto.gov.br/ccivil_03/leis/l7347orig.htm",
+        # Consolidated text (the original 1985 text lacked e.g. the Defensoria Pública
+        # standing added by Lei 11.448/2007).
+        url="http://www.planalto.gov.br/ccivil_03/leis/l7347compilada.htm",
         date="1985-07-24",
         category="processual",
         tags=["acao_civil_publica", "direitos_difusos", "ministerio_publico"]
@@ -558,6 +564,7 @@ BRAZILIAN_LEGISLATION_CATALOG: List[LegislationMetadata] = [
         name="Lei do Divorcio (Lei 6.515/1977)",
         type="LEI",
         url="http://www.planalto.gov.br/ccivil_03/leis/l6515.htm",
+        status="parcialmente_revogada",  # largely superseded by CC/2002 and EC 66/2010
         date="1977-12-26",
         category="familia",
         tags=["divorcio", "separacao", "casamento"]
@@ -567,6 +574,7 @@ BRAZILIAN_LEGISLATION_CATALOG: List[LegislationMetadata] = [
         name="Lei da Uniao Estavel (Lei 9.278/1996)",
         type="LEI",
         url="http://www.planalto.gov.br/ccivil_03/leis/l9278.htm",
+        status="parcialmente_revogada",  # largely superseded by CC/2002 (arts. 1.723-1.727)
         date="1996-05-10",
         category="familia",
         tags=["uniao_estavel", "convivencia", "familia"]
@@ -825,6 +833,13 @@ class PlanaltoScraper:
 
         # Remove script and style elements
         for element in soup(['script', 'style', 'header', 'footer', 'nav']):
+            element.decompose()
+
+        # Planalto marks revoked or superseded wording with strike-through. The
+        # submitted version indexed that text as if it were in force.
+        for element in soup(['strike', 's', 'del']):
+            element.decompose()
+        for element in soup.select('[style*="line-through"]'):
             element.decompose()
 
         # Try to find the main content area

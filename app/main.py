@@ -1,6 +1,6 @@
 """
 FastAPI main application for Judicial Sovereignty Backend.
-Provides the /adjudicate endpoint for judicial reasoning.
+Provides the /analyze endpoint (legal research and argument support; not a decision tool).
 
 Author: Delvek da S. V. de Sousa
 Copyright (c) 2025 Delvek da S. V. de Sousa
@@ -209,10 +209,10 @@ async def health_check(request: Request):
     )
 
 
-@app.post("/adjudicate", response_model=ToulminResponse, tags=["Adjudication"], dependencies=[Depends(verify_api_key)])
-async def adjudicate(request: Request, adjudicate_request: AdjudicateRequest):
+@app.post("/analyze", response_model=ToulminResponse, tags=["Analysis"], dependencies=[Depends(verify_api_key)])
+async def analyze(request: Request, adjudicate_request: AdjudicateRequest):
     """
-    Main adjudication endpoint.
+    Main analysis endpoint (research/argument support for a human professional).
 
     Processes a judicial query through the complete reasoning pipeline:
     1. Input validation (Guardian)
@@ -243,7 +243,7 @@ async def adjudicate(request: Request, adjudicate_request: AdjudicateRequest):
 
     try:
         # Execute orchestrator
-        result = await orchestrator.adjudicate(
+        result = await orchestrator.analyze(
             query=adjudicate_request.query,
             anonymize=adjudicate_request.anonymize,
             enable_scot=adjudicate_request.enable_scot,

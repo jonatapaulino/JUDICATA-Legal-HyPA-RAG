@@ -25,7 +25,10 @@ class LegislationParser:
 
     # Regex patterns for Brazilian legislative structure
     PATTERNS = {
-        "article": r"^\s*Art\.\s*(\d+[º°]?[-A-Za-z]*)\.?",
+        # Revised: thousands separator ("Art. 1.723") and letter suffix ("Art. 19-Q").
+        # The previous pattern read "Art. 1.723" as article "1", so articles >= 1000
+        # collided and were dropped by the ingestor's de-duplication.
+        "article": r"^\s*Art\.\s*(\d{1,3}(?:\.\d{3})*\s*[º°o]?(?:\s*-\s*[A-Z]{1,2}\b)?)\s*\.?",
         "paragraph": r"^\s*§\s*(\d+[º°]?)\.?",
         "single_paragraph": r"^\s*Parágrafo\s+único\.?",
         "item": r"^\s*([IVXLCDM]+)\s*[-–]",

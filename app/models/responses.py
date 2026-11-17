@@ -28,6 +28,14 @@ class ToulminResponse(BaseModel):
     safety_validated: bool = False
     safety_warnings: List[str] = []
     anonymized: bool = False
+    # Revision: verifiability of the argument
+    citation_check: Dict[str, Any] = {}
+    qualifier_basis: str = ""
+    binding_sources: List[str] = []
+    disclaimer: str = (
+        "Apoio à pesquisa e à fundamentação. Não constitui decisão nem parecer; "
+        "requer análise por profissional habilitado."
+    )
 
 class HealthCheckResponse(BaseModel):
     """Response for health check."""

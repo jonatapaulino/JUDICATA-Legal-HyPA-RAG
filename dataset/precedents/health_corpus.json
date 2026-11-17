@@ -1,0 +1,144 @@
+[
+ {
+  "id": "STF_SV_60",
+  "type": "sumula",
+  "sumula_type": "vinculante",
+  "court": "STF",
+  "number": "60",
+  "content": "Súmula Vinculante 60 do STF: O pedido e a análise administrativos de fármacos na rede pública de saúde, a judicialização do caso, bem ainda seus desdobramentos (administrativos e jurisdicionais), devem observar os termos dos 3 (três) acordos interfederativos (e seus fluxos) homologados pelo Supremo Tribunal Federal, em governança judicial colaborativa, no tema 1.234 da sistemática da repercussão geral RE 1.366.243.",
+  "source_url": "https://portal.stf.jus.br/jurisprudencia/sumariosumulas.asp?base=26&sumula=9260",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "STF_SV_61",
+  "type": "sumula",
+  "sumula_type": "vinculante",
+  "court": "STF",
+  "number": "61",
+  "content": "Súmula Vinculante 61 do STF: A concessão judicial de medicamento registrado na ANVISA, mas não incorporado às listas de dispensação do Sistema Único de Saúde, deve observar as teses firmadas no julgamento do Tema 6 da Repercussão Geral (RE 566.471).",
+  "source_url": "https://portal.stf.jus.br/jurisprudencia/sumariosumulas.asp?base=26&sumula=9296",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p1",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p1",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). Este guia foi elaborado para auxiliar magistrados e seus assessores na rápida compreensão e análise de pedidos de concessão de medicamentos no âmbito do Sistema\nÚnico de Saúde (SUS), considerando os marcos jurídicos estabelecidos pelos Temas 6 e 1234 de\nRepercussão Geral do STF. Priorizamos a clareza e a objetividade para facilitar a tomada de decisão, mesmo em situações de plantão.\nGuia Rápido de\nJudicialização em Saúde:\nMedicamentos no SUS\nAplicação dos Temas 6 e 1234 - STF: critérios, competência e fluxos\nProcedimentos especiais na análise Judicial\nProcedimentos administrativos e Judiciais\nObservações finais\nGlossário\nO QUE VOCÊ VAI ENCONTRAR AQUI?\nSúmula vinculante\nFluxo para definição de competência Judicial\nDefinições importantes\nTabela resumida:\nCompetência e custos\nResumo visual -\nFluxos de análise\nOutras determinações\nResumo por fluxo\n(exemplo)\nFluxos de análise",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p2",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p2",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). Antes de começarmos, você precisa saber que pode acessar aqui o Tema 1234 e Tema 6 do STF.\nS V  6 0\nOrienta que a análise de pedidos de medicamentos na rede pública, sua judicialização e desdobramentos, devem observar os termos dos 3 (três) acordos interfederativos homologados pelo STF no Tema 1234 (RE\n1.366.243), em governança judicial colaborativa e os fluxos que foram definidos. Trata de competência e de critérios para análise judicial e administrativa.\nS V  6 1\nDetermina que a concessão judicial de medicamento registrado na\nANVISA, mas não incorporado às listas de dispensação do SUS, deve observar as teses firmadas no julgamento do Tema 6 (RE 566.471). Trata dos requisitos necessários para a concessão de medicamentos não incorporados no SUS.\n1.Súmula Vinculante -SV\n2.Definindo a competência: poronde começar?\nA judicialização da saúde exige uma análise cuidadosa dos direitos e deveres do\nEstado e do cidadão. As decisões do Supremo Tribunal Federal (STF) nos Temas 6 e\n1234, transformadas em Súmulas Vinculantes, são fundamentais para uniformizar o entendimento.\nA primeira etapa é determinar a competência judicial (Justiça Federal ou Estadual) e a responsabilidade pelo custeio. Isso dependerá principalmente do registro do medicamento na ANVISA e de sua incorporação ao SUS.\n2.1. Medicamentos SEM registro na ANVISA\nSe o pedido envolver medicamento sem registro na ANVISA, aplica-se o Tema 500 do STF.\nRegra geral: A ausência de registro impede o fornecimento judicial.\nCompetência: Justiça Federal.\nPolo passivo: União.\nExceções: Concessão judicial é possível em casos de mora irrazoável da ANVISA, desde que preenchidos cumulativamente 3 requisitos: a.Pedido de registro no Brasil (exceção para medicamentos órfãos/doenças raras). b.Registro em renomadas agências internacionais. c.Inexistência de substituto terapêutico registrado no Brasil. d .\nConsulta à ANVISA: Verifique o registro em consultas.anvisa.gov.br",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p3",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p3",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). Para medicamentos registrados, a definição se divide entre medicamentos incorporados e não incorporados.\n2.2. Medicamentos registrados na ANVISA\n2.2.1. Como identificar a situação do medicamento\nMedicamentos NÃO incorporados: Para fins de aplicação dos temas são os medicamentos não registrados na Anvisa; aqueles que não constam na política pública do SUS; aqueles previstos nos PCDTs para outras finalidades (CID ou critérios diferentes); e os medicamentos off-label sem PCDT ou que não integrem listas do componente básico.\nA definição de \"medicamento não incorporado\" é crucial:\nConsulta de incorporação:\n2.2.2. Definição da competência e custeio (Tema 1234)\nRESME/REMUNE: Consulte as listas estaduais/municipais nas Secretarias de Saúde.\nCONITEC: Verifique as recomendações da Comissão Nacional de Incorporação de\nTecnologias no SUS em gov.br/conitec\nRENAME: Verifique a Relação Nacional de Medicamentos Essenciais, disponível aqui.\nComponenteResponsabilidade primáriaCompetência\nBásico (CBAF)MunicípiosJustiça Estadual\nEstratégico\n(CESAF)\nUnião (em regra)Justiça Federal\nEspecializado\n(CEAF)\nGrupo 1A: União\nGrupo 1B: Estado\nGrupo 2: Estado\nGrupo 3: Município/DF\nGrupo 1A: Justiça Federal\nGrupos 1B, 2, 3: Justiça Estadual\nSe o medicamento estiver incorporado ao SUS (RENAME, RESME, REMUNE ou\nCONITEC favorável e pactuado), a responsabilidade pelo fornecimento depende do\nComponente da Assistência Farmacêutica:\n2.2.2.1 Medicamentos incorporados",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p4",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p4",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). Para medicamentos com registro na ANVISA mas não incorporados, nos termos acima, a competência e o custeio dependem do valor anual do tratamento:\nCompetência: Justiça Federal.\nPolo passivo: União (custeará 100%).\nCusto anual ≥ 210 Salários mínimos (SM):\nCompetência: Justiça Estadual.\nPolo passivo: Estado (será ressarcido em 65% pela União).\nCusto anual entre 7 e 210 SM:\nCompetência: Justiça Estadual.\nPolo passivo: Estado (custeará totalmente).\nCusto anual < 7 SM:\nCálculo do valor da causa: Baseia-se no valor do tratamento anual do fármaco ou princípio ativo, usando o Preço Máximo de Venda do Governo (PMVG) na alíquota zero, divulgado pela CMED.\n1.Calcular quantidade anual do medicamento.\n2.Acessar o painel de consulta de preços PMVG da CMED (Lei 10.742/2003) pelo princípio ativo.\n3.Multiplicar quantidade anual pelo menor valor do PMVG (alíquota 0%).\nAtenção: A alíquota zero serve APENAS para cálculo do valor da causa e definição de competência, não para cumprimento da decisão.\nCMED: Em caso de ausência de valor em tabela, oficie à CMED para indicação.\nCOMPONENTE ONCOLÓGICO: DEFINIDO PELA PORTARIA GM/MS Nº 8.477, DE 20/10/25. SE\nDIVIDE EM:\nMEDICAMENTOS ONCOLÓGICOS DE AQUISIÇÃO CENTRALIZADA PELO MINISTÉRIO DA\nSAÚDE (EQUIPARADOS AO 1A) - UNIÃO\nMEDICAMENTOS ONCOLÓGICOS DE NEGOCIAÇÃO NACIONAL E MEDICAMENTOS DE\nAQUISIÇÃO DESCENTRALIZADA (EQUIPARADOS AO 1B) - ESTADOS\nOs medicamentos oncológicos passarão a fazer parte do Componente da Assistência\nFarmacêutica em Oncologia - AF-Onco e passarão a constar da Rename, conforme\nPortaria GM/MS nº 8.477, de 20/10/25. Enquanto as determinações da Portaria não forem regulamentadas e a inclusão devidamente efetivada, os medicamentos oncológicos podem ser consultados na página da Conitec, como será explicado adiante\nCumulação de pedidos:\nSe houver medicamentos NÃO INCORPORADOS e INCORPORADOS no mesmo pedido, somar apenas os valores dos NÃO INCORPORADOS para definir a competência.\nSe houver mais de um medicamento no pedido e um deles seja de responsabilidade da\nUnião, a competência será da Justiça Federal, pela \"vis atractiva\" (atração de competência). A União deve estar no polo passivo.\n2.2.2.2 Medicamentos não incorporados\nDe regra os municípios não mais respondem pelas ações judiciais que envolvam medicamentos não incorporados. O Município só será responsável se houver pactuação na\nComissão Intergestora Bipartite - CIB do respectivo Estado definindo eventual responsabilidade de seus municípios.\nRessarcimento na oncologia: Ações oncológicas ajuizadas antes de 10/06/2024: ressarcimento de 80% pela União. Ajuizadas a partir de 10/06/2024 mantido o mesmo percentual até que venha a ser alterado pela CIT",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p5",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p5",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). 3.Análise judicial\nO Judiciário deve analisar a legalidade do ato administrativo que negou o medicamento, sem adentrar no mérito administrativo.\nPara deferir a concessão judicial de medicamento não incorporado, o autor deve comprovar cumulativamente:\n1.Negativa administrativa: Demonstração de negativa de fornecimento na via administrativa, nos termos do Tema 1234 (ato motivado, indicação de substituto).\n2.Ilegalidade da não incorporação: Ilegalidade da não incorporação pela\nCONITEC, ausência de pedido ou mora na análise (art. 19-Q e 19-R da Lei\n8.080/1990).\n3.Inexistência de substituto: Impossibilidade de substituição por outro medicamento do SUS.\n4.Eficácia comprovada: Comprovação da eficácia, acurácia, efetividade e segurança do fármaco com evidências científicas de alto nível (ensaios clínicos randomizados, revisões sistemáticas, meta-análises).\n5.Imprescindibilidade clínica: Laudo médico fundamentado detalhando o tratamento, o histórico e a imprescindibilidade.\n6.Incapacidade financeira: Demonstração da incapacidade de arcar com o custo do medicamento.\nAtenção: Se houver recomendação desfavorável da CONITEC, o deferimento judicial exigirá a demonstração de ilegalidade do ato da CONITEC.\nNAT-JUS: Em casos de medicamentos não incorporados, a consulta ao Núcleo de Apoio Técnico do Poder Judiciário (NAT-Jus) é obrigatória, se disponível. Ele fornece informações técnicas e pode ser acessado via e-NatJus (plataforma que integra pareceres e notas técnicas – link CNJ a ser inserido). Se o NAT-Jus não estiver disponível, especialistas técnicos devem ser consultados. A decisão não pode se basear apenas no laudo do autor.\n3.1. Requisitos obrigatórios para medicamentos\nNÃO INCORPORADOS (Tema 6 e 1234)\nSe o medicamento já está incorporado, a parte autora deve demonstrar que se enquadra nos critérios de incorporação, incluindo os definidos nos Protocolos\nClínicos e Diretrizes Terapêuticas (PCDTs). Lembre-se: se um medicamento incorporado é solicitado para doença ou situação clínica diversa da definida no\nPCDT, ele é considerado como NÃO INCORPORADO.\n3.2. Medicamentos INCORPORADOS",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p6",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p6",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). Calcule valor da causa\nComponente\nResponsabilidade\nJustiça\nCompetente\nCBAF\nMunicípio\nEstadual\nCESAF\nUnião\nFederal\nCEAF - 1A\nUnião\nFederal\nCEAF - 1B\nEstado (Aquisição),\nUnião\n(Financiamento)\nEstadual\nCEAF - 2\nEstado\nEstadual\nCEAF - 3\nMunicípio\nEstadual\nDistrito Federal\nEstado + Município\nEstadual\nPopulação\nIndígena\nUnião\nFederal\nAvança para identificar o Componente da Assistência Farmacêutica.\nO medicamento está registrado na ANVISA?\nS i m\nN ã o\nNão Incorporado\nO medicamento é incorporado ou não incorporado?\nConsulte RENAME, RESME, REMUME,\nPCDT e recomendações da CONITEC.\nFórmula:Quantidade anualx PMVG (Preço\nMáximo de Venda ao Governo)alíquota zero.\nO PMVG alíquota zero:Consulte no site da CMED.\nSempre basear o cálculo nas informaçõe s relacionadas ao princípio ativo e não na marca comercial.\nSe o valor não constar na CMED:Magistrado pode oficiar a CMED para obter o preço.Se não houver resposta a tempo,considerar o orçamento da parte autora como referência provisória.\n Atenção!Alíquota Zero serve apenas para definir competência valor da causa..Não altera os valores de cumprimento de decisão.\nPedidos com Vários Medicamentos Não\nIncorporados:Some os valores de todos esses medicamentos para definir a competência do ju íz o .\nNão inclua os medicamentos que já foram incorporados ao SUS nesse cálculo.\nF lu x o  p a ra  d e fin iç ã o  d e competência Judicial\nSegue Tema 500 do\nSTF → Competência da Justiça Federal.\nIncorporado",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p7",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p7",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). SituaçãoCompetência\nResponsável pelo fornecimento / ressarcimento\nIncorporado - CBAFJustiça EstadualMunicípio\nIncorporado - CESAFJustiça FederalUnião\nIncorporado - CEAF 1AJustiça FederalUnião\nIncorporado - CEAF 1BJustiça EstadualEstado (União financia)\nIncorporado - CEAF 2Justiça EstadualEstado\nIncorporado - CEAF 3Justiça EstadualMunicípio\nNão Incorporado ≥ 210\nS M\nJustiça FederalUnião\nNão Incorporado 7–210\nS M\nJustiça EstadualEstado (União ressarce 65%)\nNão Incorporado < 7 SMJustiça EstadualEstado\n4.Tabela resumida:Competência e c u sto s",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p8",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p8",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). 5 . P ro c e d im e n to s a d m in istra tiv o s e ju d ic ia is\nPara medicamentos não incorporados, a análise judicial não substitui o ato administrativo.\nExcepcionalmente, pode haver concessão judicial, desde que todos os requisitos abaixo estejam cumulativamente comprovados:\nRequisitos para concessão judicial\nDescrição\nNegativa administrativa formal\nIlegalidade ou mora da ConitecComprovação pela parte autora\nImpossibilidade de substituição\nNenhum medicamento substituto nas listas SUS ou PCDT, se houver. Descrever todos os medicamentos padronizados no SUS que já foram utilizados, um a um, constando posologia e tempo de uso\nMedicina baseada em evidências\nEnsaio clínico randomizado, revisão sistemática ou meta- análise\nIndicação clínica imprescindívelLaudo médico específico e minucioso\nIncapacidade financeiraProva consistente\n6 . R e q u isito s in d isp e n sá v e is para a decisão judicial\nPassoO que fazer\nConsultar NAT-JUS\nObrigatório para não incorporados. Se indisponível, consultar especialistas técnicos\nAnalisar ato administrativo\nVer regularidade e legalidade, não mérito. Aplicar teoria dos motivos determinantes\nOficiar órgãos\nApós deferimento judicial para avaliar possível incorporação no SUS",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p9",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p9",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). 7.Fluxosde análise –Resumo visual\nMedicamento registrado na ANVISA?\nInício\nS i m\nMedicamento incorporado ou Não incorporado?\nN ã o\nIncorporado\nNão incorporado\nCalcular valor da causa\nDefinir responsabilidade e competência\nCompetência: Justiça\nFederal\nAnalisar se se enquadra nos critérios de incorporação\nAnalisar o cumprimento dos requisitos para concessão Judicial definidos nos temas 6 e\n1234\nVerificar decisão recomendação da CONITEC?\nFavorável / Desfavorável\n/Não analisado\nVerificar componente\nDeterminar responsabilidade e competência\nF i m",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p10",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p10",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). Medicamento incorporado\n 1. Verificar componente (CBAF, CESAF, CEAF)\n 2. Determinar responsável (Município, Estado, União) e a competência\n 3. Analisar se se enquadra nos critérios de incorporação e\nPCDT se houver\nMedicamento não incorporado\n 1. Cálculo do valor da causa\n 2. Determinar o responsável e a competência\n 3. Verificar decisão/recomendação da Conitec:\n    - Favorável, desfavorável, ou não analisado\n 4. Cumprir requisitos para concessão judicial (vide tabela acima)\n7.Fluxosde Análise\n8 . D isp o siç õ e s fin a is\nPlataforma Nacional: Uma plataforma nacional está sendo desenvolvida para centralizar informações sobre solicitações administrativas e judiciais de acesso a medicamentos, facilitando a identificação de responsabilidades e o monitoramento. Até sua implementação, os juízes devem intimar a\nAdministração Pública para justificar a negativa de fornecimento.\nRedirecionamento: Em caso de impossibilidade de cumprimento pela União, o juiz poderá redirecionar a Estados/Municípios, sem ônus financeiro ou sucumbencial para estes.\nCumprimento: o magistrado deverá estabelecer que o valor de venda do medicamento seja limitado ao preço com desconto, proposto no processo de incorporação na Conitec ou valor já praticado pelo ente em compra pública, aquele que seja identificado como menor valor, tal como previsto na parte final do art. 9º na Recomendação 146, de 28.11.2023, do CNJ. Sob nenhuma hipótese, poderá haver pagamento judicial em valor superior ao teto do PMVG, devendo ser operacionalizado pela serventia judicial junto ao fabricante ou distribuidor. Em caso de dificuldade operacional de aquisição do medicamento, o Judiciário poderá determinar ao fornecedor que entregue o medicamento ao ente federativo, mediante posterior apresentação de nota fiscal e/ou comprovante de entrega do medicamento recebido.\nO medicamento deverá ser entregue para a Secretaria de saúde que deverá promover a dispensação\nNão é possível entregar valores à parte autora para que faça a aquisição do medicamento.",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p11",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p11",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). Modulação:\nDefinição de competência:\nPROCESSOS AJUIZADOS ANTES DE 19/09/2024: não se aplicam os critérios de fixação de competência definidos no Tema 1234 e não pode ser suscitado conflito negativo de competência.\nProcessos ajuizados após 19/09/2024: aplicam-se os critérios de fixação de competência definidos no Tema 1234.\nQuanto às demais determinações, o voto se aplica de imediato em qualquer grau de jurisdição\n“os novos critérios de análise judicial do ato administrativo definidos na presente repercussão geral (tema 1234) devem ser observados a partir da publicação da ata de julgamento (para os casos pendentes - sem trânsito em julgado na fase de conhecimento), independentemente da fase em que o processo estiver e em qualquer grau de jurisdição, isto é, onde o processo se encontrava à época da publicação da ata de julgamento do mérito (19.9.2024).\nExemplificativa e hipoteticamente, caso o processo estivesse no segundo grau de jurisdição (TJ ou TRF), o (a) relator (a) deveria intimar as partes para se manifestar sobre a adequação às teses do presente tema, incluindo questões de fato ou de direito, com a reabertura da possibilidade de discussão, sendo vedada decisão surpresa sem que as partes tenham se manifestado previamente (art. 10 do CPC).”\n(Trecho do voto - Grifos nossos)”",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ },
+ {
+  "id": "CNJ_GUIA_RAPIDO_SAUDE_p12",
+  "type": "orientacao",
+  "court": "CNJ",
+  "number": "p12",
+  "content": "CNJ - Guia Rápido de Judicialização em Saúde: Medicamentos no SUS (Temas 6 e 1234 do STF). GLOSSÁRIO\nANVISA: Agência Nacional de Vigilância Sanitária\nCBAF: Componente Básico da Assistência Farmacêutica\nCEAF: Componente Especializado da Assistência Farmacêutica\nCESAF: Componente Estratégico da Assistência Farmacêutica\nCIB: Comissão Intergestores Bipartite\nCID: Classificação Internacional de Doenças\nCIT: Comissão Intergestores Tripartite\nCMED: Câmara de Regulação do Mercado de Medicamentos\nCNJ: Conselho Nacional de Justiça\nCONASS: Conselho Nacional de Secretários de Saúde\nCONITEC: Comissão Nacional de Incorporação de Tecnologias no SUS\nCPC: Código de Processo Civil\nDPU: Defensoria Pública da União\nDPE: Defensoria Pública Estadual\nFES: Fundo Estadual de Saúde\nFMS: Fundo Municipal de Saúde\nFNS: Fundo Nacional de Saúde\nMPF: Ministério Público Federal\nNAT-JUS: Núcleo de Apoio Técnico do Poder Judiciário\nOff-label: Uso de medicamento fora das indicações aprovadas na bula.\nPCDT: Protocolo Clínico e Diretrizes Terapêuticas\nPMVG: Preço Máximo de Venda ao Governo\nRE: Recurso Extraordinário (usado em referência aos Temas de Repercussão Geral do STF)\nREMUNE: Relação Municipal de Medicamentos Essenciais\nRENAME: Relação Nacional de Medicamentos Essenciais\nRESME: Relação Estadual de Medicamentos Essenciais\nSM: Salário Mínimo\nSTF: Supremo Tribunal Federal\nSUS: Sistema Único de Saúde\nSV: Súmula Vinculante\nTema (de Repercussão Geral): Tese jurídica fixada pelo STF em regime de Repercussão Geral, aplicável a todos os casos análogos.\nTRF4: Tribunal Regional Federal da 4ª Região\nVis Atractiva: Princípio processual de atração de competência.",
+  "source_url": "https://www.cnj.jus.br/wp-content/uploads/2025/11/guia-rapido-tema-6-e-1234-versao-reduzida.pdf",
+  "retrieved_at": "2026-11-16",
+  "status": "vigente"
+ }
+]

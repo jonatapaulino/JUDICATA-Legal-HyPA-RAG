@@ -6,9 +6,8 @@ Author: Delvek da S. V. de Sousa
 Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import List
-from langchain_community.chat_models import ChatOllama
-
 from app.core.config import settings
+from app.core.llm import get_llm
 from app.core.logging import get_logger
 from app.models.internal import Fact, Document
 
@@ -21,12 +20,9 @@ class FactExtractor:
     Facts are the building blocks for the LSIM reasoning engine.
     """
 
-    def __init__(self):
-        self.llm = ChatOllama(
-            base_url=settings.ollama_base_url,
-            model=settings.ollama_model,
-            temperature=0.0,  # Deterministic extraction
-        )
+    @property
+    def llm(self):
+        return get_llm(temperature=0.0)  # deterministic extraction; model chosen at run time
 
     async def extract_from_query(self, query: str) -> List[Fact]:
         """
@@ -99,8 +95,8 @@ Se não houver fatos explícitos, responda "NENHUM FATO IDENTIFICADO"."""
 
             # Combine top documents (limit to avoid token overflow)
             combined_text = "\n\n".join([
-                f"Documento {i+1}: {doc.content[:500]}"
-                for i, doc in enumerate(documents[:3])
+                f"Documento {i+1}: {doc.content[:800]}"
+                for i, doc in enumerate(documents[:settings.rule_matcher_max_docs])
             ])
 
             prompt = f"""Você é um assistente jurídico especializado em análise de precedentes.

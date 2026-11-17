@@ -5,8 +5,8 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 class AdjudicateRequest(BaseModel):
-    """Request for the adjudication endpoint."""
-    query: str = Field(..., min_length=5, description="The legal query to adjudicate")
+    """Request for the /analyze endpoint."""
+    query: str = Field(..., min_length=5, description="The legal question or case description to analyse")
     anonymize: bool = Field(default=True, description="Whether to anonymize sensitive entities")
     enable_scot: bool = Field(default=True, description="Whether to enable Safety Chain-of-Thought")
     trace_id: Optional[str] = Field(default=None, description="Optional trace ID for tracking")

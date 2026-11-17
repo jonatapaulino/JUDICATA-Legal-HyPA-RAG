@@ -6,11 +6,17 @@ Author: Delvek da S. V. de Sousa
 Copyright (c) 2025 Delvek da S. V. de Sousa
 """
 from typing import Literal
+import hashlib
+import json
+import os
+import sqlite3
 import time
 import uuid
+from datetime import datetime, timezone
 
 from langgraph.graph import StateGraph, END
 
+from app.core.config import settings
 from app.core.logging import get_logger
 from app.agents.state import JudicialState
 from app.agents.tools import retrieve_documents_tool, reason_with_lsim_tool
@@ -25,6 +31,43 @@ logger = get_logger(__name__)
 # Initialize P2P Defense system
 p2p_defense = P2PDefense()
 safety_validator = SafetyValidator(p2p_defense=p2p_defense)
+
+
+class AuditTrail:
+    """
+    Per-node state snapshots persisted in SQLite (one row per node execution).
+
+    The query is pseudonymised BEFORE the graph runs, so no raw personal data
+    reaches the audit store, retrieval or any LLM call. Only a SHA-256 hash of the
+    raw query is kept, to allow linking a record to an external request log.
+    """
+
+    def __init__(self, path):
+        self.path = path
+        if path:
+            os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+            with sqlite3.connect(path) as c:
+                c.execute("""CREATE TABLE IF NOT EXISTS audit(
+                    trace_id TEXT, step INTEGER, node TEXT, ts TEXT, model TEXT, state_json TEXT)""")
+
+    def write(self, trace_id, step, node, update):
+        if not self.path:
+            return
+        try:
+            with sqlite3.connect(self.path) as c:
+                c.execute("INSERT INTO audit VALUES (?,?,?,?,?,?)", (
+                    trace_id, step, node, datetime.now(timezone.utc).isoformat(),
+                    settings.ollama_model, json.dumps(update, default=_jsonable, ensure_ascii=False)))
+        except Exception as e:  # auditing must never break the pipeline, but failures are logged
+            logger.error("audit_write_error", error=str(e), trace_id=trace_id)
+
+
+def _jsonable(o):
+    if hasattr(o, "model_dump"):
+        return o.model_dump()
+    if hasattr(o, "value"):
+        return o.value
+    return str(o)
 
 
 class JudicialOrchestrator:
@@ -44,6 +87,7 @@ class JudicialOrchestrator:
 
     def __init__(self):
         self.graph = self._build_graph()
+        self.audit = AuditTrail(settings.audit_checkpoint_path)
 
     def _build_graph(self) -> StateGraph:
         """Build the LangGraph workflow."""
@@ -269,7 +313,7 @@ class JudicialOrchestrator:
         return state
 
     async def _anonymize_node(self, state: JudicialState) -> JudicialState:
-        """Anonymize sensitive entities in the response."""
+        """Second safeguard: pseudonymise the generated fields (the query was already pseudonymised at input)."""
         logger.info("node_anonymize", trace_id=state["trace_id"])
 
         if not state["final_response"]:
@@ -309,7 +353,7 @@ class JudicialOrchestrator:
 
     # Public interface
 
-    async def adjudicate(
+    async def analyze(
         self,
         query: str,
         anonymize: bool = True,
@@ -317,7 +361,7 @@ class JudicialOrchestrator:
         trace_id: str = None
     ) -> dict:
         """
-        Execute the complete judicial reasoning workflow.
+        Run the legal-analysis workflow (research and argument support; NOT a decision).
 
         Args:
             query: User query
@@ -333,6 +377,15 @@ class JudicialOrchestrator:
 
         logger.info("orchestrator_start", trace_id=trace_id)
         start_time = time.time()
+
+        raw_hash = hashlib.sha256(query.encode("utf-8")).hexdigest()
+        # Pseudonymise personal data BEFORE retrieval, any LLM call or audit write.
+        if anonymize and settings.input_pseudonymization_enabled:
+            try:
+                query = anonymize_text(query, doc_id=trace_id)
+            except Exception as e:
+                logger.error("input_pseudonymization_error", error=str(e), trace_id=trace_id)
+                return {"error": "Pseudonymization failed; request not processed", "trace_id": trace_id}
 
         # Initialize state
         initial_state: JudicialState = {
@@ -350,7 +403,16 @@ class JudicialOrchestrator:
 
         # Execute graph
         try:
-            final_state = await self.graph.ainvoke(initial_state)
+            self.audit.write(trace_id, 0, "__input__", {"query": query, "raw_query_sha256": raw_hash,
+                                                         "anonymize": anonymize})
+            final_state = dict(initial_state)
+            step = 0
+            async for update in self.graph.astream(initial_state, stream_mode="updates"):
+                for node, delta in update.items():
+                    step += 1
+                    if isinstance(delta, dict):
+                        final_state.update(delta)
+                    self.audit.write(trace_id, step, node, delta)
 
             processing_time = int((time.time() - start_time) * 1000)
 
@@ -363,6 +425,7 @@ class JudicialOrchestrator:
                 return {
                     "error": "Processing failed",
                     "details": final_state["errors"],
+                    "guardian_checks": final_state.get("guardian_checks", []),
                     "trace_id": trace_id
                 }
 
@@ -388,6 +451,10 @@ class JudicialOrchestrator:
                 "details": str(e),
                 "trace_id": trace_id
             }
+
+
+    # Backwards-compatible alias (deprecated name)
+    adjudicate = analyze
 
 
 # Global instance

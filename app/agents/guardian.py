@@ -30,7 +30,10 @@ class GuardianAgent:
     BLOCKED_PATTERNS = [
         r"ignore\s+(as|todas|previous|anteriores|tudo|everything|all|your|suas)?\s*(instru[cç][õo][õe]s|instructions)",
         r"ignore\s+(tudo|everything|all)",  # "Ignore tudo" mesmo sem segunda palavra
-        r"você\s+(agora\s+)?(é|e|seja|se\s+torne)\s+",
+        # Role reassignment. Revised: the previous pattern "você é ..." blocked ordinary
+        # questions such as "Você é obrigado a pagar pensão...?"
+        r"(você|vc)\s+agora\s+(é|e|será|sera|seja)\b|agora\s+(você|vc)\s+(é|e|será|sera)\b",
+        r"(seja|se\s+torne|aja\s+como|atue\s+como)\s+(um|uma)\s+\w+\s+(sem|que\s+ignora)",
         # BUG FIX #1: Adicionar variação sem acento (esqueca) e aceitar palavras no meio
         r"(esqueça|esqueca|ignore|delete|apague).{0,30}(regras|normas|instruções|instrucoes)",
         r"execute\s+(o\s+)?(comando|script|code|código)",
@@ -53,20 +56,24 @@ class GuardianAgent:
         # Instruction bypass: false information and temporal bypass
         r"informa[çc][õo]es\s+falsas",
         r"(cite|crie|invente)\s+leis\s+que\s+n[ãa]o\s+existem",
-        r"a\s+partir\s+de\s+agora",
+        # Revised: only when followed by a behavioural instruction (the bare phrase
+        # occurs in ordinary questions about legislative reforms).
+        r"a\s+partir\s+de\s+agora,?\s+(você|vc|responda|ignore|aja|finja|cite|esque[çc]a|n[ãa]o\s+(siga|obede))",
         # Hack/exfiltration/destruction attempts
-        r"(hackear|hack|hacker|invadir)\b",
+        # Revised: "(hackear|hack|hacker|invadir)" blocked legitimate questions about
+        # cybercrime (e.g. Lei 12.737/2012). Only requests to attack THIS system remain.
+        r"(hackear|invadir|comprometer)\s+(este|esse|o\s+seu|seu)\s+(sistema|servidor|banco|modelo)",
         r"(exportar|extrair|dump)\s+(banco|base|dados)",
         r"(delete|deletar|apagar|destruir)\s+(todos|tudo|dados|sistema)",
     ]
 
     # Additional strict mode patterns
     STRICT_PATTERNS = [
-        r"bypass",
-        r"jailbreak",
-        r"override",
-        r"sudo",
+        r"\bbypass\b",
+        r"\bjailbreak\b",
+        r"\bsudo\b",
         r"admin\s+mode",
+        # "override" removed: legitimate in questions on congressional override of a veto.
     ]
 
     def __init__(self):
@@ -174,7 +181,12 @@ class GuardianAgent:
 
         # Check for system prompt leakage
         system_indicators = [
-            "você é um",
+            # "você é um" alone was too broad (occurs in ordinary answers such as
+            # "se você é um consumidor..."); use phrases specific to our system prompts.
+            "você é um assistente",
+            "você é um especialista",
+            "você é um validador",
+            "você não decide casos",
             "system:",
             "assistant:",
             "user:",

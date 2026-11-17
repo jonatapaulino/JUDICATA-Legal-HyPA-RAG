@@ -31,7 +31,7 @@ rank-bm25==0.2.2
 
 # Network and utilities
 networkx==3.3
-numpy==1.26.4
+numpy>=2.0,<2.3
 scikit-learn==1.5.1
 
 # Async support
@@ -64,3 +64,11 @@ python-dateutil==2.9.0
 
 # Type checking
 mypy==1.11.1
+
+# Evaluation (PLOS ONE revision)
+datasets>=3.0
+pyarrow>=17
+pandas>=2.2
+scipy>=1.13
+statsmodels>=0.14
+pypdf>=5.0

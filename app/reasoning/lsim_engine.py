@@ -5,10 +5,11 @@ Combines symbolic reasoning with neural LLM generation using Thought Traces.
 Author: Delvek da S. V. de Sousa
 Copyright (c) 2025 Delvek da S. V. de Sousa
 """
+import re
 from typing import List
-from langchain_community.chat_models import ChatOllama
 
 from app.core.config import settings
+from app.core.llm import get_llm, generate
 from app.core.logging import get_logger
 from app.models.internal import (
     ThoughtTrace, Fact, Rule, IntermediateConclusion,
@@ -32,14 +33,9 @@ class LSIMEngine:
     """
 
     def __init__(self):
-        self.llm = ChatOllama(
-            base_url=settings.ollama_base_url,
-            model=settings.ollama_model,
-            temperature=settings.ollama_temperature,
-            num_predict=settings.ollama_max_tokens
-        )
         self.system_prompt = """
-Você é um assistente jurídico especialista em Direito Brasileiro (Civil Law).
+Você é um assistente de pesquisa jurídica em Direito Brasileiro (sistema de matriz romano-germânica com precedentes vinculantes: CF art. 103-A; CPC arts. 926-928).
+Você NÃO decide casos: você organiza fundamentos para análise por um profissional humano.
 Sua tarefa é responder perguntas baseando-se ESTRITAMENTE no contexto fornecido (Legislação e Jurisprudência Brasileira).
 1. NÃO utilize seu conhecimento prévio sobre leis dos EUA ou Europa.
 2. Se o contexto não tiver a resposta, diga que não sabe.
@@ -47,6 +43,10 @@ Sua tarefa é responder perguntas baseando-se ESTRITAMENTE no contexto fornecido
 4. SEMPRE cite os números exatos dos artigos de lei (ex: Art. 5º, §1º da CF/88; Art. 186 do CC/2002; Art. 14 do CDC).
 5. Ao referenciar legislação, inclua o nome completo da lei e seu número (ex: Lei 8.078/1990 - CDC).
 """
+
+    @property
+    def llm(self):
+        return get_llm()
 
     async def reason(self, context: ReasoningContext) -> ThoughtTrace:
         """
@@ -65,6 +65,9 @@ Sua tarefa é responder perguntas baseando-se ESTRITAMENTE no contexto fornecido
                 doc_count=len(context.documents),
                 trace_id=context.trace_id
             )
+
+            if not settings.lsim_enabled:
+                return await self._reason_without_lsim(context)
 
             # Step 1: Extract Facts
             query_facts = await fact_extractor.extract_from_query(context.query)
@@ -290,14 +293,15 @@ PROBLEMAS: [liste os problemas se houver, ou "nenhum"]"""
             response = await self.llm.ainvoke(prompt)
             content = response.content if hasattr(response, 'content') else str(response)
 
-            # Parse validation
-            is_valid = "sim" in content.lower() and "válido: sim" in content.lower()
+            # Parse validation (accent-insensitive; previous parser required "válido: sim")
+            is_valid = re.search(r"v[áa]lido\s*:\s*sim", content, re.IGNORECASE) is not None
             issues = []
 
             for line in content.split('\n'):
-                if line.startswith('PROBLEMAS:'):
-                    problems = line.replace('PROBLEMAS:', '').strip()
-                    if problems.lower() != "nenhum":
+                line = line.strip()
+                if line.upper().startswith('PROBLEMAS:'):
+                    problems = line.split(':', 1)[1].strip()
+                    if problems.strip('[]."').lower() not in ("nenhum", "nenhuma", ""):
                         issues.append(problems)
 
             logger.info("scot_validation_complete", valid=is_valid, issues_count=len(issues))
@@ -306,7 +310,26 @@ PROBLEMAS: [liste os problemas se houver, ou "nenhum"]"""
 
         except Exception as e:
             logger.error("scot_validation_error", error=str(e))
-            return True, []  # Fail open on error
+            return False, [f"SCOT indisponível: {e}"]  # fail closed: unvalidated output is not certified
+
+
+    async def _reason_without_lsim(self, context: ReasoningContext) -> ThoughtTrace:
+        """Ablation: one grounded generation over the same retrieved sources (no Fact-Rule-Conclusion chain)."""
+        from app.reasoning.rule_matcher import select_context, format_sources
+        ctx = select_context(context.documents)
+        prompt = self.system_prompt + f"""
+Fontes:
+{format_sources(ctx)}
+
+Consulta: {context.query}
+
+Responda à consulta com base nas fontes, citando os dispositivos exatos."""
+        conclusion = await generate(prompt)
+        ok, issues = (True, [])
+        if settings.scot_enabled:
+            ok, issues = await self._scot_validate(conclusion, [], [])
+        return ThoughtTrace(facts=[], rules=[], intermediate_conclusions=[],
+                            final_conclusion=conclusion, safety_validated=ok, safety_issues=issues)
 
 
 # Global instance

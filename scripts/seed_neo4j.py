@@ -21,8 +21,8 @@ SAMPLE_GRAPH_DATA = """
 // Create Case nodes
 CREATE (c1:Case {
     id: 'case_001',
-    number: '0001234-56.2024.8.26.0100',
-    court: 'TJSP',
+    number: 'EXEMPLO-SINTETICO-001', synthetic: true,  // fictitious example, not a real case
+    court: 'EXEMPLO',
     subject: 'Locação - Despejo por falta de pagamento',
     content: 'Ação de despejo por falta de pagamento. Inquilino inadimplente há 6 meses.',
     decision: 'Procedente',
@@ -31,8 +31,8 @@ CREATE (c1:Case {
 
 CREATE (c2:Case {
     id: 'case_002',
-    number: '0007890-12.2023.8.26.0100',
-    court: 'TJSP',
+    number: 'EXEMPLO-SINTETICO-002', synthetic: true,
+    court: 'EXEMPLO',
     subject: 'Locação - Renovação compulsória',
     content: 'Ação renovatória de contrato de locação comercial.',
     decision: 'Parcialmente procedente',
@@ -41,8 +41,8 @@ CREATE (c2:Case {
 
 CREATE (c3:Case {
     id: 'case_003',
-    number: '0003456-78.2023.8.26.0100',
-    court: 'TJSP',
+    number: 'EXEMPLO-SINTETICO-003', synthetic: true,
+    court: 'EXEMPLO',
     subject: 'Responsabilidade civil - Danos morais',
     content: 'Ação de indenização por danos morais decorrentes de acidente de trânsito.',
     decision: 'Procedente',

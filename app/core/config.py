@@ -65,6 +65,7 @@ class Settings(BaseSettings):
         default=0.1,
         description="LLM temperature for deterministic outputs"
     )
+    llm_seed: Optional[int] = Field(default=42, description="Decoding seed for reproducibility")
     ollama_max_tokens: int = Field(
         default=2048,
         description="Maximum tokens for LLM generation"
@@ -127,6 +128,41 @@ class Settings(BaseSettings):
     scot_validation_threshold: float = Field(
         default=0.9,
         description="Confidence threshold for SCOT validation"
+    )
+
+    # Pipeline component switches (used by the ablation study; all on by default)
+    input_pseudonymization_enabled: bool = Field(
+        default=True,
+        description="Pseudonymise personal data in the query BEFORE retrieval and any LLM call"
+    )
+    lsim_enabled: bool = Field(
+        default=True,
+        description="Use the Fact-Rule-Conclusion LSIM chain; if False, a single grounded generation call is used"
+    )
+    kg_enabled: bool = Field(default=True, description="Use the Neo4j graph channel in retrieval")
+    adaptive_weights_enabled: bool = Field(
+        default=True,
+        description="Use complexity-dependent fusion weights; if False, fixed MEDIA weights are used"
+    )
+    source_hierarchy_enabled: bool = Field(
+        default=True,
+        description="Rank and label sources by normative authority (SV/RG/repetitivo > sumula > lei)"
+    )
+    backing_verification_enabled: bool = Field(
+        default=True,
+        description="Verify every provision cited in Backing/Claim against the retrieved documents and the validity catalog"
+    )
+    exclude_revoked_norms: bool = Field(
+        default=True,
+        description="Drop documents whose norm is marked as revoked in the catalog"
+    )
+    rule_matcher_max_docs: int = Field(default=5, description="Documents passed to the Rule Matcher")
+    rule_matcher_doc_chars: int = Field(default=1200, description="Characters per document in the Rule Matcher")
+
+    # Audit trail (LangGraph checkpointer)
+    audit_checkpoint_path: Optional[str] = Field(
+        default="data/audit/checkpoints.sqlite",
+        description="SQLite file for LangGraph checkpoints (per-node state audit). None disables persistence."
     )
 
     # API Security

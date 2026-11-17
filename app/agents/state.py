@@ -35,7 +35,9 @@ class JudicialState(TypedDict):
     final_response: Optional[dict]
 
     # Error handling
-    errors: Annotated[List[str], add]
+    # Plain lists: every node returns the full state, so an `add` reducer
+    # duplicated entries at each step (bug in the submitted version).
+    errors: List[str]
 
     # Guardian validations
-    guardian_checks: Annotated[List[dict], add]
+    guardian_checks: List[dict]
