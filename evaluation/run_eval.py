@@ -130,7 +130,7 @@ async def run_judicata(item):
         hypa_rag.retrieve = orig
     if "error" in res:
         return {"answer": "", "documents": captured.get("docs", []), "blocked_or_error": res}
-    answer = "\n".join([res.get("claim", ""), "BACKING: " + res.get("backing", "")])
+    answer = "\n".join(f"{k.upper()}: {res.get(k) or ''}" for k in ("claim", "data", "warrant", "backing", "rebuttal", "qualifier"))
     return {"answer": answer, "documents": captured.get("docs", []), "toulmin": res}
 
 

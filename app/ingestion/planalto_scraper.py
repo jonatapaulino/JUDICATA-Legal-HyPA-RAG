@@ -31,6 +31,20 @@ class LegislationMetadata:
     tags: List[str] = field(default_factory=list)
 
 
+def decode_planalto(content: bytes) -> str:
+    """Decode a Planalto page. Most pages are windows-1252, but some (e.g. Lei
+    11.340/2006) are served as UTF-16 with a BOM and a few as UTF-8; decoding
+    those as windows-1252 yields text with no parsable article."""
+    if content[:2] in (b"\xff\xfe", b"\xfe\xff"):
+        return content.decode("utf-16", errors="replace")
+    if content[:3] == b"\xef\xbb\xbf":
+        return content[3:].decode("utf-8", errors="replace")
+    try:
+        return content.decode("utf-8")
+    except UnicodeDecodeError:
+        return content.decode("windows-1252", errors="replace")
+
+
 # Complete catalog of Brazilian legislation
 BRAZILIAN_LEGISLATION_CATALOG: List[LegislationMetadata] = [
     # === CONSTITUICAO ===
@@ -795,12 +809,8 @@ class PlanaltoScraper:
                     timeout=self.timeout
                 ) as response:
                     if response.status == 200:
-                        # Planalto uses windows-1252 encoding
                         content = await response.read()
-                        try:
-                            text = content.decode('windows-1252')
-                        except UnicodeDecodeError:
-                            text = content.decode('utf-8', errors='replace')
+                        text = decode_planalto(content)
 
                         return self._clean_html(text, legislation.type)
                     else:
@@ -844,23 +854,32 @@ class PlanaltoScraper:
 
         # Try to find the main content area
         # Planalto uses various content containers
-        content = None
-        for selector in ['#conteudo', '.conteudo', '#texto', '.texto', 'body']:
-            content = soup.select_one(selector)
-            if content:
-                break
-
-        if not content:
-            content = soup
+        # Planalto pages are frequently malformed (nested or repeated <html>/<body>
+        # tags). With html.parser the first matching container may hold only the
+        # preamble, while the articles sit outside it: in the submitted version the
+        # Constitution was reduced to 24 articles, the ECA to 8 and the Civil Code
+        # to none. Use the candidate container with the most text (normally the
+        # whole document); navigation noise is filtered line by line below.
+        candidates = [soup] + [c for c in (soup.select_one(s) for s in
+                                           ['#conteudo', '.conteudo', '#texto', '.texto', 'body']) if c]
+        content = max(candidates, key=lambda c: len(c.get_text()))
 
         # Get text preserving some structure
         text = content.get_text(separator='\n')
 
         # Clean up excessive whitespace
+        raw = [l.strip() for l in text.replace('\xa0', ' ').split('\n')]
+        raw = [l for l in raw if l]
+        # get_text(separator='\n') splits inline tags, so "Art." and its number
+        # (or "§" and its number) often land on separate lines; rejoin them so
+        # the article parser sees "Art. 5º ..." again.
         lines = []
-        for line in text.split('\n'):
-            line = line.strip()
-            if line and not self._is_noise(line):
+        for line in raw:
+            if lines and re.fullmatch(r'["“]?(Art\.?|§)(\s*\d[\d.]*\s*[º°o]?)?', lines[-1]) \
+                    or lines and re.fullmatch(r'["“]?Art\.?\s*\d[\d.]*', lines[-1]) and re.match(r'^[º°o]', line):
+                lines[-1] = f"{lines[-1]} {line}" if not re.match(r'^[º°o]', line) else lines[-1] + line
+                continue
+            if not self._is_noise(line):
                 lines.append(line)
 
         return '\n'.join(lines)
