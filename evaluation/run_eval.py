@@ -158,11 +158,19 @@ async def main():
     ap.add_argument("--conditions", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--sample", type=int, default=0, help="deterministic random subset (seed 13)")
+    ap.add_argument("--no-pieces", action="store_true", help="OAB-2: questions only, exclude full pleadings")
     a = ap.parse_args()
 
     settings.ollama_model = a.model
     settings.ollama_temperature = 0.0
     items = load_task(a.task)
+    if a.no_pieces:
+        items = [i for i in items if "peca_profissional" not in i["id"]]
+    if a.sample and a.sample < len(items):
+        import random
+        keep = set(i["id"] for i in random.Random(13).sample(items, a.sample))
+        items = [i for i in items if i["id"] in keep]
     if a.limit:
         items = items[: a.limit]
     out = Path(a.out)
@@ -190,7 +198,7 @@ async def main():
                 rec["citation_check"] = verify_citations(r["answer"], r["documents"], sh.revoked_laws()).to_dict()
                 if "toulmin" in r:
                     t = r["toulmin"]
-                    rec["toulmin"] = {k: t.get(k) for k in ("claim", "data", "warrant", "backing", "rebuttal", "qualifier",
+                    rec["toulmin"] = {k: (str(t.get(k)).replace("Qualifier.", "") if k == "qualifier" else t.get(k)) for k in ("claim", "data", "warrant", "backing", "rebuttal", "qualifier",
                                                            "qualifier_basis", "citation_check", "binding_sources",
                                                            "safety_validated", "safety_warnings", "query_complexity")}
                 if "blocked_or_error" in r:

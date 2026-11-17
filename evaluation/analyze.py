@@ -229,7 +229,7 @@ def qualifier_calibration(rows, correct_fn, label):
     by = defaultdict(list)
     for r in rows:
         if r["condition"] == BASE and r.get("toulmin"):
-            by[(r["model"], r["toulmin"].get("qualifier"))].append(correct_fn(r))
+            by[(r["model"], str(r["toulmin"].get("qualifier")).replace("Qualifier.", ""))].append(correct_fn(r))
     for (m, q), v in sorted(by.items(), key=lambda x: (x[0][0], str(x[0][1]))):
         lines.append(f"| {m} | {q} | {len(v)} | {ci(wilson(sum(v), len(v)))} |")
     return lines

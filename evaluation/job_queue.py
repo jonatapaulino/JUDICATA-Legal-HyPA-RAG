@@ -16,17 +16,17 @@ JUDGES = ("gemma3:27b", "llama3.1:8b")  # families different from the systems un
 
 
 def run_cmds():
-    for tag, m in MODELS.items():
-        yield ("temas", tag, ["evaluation/run_eval.py", "--task", "temas", "--model", m, "--conditions", MAIN + "," + ABL,
-                              "--out", f"evaluation/results/temas_{tag}.jsonl"])
-    for tag, m in MODELS.items():
-        yield ("oab1", tag, ["evaluation/run_eval.py", "--task", "oab1", "--model", m, "--conditions", MAIN,
-                             "--out", f"evaluation/results/oab1_{tag}.jsonl"])
-    for tag, m in MODELS.items():
-        yield ("oab2", tag, ["evaluation/run_eval.py", "--task", "oab2", "--model", m, "--conditions", MAIN,
-                             "--out", f"evaluation/results/oab2_{tag}.jsonl"])
-    yield ("oab1abl", "qwen", ["evaluation/run_eval.py", "--task", "oab1", "--model", MODELS["qwen"], "--conditions", ABL,
-                               "--limit", "100", "--out", "evaluation/results/oab1_qwen.jsonl"])
+    def ev(task, tag, conds, out, extra=()):
+        return (task, tag, ["evaluation/run_eval.py", "--task", task, "--model", MODELS[tag], "--conditions", conds,
+                            "--out", f"evaluation/results/{out}.jsonl", *extra])
+    OAB2 = ("--no-pieces", "--sample", "150")
+    for tag in ("qwen", "mistral"):           # main comparison first, primary model first
+        yield ev("temas", tag, MAIN, f"temas_{tag}")
+        yield ev("oab1", tag, MAIN, f"oab1_{tag}")
+        yield ev("oab2", tag, MAIN, f"oab2_{tag}", OAB2)
+    for tag in ("qwen", "mistral"):           # ablations
+        yield ev("temas", tag, ABL, f"temas_{tag}")
+    yield ev("oab1", "qwen", ABL, "oab1_qwen", ("--sample", "100"))
     for t in ("temas", "oab1"):
         for tag in MODELS:
             yield ("extract", tag, ["evaluation/extract_answers.py", "--results", f"evaluation/results/{t}_{tag}.jsonl", "--task", t])
