@@ -14,6 +14,28 @@ from app.privacy.ner_legal import legal_ner
 
 logger = get_logger(__name__)
 
+PERSONAL_TYPES = {"PER", "PERSON", "CPF", "RG", "EMAIL", "PHONE", "CASE_NUMBER"}
+
+# Names that are part of statute names or legal doctrines, not data subjects.
+LEGAL_EPONYMS = (
+    "maria da penha", "carolina dieckmann", "pelé", "pele", "toulmin", "kelsen", "alexy",
+    "aldir blanc", "paulo gustavo", "mariana ferrer", "henry borel", "joanna maranhão",
+)
+_LEGAL_CONTEXT = ("lei ", "código", "codigo", "súmula", "sumula", "tema ", "estatuto", "teoria", "princípio")
+
+
+def _is_legal_eponym(text: str, ent) -> bool:
+    value, etype, start, end = ent
+    if etype not in ("PER", "PERSON"):
+        return False
+    low = value.lower()
+    if any(name in low for name in LEGAL_EPONYMS):
+        return True
+    if value.isupper() and len(value) <= 6:  # acronyms tagged as names (e.g. "CDC", "STF")
+        return True
+    before = text[max(0, start - 25):start].lower()
+    return any(k in before for k in _LEGAL_CONTEXT)
+
 
 class Anonymizer:
     """
@@ -71,8 +93,14 @@ class Anonymizer:
         if doc_id not in self.entity_counters:
             self.entity_counters[doc_id] = {}
 
-        # Extract entities
-        entities = legal_ner.extract_entities(text)
+        # Extract entities, keeping only PERSONAL data (LGPD art. 5, I: data about an
+        # identified or identifiable natural person). Organisations and places are
+        # not pseudonymised: replacing "STF", "ANVISA", "União" or "Lei Maria da Penha"
+        # would destroy the legal content of the query, and they are not personal data.
+        entities = [
+            e for e in legal_ner.extract_entities(text)
+            if e[1] in PERSONAL_TYPES and not _is_legal_eponym(text, e)
+        ]
 
         if not entities:
             logger.debug("no_entities_found", doc_id=doc_id)
