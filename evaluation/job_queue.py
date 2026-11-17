@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Sequential job queue for the full evaluation (every step is resumable, so the
-queue can be restarted at any point). Usage: python evaluation/queue.py [stage ...]
+queue can be restarted at any point). Usage: python evaluation/job_queue.py [stage ...]
 """
 import subprocess
 import sys
