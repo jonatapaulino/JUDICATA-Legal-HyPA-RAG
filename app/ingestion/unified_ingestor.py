@@ -532,8 +532,10 @@ class UnifiedLegalIngestor:
         except Exception as e:
             logger.error(f"Error clearing Qdrant: {e}")
 
-        # Clear Neo4j if available
-        if self._neo4j_available and self.neo4j and self.neo4j.driver:
+        # Clear Neo4j if connected. The availability flag is only set later, in
+        # ingest_all(), so checking it here meant --clear never cleared the graph
+        # and stale nodes from earlier ingestions accumulated.
+        if self.neo4j and getattr(self.neo4j, "driver", None):
             try:
                 driver = self.neo4j.driver
                 async with driver.session(database=self.settings.neo4j_database) as session:
