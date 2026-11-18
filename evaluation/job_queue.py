@@ -37,9 +37,29 @@ def run_cmds():
     yield ("analyze", "-", ["evaluation/analyze.py"])
 
 
+def supp_cmds():
+    """Supplementary baseline (added after the main runs; see run_eval.run_rag_toulmin_jq):
+    RAG + Toulmin prompt with JUDICATA's own retrieval input, then extraction, judges, analysis."""
+    OAB2 = ("--no-pieces", "--sample", "150")
+    for tag in ("qwen", "mistral"):
+        yield ("supp", tag, ["evaluation/run_eval.py", "--task", "temas", "--model", MODELS[tag], "--conditions", "rag_toulmin_jq", "--out", f"evaluation/results/temas_{tag}.jsonl"])
+        yield ("supp", tag, ["evaluation/run_eval.py", "--task", "oab1", "--model", MODELS[tag], "--conditions", "rag_toulmin_jq", "--out", f"evaluation/results/oab1_{tag}.jsonl"])
+        yield ("supp", tag, ["evaluation/run_eval.py", "--task", "oab2", "--model", MODELS[tag], "--conditions", "rag_toulmin_jq", "--out", f"evaluation/results/oab2_{tag}.jsonl", *OAB2])
+    for t in ("temas", "oab1"):
+        for tag in MODELS:
+            yield ("extract", tag, ["evaluation/extract_answers.py", "--results", f"evaluation/results/{t}_{tag}.jsonl", "--task", t])
+    for j in JUDGES:
+        for tag in MODELS:
+            yield ("judge", tag, ["evaluation/judge_oab2.py", "--results", f"evaluation/results/oab2_{tag}.jsonl", "--judge", j])
+    yield ("analyze", "-", ["evaluation/analyze.py"])
+
+
 def main():
     stages = set(sys.argv[1:])
-    for stage, tag, cmd in run_cmds():
+    cmds = supp_cmds() if "supp" in stages else run_cmds()
+    if "supp" in stages:
+        stages = set()
+    for stage, tag, cmd in cmds:
         if stages and stage not in stages:
             continue
         t0 = time.time()

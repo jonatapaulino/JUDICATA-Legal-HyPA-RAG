@@ -62,7 +62,7 @@ def fig2(out):
     if not p.exists():
         return
     R = json.load(open(p, encoding="utf-8"))["main"]
-    conds = [("raw", "Raw LLM"), ("vanilla_rag", "Vanilla RAG"), ("rag_toulmin", "RAG + Toulmin\nprompt"), ("judicata", "JUDICATA")]
+    conds = [("raw", "Raw\nLLM"), ("vanilla_rag", "Vanilla\nRAG"), ("rag_toulmin", "RAG+T\n(stmt.)"), ("rag_toulmin_jq", "RAG+T\n(J. docs)"), ("judicata", "JUDI-\nCATA")]
     models = [("qwen2.5:14b", "Qwen2.5 14B", "#2b6cb0"), ("mistral:7b", "Mistral 7B", "#c05621")]
     fig, axes = plt.subplots(1, 3, figsize=(7.5, 2.8), sharey=False)
     for ax, (key, title, scale) in zip(axes, (("oab1_acc", "E2: OAB 1st phase\n(accuracy, %)", 100),
@@ -84,8 +84,9 @@ def fig2(out):
         ax.set_title(title, fontsize=7.5)
         ax.grid(axis="y", lw=0.3, alpha=0.6)
         ax.spines[["top", "right"]].set_visible(False)
-    axes[0].legend(fontsize=6.5, frameon=False, loc="lower right")
-    fig.tight_layout()
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, fontsize=7, frameon=False, loc="upper center", ncol=2)
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
     save(fig, out, "Fig2")
 
 

@@ -111,6 +111,26 @@ async def run_rag_toulmin(item):
     return {"answer": out, "documents": docs}
 
 
+async def run_rag_toulmin_jq(item):
+    """RAG + Toulmin prompt with JUDICATA's own retrieval input.
+
+    Added after the main runs, when we found that `rag_toulmin` retrieved with the
+    task statement without the answer-format suffix while JUDICATA retrieves with the
+    full, pseudonymised task text, so the two conditions did not see the same
+    documents. Retrieval is deterministic, so repeating JUDICATA's input
+    (pseudonymisation + HyPA-RAG) reproduces its documents; the overlap with the
+    documents stored for `judicata` is reported by analyze.py. JUDICATA itself is
+    unchanged. Both baselines are reported.
+    """
+    from app.privacy.anonymizer import anonymize_text
+    rag = await _hypa()
+    text = anonymize_text(item["text"], doc_id=f"eval-{item['id']}") if settings.input_pseudonymization_enabled else item["text"]
+    docs, _ = await rag.retrieve(text, "eval")
+    ctx = select_context(docs)
+    out = await generate(f"{SYSTEM}\n\nFontes:\n{format_sources(ctx)}\n\n{text}{TOULMIN_INSTR}")
+    return {"answer": out, "documents": docs}
+
+
 async def run_judicata(item):
     from app.agents.orchestrator import orchestrator
     from app.retrieval.hypa_rag import hypa_rag
@@ -134,7 +154,8 @@ async def run_judicata(item):
     return {"answer": answer, "documents": captured.get("docs", []), "toulmin": res}
 
 
-RUNNERS = {"raw": run_raw, "vanilla_rag": run_vanilla, "rag_toulmin": run_rag_toulmin, "judicata": run_judicata}
+RUNNERS = {"raw": run_raw, "vanilla_rag": run_vanilla, "rag_toulmin": run_rag_toulmin,
+           "rag_toulmin_jq": run_rag_toulmin_jq, "judicata": run_judicata}
 
 
 def set_flags(condition):

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-E6 - Personal-data leakage audit.
+E5 - Personal-data leakage audit.
 
 Runs queries containing synthetic personal data (names, CPF, e-mail, phone,
 CNJ case number) through the full pipeline while intercepting EVERY prompt sent

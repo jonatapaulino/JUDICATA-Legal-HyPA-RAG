@@ -17,8 +17,9 @@ from evaluation import analyze as A  # noqa: E402
 
 RES = A.RES
 DATA = A.DATA
-COND_ORDER = ["raw", "vanilla_rag", "rag_toulmin", "judicata"]
-COND_LABEL = {"raw": "Raw LLM", "vanilla_rag": "Vanilla RAG", "rag_toulmin": "RAG + Toulmin prompt",
+COND_ORDER = ["raw", "vanilla_rag", "rag_toulmin", "rag_toulmin_jq", "judicata"]
+COND_LABEL = {"raw": "Raw LLM", "vanilla_rag": "Vanilla RAG", "rag_toulmin": "RAG + Toulmin (statement query)",
+              "rag_toulmin_jq": "RAG + Toulmin (JUDICATA docs)",
               "judicata": "JUDICATA", "judicata-no_lsim": "-- LSIM", "judicata-no_scot": "-- SCOT",
               "judicata-no_kg": "-- graph channel", "judicata-fixed_weights": "-- adaptive weights (fixed)",
               "judicata-no_hierarchy": "-- source hierarchy", "judicata-no_backing_verification": "-- Backing verification"}
@@ -282,6 +283,16 @@ def table_oab2(out):
                 ps.append(A.wilcoxon([b[i] for i in ids], [o[i] for i in ids]) if ids else float("nan"))
             for c, p in zip(comps, A.holm(ps) if ps else []):
                 pv[(j, c)] = p
+        recp = {}
+        if (model, "judicata") in o2:
+            rb = {i: A.guideline_recall(r.get("answer") or "", items[i]["guideline"]) for i, r in o2[(model, "judicata")].items()}
+            rcomps = [c for c in COND_ORDER if c != "judicata" and (model, c) in o2]
+            rps = []
+            for c in rcomps:
+                ro = {i: A.guideline_recall(r.get("answer") or "", items[i]["guideline"]) for i, r in o2[(model, c)].items()}
+                ids = [i for i in rb if rb[i] is not None and ro.get(i) is not None]
+                rps.append(A.wilcoxon([rb[i] for i in ids], [ro[i] for i in ids]))
+            recp = dict(zip(rcomps, A.holm(rps) if rps else []))
         for cond in COND_ORDER:
             rs = o2.get((model, cond))
             if not rs:
@@ -294,7 +305,8 @@ def table_oab2(out):
                 res[f"{model}|{cond}|{j}"] = m
                 cells.append(num(m) + ("" if cond == "judicata" or (j, cond) not in pv else f" ($p$={pfmt(pv[(j, cond)])})"))
             res[f"{model}|{cond}|recall"] = rec
-            lines.append(f"{MODEL_LABEL[model]} & {COND_LABEL[cond]} & " + " & ".join(cells) + f" & {num(rec)}\\\\")
+            rp = recp.get(cond)
+            lines.append(f"{MODEL_LABEL[model]} & {COND_LABEL[cond]} & " + " & ".join(cells) + f" & {num(rec)}" + ("" if rp is None else f" ($p$={pfmt(rp)})") + "\\\\")
         lines.append(r"\hline")
     if len(judges) >= 2:
         a, b = judges[:2]
