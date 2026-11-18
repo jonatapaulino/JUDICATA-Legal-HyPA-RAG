@@ -374,6 +374,13 @@ def main():
         except FileNotFoundError as e:
             print("skip", f.__name__, e)
     json.dump(OUT, open(RES / "results.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False, default=str)
+    # shrink tables wider than the text block (never enlarge)
+    for p in out.glob("tab_*.tex"):
+        s = p.read_text(encoding="utf-8")
+        if r"\resizebox" not in s and r"\begin{tabular}" in s:
+            s = s.replace(r"\begin{tabular}", r"\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{\begin{tabular}", 1)
+            s = s.replace(r"\end{tabular}", r"\end{tabular}}", 1)
+            p.write_text(s, encoding="utf-8")
     print("written", sorted(p.name for p in out.glob("tab_*.tex")))
 
 
