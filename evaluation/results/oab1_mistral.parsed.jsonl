@@ -1,0 +1,1000 @@
+{"condition": "raw", "id": "2018-25_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-21_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "raw", "id": "2016-21_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-24_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-22_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-19_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-22_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-19_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-23_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-24_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "raw", "id": "2017-24_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-22_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-24_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-24_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-24_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-24_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-24_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-19_72", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-22_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-24_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-24_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-24_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-24_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-24_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-23_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-22_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-22_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-22_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-21_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-23_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-19_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-22_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-24_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-22_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-24_49", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2018-25_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-21_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-19_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-23_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-24_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-19_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-21_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-24_10", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-24_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2018-25_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-23_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-24_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-22_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-21_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_42", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-21_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-21_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-21_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-19_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-22_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "extractor", "raw": "ESCOLHA: D"}
+{"condition": "raw", "id": "2017-23_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-23_21", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2018-25_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-22_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-23_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-22_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2018-25_16", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-23_67", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-19_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "extractor", "raw": "ESCOLHA: D"}
+{"condition": "raw", "id": "2016-21_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-21_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-19_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-22_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-21_48", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2018-25_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2018-25_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2018-25_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-22_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-21_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-19_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-21_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2018-25_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-19_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-19_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-19_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "extractor", "raw": "ESCOLHA: C"}
+{"condition": "raw", "id": "2017-24_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-20_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-21_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2018-25_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-23_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-23_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2017-22_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-22_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-19_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-24_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "extractor", "raw": "ESCOLHA: C"}
+{"condition": "raw", "id": "2016-20_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-22_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_41", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-23_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-22_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_9", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-23_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2018-25_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2018-25_53", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2016-21_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "raw", "id": "2017-22_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2017-22_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "raw", "id": "2016-21_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-19_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-20_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2017-23_39", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2016-19_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-20a_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "raw", "id": "2018-25_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "raw", "id": "2016-21_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "vanilla_rag", "id": "2016-21_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_72", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_49", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_10", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_42", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_21", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_16", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_67", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_48", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-24_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_41", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_9", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_53", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-22_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2017-23_39", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-19_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-20a_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2018-25_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "vanilla_rag", "id": "2016-21_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-24_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-24_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-24_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-24_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_72", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-24_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_49", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-24_10", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_42", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_21", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_16", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_67", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_48", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "extractor", "raw": "ESCOLHA: C"}
+{"condition": "rag_toulmin", "id": "2018-25_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "extractor", "raw": "ESCOLHA: A"}
+{"condition": "rag_toulmin", "id": "2016-19_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-24_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-19_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-22_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-24_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_41", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_9", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2017-23_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2018-25_53", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-21_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-22_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-20a_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2017-23_39", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-19_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2016-20a_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin", "id": "2018-25_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin", "id": "2016-21_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "judicata", "id": "2017-24_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_72", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "judicata", "id": "2016-20a_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_49", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_10", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_42", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_21", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_16", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_67", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_48", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-24_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_41", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_9", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_53", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-22_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2016-20_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2017-23_39", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "judicata", "id": "2016-19_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-20a_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "judicata", "id": "2018-25_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "judicata", "id": "2016-21_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_72", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_26", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_52", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_63", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_75", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_68", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_1", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_34", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_49", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "extractor", "raw": "ESCOLHA: D"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_11", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_66", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "extractor", "raw": "ESCOLHA: D"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_10", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_73", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_36", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_35", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_42", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_32", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_59", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_21", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_30", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_16", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "extractor", "raw": "ESCOLHA: A"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_67", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_13", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_74", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_48", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_70", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_40", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_60", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "extractor", "raw": "ESCOLHA: C"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_62", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_6", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_44", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_79", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_18", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_4", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_56", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_22", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_27", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_3", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_80", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_58", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_33", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_78", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_15", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_55", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_47", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_51", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_76", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_37", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-24_2", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_57", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_20", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_71", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_41", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_50", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_45", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_9", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_14", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_38", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_65", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_61", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_25", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_53", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_5", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "A", "how": "extractor", "raw": "ESCOLHA: A"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_17", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2017-22_46", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_23", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_19", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_31", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20_43", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "C", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2017-23_39", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-19_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2016-20a_29", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "B", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_77", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": null, "how": "extractor", "raw": "ESCOLHA: NENHUMA"}
+{"condition": "rag_toulmin_jq", "id": "2018-25_24", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}
+{"condition": "rag_toulmin_jq", "id": "2016-21_12", "model": "mistral:7b", "extractor": "qwen2.5:14b", "parsed": "D", "how": "regex"}

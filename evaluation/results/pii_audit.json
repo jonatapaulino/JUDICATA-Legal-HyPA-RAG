@@ -1,0 +1,39 @@
+{
+ "model": "qwen2.5:14b",
+ "cases": [
+  {
+   "query": "Joaquim Pereira da Silva, CPF 123.456.789-09, residente em B",
+   "llm_calls": 13,
+   "pii_in_llm_prompts": [],
+   "pii_in_output": []
+  },
+  {
+   "query": "A cliente Mariana Souza Lima (mariana.lima@example.com, tele",
+   "llm_calls": 13,
+   "pii_in_llm_prompts": [],
+   "pii_in_output": []
+  },
+  {
+   "query": "No processo 0801234-56.2025.8.14.0301, Roberto Alves Nogueir",
+   "llm_calls": 13,
+   "pii_in_llm_prompts": [],
+   "pii_in_output": []
+  },
+  {
+   "query": "Fernanda Costa Ribeiro, CPF 987.654.321-00, servidora públic",
+   "llm_calls": 13,
+   "pii_in_llm_prompts": [],
+   "pii_in_output": []
+  },
+  {
+   "query": "Lucas Martins de Oliveira foi demitido sem justa causa após ",
+   "llm_calls": 13,
+   "pii_in_llm_prompts": [],
+   "pii_in_output": []
+  }
+ ],
+ "audit_rows": 40,
+ "pii_in_audit_trail": [],
+ "total_llm_prompts": 65,
+ "total_pii_leaks_to_llm": 0
+}
