@@ -613,6 +613,188 @@ def temas_format():
     put("temas.fmt.max", max(vals), src)
 
 
+def _ordered_keys(text):
+    """Specific citation keys of a text in order of first appearance."""
+    from app.reasoning.citations import extract_citations, specific_citations
+    text = text or ""
+    cs = specific_citations(extract_citations(text))
+
+    def pos(c):
+        i = text.find(c.surface)
+        return i if i >= 0 else len(text)
+    return [c.key for c in sorted(cs, key=pos)]
+
+
+def _recall_keys(keys, g):
+    from app.reasoning.citations import _match
+    ks = set(keys)
+    return sum(1 for k in g if _match(k, ks) or any(_match(x, {k}) for x in ks)) / len(g)
+
+
+def _prec_keys(keys, g):
+    from app.reasoning.citations import _match
+    return (sum(1 for x in keys if _match(x, set(g)) or any(_match(q, {x}) for q in g)) / len(keys)) if keys else 0.0
+
+
+def _sgn(z, dec):
+    t = f"{z:.{dec}f}"
+    if float(t) == 0:
+        t = t.lstrip("-")
+    return t.replace("-", "$-$")
+
+
+def oab2_equal_volume():
+    """Citation volume control (second-round review, N2). For each OAB-2 item and comparator,
+    JUDICATA's answer is truncated to its first k specific citations (order of appearance), with
+    k the number of specific citations of the comparator's answer on the same item; the recall
+    of the truncated answer is compared with the comparator's recall (paired bootstrap 95% CI).
+    Also the per-item F1 of guideline recall and citation precision, per condition."""
+    from app.reasoning.citations import extract_citations, specific_citations
+    items = {json.loads(l)["id"]: json.loads(l) for l in open(DATA / "oab2.jsonl", encoding="utf-8")}
+    gold = {i: [c.key for c in specific_citations(extract_citations(it["guideline"]))] for i, it in items.items()}
+    o2 = ML.by_cond(A.load_results("oab2"))
+    src = "results/oab2_*.jsonl + data/oab2.jsonl (equal citation volume, paired bootstrap)"
+    for m in MODELS:
+        jk = {i: _ordered_keys(r.get("answer")) for i, r in o2[(m, "judicata")].items()}
+        for c in CONDS:
+            if (m, c) not in o2:
+                continue
+            ck = {i: _ordered_keys(r.get("answer")) for i, r in o2[(m, c)].items()}
+            f1 = []
+            for i, ks in ck.items():
+                if gold.get(i):
+                    rr, pp = _recall_keys(ks, gold[i]), _prec_keys(ks, gold[i])
+                    f1.append(2 * rr * pp / (rr + pp) if rr + pp else 0.0)
+            ci_num(f"oabtwo.{MODELS[m]}.{CONDS[c]}.fone", A.boot_mean(f1), src)
+            if c == "judicata":
+                continue
+            jt, cr = {}, {}
+            for i in ck:
+                if not gold.get(i) or i not in jk:
+                    continue
+                jt[i] = _recall_keys(jk[i][:len(set(ck[i]))], gold[i])
+                cr[i] = _recall_keys(ck[i], gold[i])
+            d, lo, hi, n = paired_boot(jt, cr)
+            k = f"eqvol.{MODELS[m]}.{CONDS[c]}"
+            put(f"{k}.j", d2(sum(jt.values()) / len(jt)), src)
+            put(f"{k}.c", d2(sum(cr.values()) / len(cr)), src)
+            put(f"{k}.diff", _sgn(d, 2), src)
+            put(f"{k}.lo", _sgn(lo, 2), src)
+            put(f"{k}.hi", _sgn(hi, 2), src)
+            put("eqvol.n", n, src)
+
+
+TEMAS_FIELDS = (("competencia", "court"), ("polo_passivo", "defendant"), ("requisitos_cumpridos", "reqmet"),
+                ("requisito_ausente", "reqmissing"))
+
+
+def temas_fields_review():
+    """Health cases, per field (second-round review, N3 and N14): paired exact McNemar tests of
+    JUDICATA against each comparator with Holm over the four comparators (per model and field);
+    majority-class baselines of each field; presence of the requirement pages (CNJ guide p5, p8)
+    among the five prompt sources; extraction artifacts copied from the guide."""
+    from app.reasoning.source_hierarchy import TIERS
+    gold = {json.loads(l)["id"]: json.loads(l) for l in open(DATA / "temas_cases.jsonl", encoding="utf-8")}
+    parsed = A.load_parsed("temas")
+    rows = A.load_results("temas")
+    src = "results/temas_*.jsonl + *.parsed.jsonl (exact McNemar, Holm)"
+    ok = defaultdict(dict)
+    poronde = Counter()
+    for r in rows:
+        k = (r["model"], r["condition"], r["id"])
+        p = (parsed.get(k) if k in parsed else None) or A.parse_temas(r.get("answer") or "")
+        g = A.gold_norm(gold[r["id"]]["gold"])
+        for f, short in TEMAS_FIELDS:
+            if g.get(f) is not None:
+                ok[(r["model"], r["condition"], short)][r["id"]] = p.get(f) == g[f]
+        if "poronde" in str(p.get("competencia") or "").replace(" ", ""):
+            poronde[(r["model"], r["condition"])] += 1
+    for m in MODELS:
+        for f, short in TEMAS_FIELDS:
+            j = ok[(m, "judicata", short)]
+            comps = [c for c in CONDS if c != "judicata"]
+            ps = []
+            for c in comps:
+                o = ok[(m, c, short)]
+                ids = [i for i in j if i in o]
+                b = sum(1 for i in ids if j[i] and not o[i])
+                cc = sum(1 for i in ids if o[i] and not j[i])
+                put(f"temas.{MODELS[m]}.{CONDS[c]}.{short}.b", b, src)
+                put(f"temas.{MODELS[m]}.{CONDS[c]}.{short}.c", cc, src)
+                ps.append(A.mcnemar_exact(b, cc))
+            for c, p in zip(comps, A.holm(ps)):
+                put(f"temas.{MODELS[m]}.{CONDS[c]}.{short}.pholm", pv(p), src)
+    for f, short in TEMAS_FIELDS:
+        vals = [A.gold_norm(g["gold"]).get(f) for g in gold.values()]
+        vals = [x for x in vals if x is not None]
+        top, cnt = Counter(vals).most_common(1)[0]
+        put(f"temas.triv.{short}.acc", p0(cnt / len(vals)), "data/temas_cases.jsonl (majority class)")
+        put(f"temas.triv.{short}.n", len(vals), "data/temas_cases.jsonl")
+    put("temas.triv.reqmet.k", Counter(A.gold_norm(g["gold"]).get("requisitos_cumpridos") for g in gold.values())["nao"],
+        "data/temas_cases.jsonl")
+    # answers "yes, requirements met" per condition
+    for (m, c), its in ML.by_cond(rows).items():
+        if c not in CONDS:
+            continue
+        yes = 0
+        for i, r in its.items():
+            k = (m, c, i)
+            p = (parsed.get(k) if k in parsed else None) or A.parse_temas(r.get("answer") or "")
+            yes += p.get("requisitos_cumpridos") == "sim"
+        put(f"temas.{MODELS[m]}.{CONDS[c]}.saysyes", yes, src)
+    # requirement pages among the five prompt sources (same ordering as temas_context)
+    req = {"p5", "p8"}
+    for (m, c), its in ML.by_cond(rows).items():
+        if c == "raw" or (c not in CONDS and c not in ABL):
+            continue
+        n_req = guide_ret = n_fed = 0
+        for r in its.values():
+            docs = r["documents"]
+            shown = docs[:5] if c in ("vanilla_rag", "judicata-no_hierarchy") else sorted(
+                docs, key=lambda d: (TIERS.get(d.get("kind"), (6,))[0], -(d.get("score") or 0)))[:5]
+            n_req += any(d.get("kind") == "ORIENTACAO_ADMIN" and d.get("article") in req for d in shown)
+            guide_ret += sum(1 for d in docs if d.get("kind") == "ORIENTACAO_ADMIN")
+            n_fed += {"p2", "p6"} <= {d.get("article") for d in shown if d.get("kind") == "ORIENTACAO_ADMIN"}
+        short = CONDS.get(c) or ABL.get(c)
+        put(f"temas.{MODELS[m]}.{short}.reqprompt", n_req, src)
+        put(f"temas.{MODELS[m]}.{short}.guideret", d1(guide_ret / len(its)), src)
+        put(f"temas.{MODELS[m]}.{short}.fedpages", n_fed, src)
+    put("temas.extract.poronde", sum(poronde.values()), src)
+    for (m, c), v in poronde.items():
+        short = CONDS.get(c) or ABL.get(c) or c
+        put(f"temas.{MODELS[m]}.{short}.poronde", v, src)
+
+
+def grounding_by_task():
+    """Citation grounding in the three tasks (second-round review, N5): mean share of an
+    answer's specific citations found among its retrieved documents, the share of citations
+    whose statute could not be determined (keys with '?', matched by number to any statute),
+    and the grounding restricted to citations with a determined statute or court."""
+    src = "results/*.jsonl (citation_check)"
+    names = {"oab1": "oabone", "oab2": "oabtwo", "temas": "temas"}
+    for task, short in names.items():
+        for (m, c), its in ML.by_cond(A.load_results(task)).items():
+            if c not in CONDS or c == "raw":
+                continue
+            g, det, cited, und = [], [], 0, 0
+            for r in its.values():
+                cc = r.get("citation_check") or {}
+                ks = cc.get("cited") or []
+                if not ks:
+                    continue
+                g.append(cc.get("grounding_rate") or 0.0)
+                cited += len(ks)
+                und += sum(1 for k in ks if ":?:" in k)
+                dk = [k for k in ks if ":?:" not in k]
+                if dk:
+                    gr = set(cc.get("grounded") or [])
+                    det.append(sum(1 for k in dk if k in gr) / len(dk))
+            k = f"ground.{short}.{MODELS[m]}.{CONDS[c]}"
+            ci_num(k, A.boot_mean(g), src)
+            ci_num(f"{k}.det", A.boot_mean(det), src)
+            put(f"{k}.undet", p0(und / max(1, cited)), src)
+
+
 def collect():
     """Compute every number; return {key: (value, source, label)}."""
     ROWS.clear()
@@ -633,6 +815,9 @@ def collect():
     counts()
     ranges()
     temas_format()
+    oab2_equal_volume()
+    temas_fields_review()
+    grounding_by_task()
     paired_diffs()
     seen = {}
     for k, v, s, lab in ROWS:

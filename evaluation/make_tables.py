@@ -154,7 +154,8 @@ def t_security():
 
 
 def t_temas():
-    rows = []
+    rows = ["Trivial baseline", ["Majority answer of the field"] + [v(f"temas.triv.{f}.acc")
+                                                                   for f in ("court", "defendant", "reqmet", "reqmissing")]]
     for m, ml in MODELS:
         rows.append(ml)
         for c, cl in CONDS:
@@ -162,7 +163,9 @@ def t_temas():
     table("tab_temas", ["Condition", "Competent court", "Defendant", "Requirements met", "Missing requirement"], rows,
           "Temas 6 and 1234 cases: accuracy per field", "tab:temas", "LCCCC", wide=True,
           note=(f"Percentage of the {v('temas.cases')} cases with the field correct, Wilson 95\\% CI. Defendant is scored only "
-                "on the cases in which the gold label defines it."))
+                "on the cases in which the gold label defines it. Majority answer: the most frequent gold value of each field (state "
+                "courts; the state; requirements not met; none missing), given in every case. Paired tests per field: "
+                "Table~\\ref{tab:temastests}."))
 
 
 def t_ablation():
@@ -206,6 +209,64 @@ def t_latency():
           note="Wall-clock seconds per item on the workstation described in Table~\\ref{tab:setup}.")
 
 
+def t_volume():
+    """OAB-2 recall at equal citation volume and F1 (second-round review, N2)."""
+    rows = []
+    for m, ml in MODELS:
+        rows.append(ml)
+        for c, cl in CONDS:
+            if c == "judicata":
+                rows.append([cl, ci(f"oabtwo.{m}.{c}.recall"), v(f"oabtwo.{m}.{c}.ncit"), "ref.", "ref.",
+                             ci(f"oabtwo.{m}.{c}.fone")])
+            else:
+                rows.append([cl, ci(f"oabtwo.{m}.{c}.recall"), v(f"oabtwo.{m}.{c}.ncit"), v(f"eqvol.{m}.{c}.j"),
+                             f"{v(f'eqvol.{m}.{c}.diff')} [{v(f'eqvol.{m}.{c}.lo')}, {v(f'eqvol.{m}.{c}.hi')}]",
+                             ci(f"oabtwo.{m}.{c}.fone")])
+    table("tab_volume", ["Condition", "Recall", "Cit.", "JUDICATA recall, same $k$", "Difference", "F1"], rows,
+          "OAB second phase: guideline recall at equal citation volume", "tab:volume", "LCcccC", wide=True,
+          note=(f"{v('eqvol.n')} items. Recall and Cit.: the condition's guideline recall and specific citations per answer. "
+                "JUDICATA recall, same $k$: JUDICATA's answer cut to its first $k$ specific citations, in order of appearance, "
+                "with $k$ the number of specific citations of the comparator on the same item. Difference: JUDICATA at the same "
+                "$k$ minus the comparator, paired bootstrap 95\\% CI. F1: per-item harmonic mean of recall and precision, mean "
+                "with bootstrap 95\\% CI."))
+
+
+def t_grounding():
+    """Citation grounding in the three tasks, all citations and named-statute citations only (N5)."""
+    rows = []
+    for m, ml in MODELS:
+        rows.append(ml)
+        for c, cl in CONDS[1:]:
+            r = [cl]
+            for t in ("oabone", "oabtwo", "temas"):
+                r += [v(f"ground.{t}.{m}.{c}"), v(f"ground.{t}.{m}.{c}.det"), v(f"ground.{t}.{m}.{c}.undet")]
+            rows.append(r)
+    table("tab_grounding", ["Condition", "All", "Named", "Unnamed (\\%)", "All", "Named", "Unnamed (\\%)", "All",
+                            "Named", "Unnamed (\\%)"], rows,
+          "Citation grounding by task and condition", "tab:grounding", "Lccccccccc", wide=True,
+          groups=[("OAB-1", 2, 4), ("OAB-2", 5, 7), ("Temas", 8, 10)],
+          note=("All: mean share of an answer's specific citations found among its retrieved documents (Eq~\\ref{eq:grounding}), "
+                "over answers with at least one citation. Named: the same, counting only citations whose statute or court is "
+                "named. Unnamed: share of the citations that name an article without its statute; the check matches them to an "
+                "article with that number in any retrieved document. The raw model retrieves nothing and is omitted."))
+
+
+def t_temastests():
+    """Health cases, per-field paired tests of each comparator against JUDICATA (N3)."""
+    rows = []
+    fields = ("court", "defendant", "reqmet", "reqmissing")
+    for m, ml in MODELS:
+        rows.append(ml)
+        for c, cl in CONDS[:-1]:
+            rows.append([cl] + [f"{v(f'temas.{m}.{c}.{f}.b')}/{v(f'temas.{m}.{c}.{f}.c')}; {v(f'temas.{m}.{c}.{f}.pholm')}"
+                                for f in fields])
+    table("tab_temastests", ["Comparator", "Competent court", "Defendant", "Requirements met", "Missing requirement"], rows,
+          "Temas cases: paired tests per field against JUDICATA", "tab:temastests", "LCCCC", wide=True,
+          note=("Each cell: $b$/$c$; $p_\\text{Holm}$. $b$: cases correct only with JUDICATA; $c$: cases correct only with the "
+                "comparator. Exact McNemar test, Holm-adjusted over the four comparators within each model and field. "
+                "The two six-component baselines received competing format instructions on these cases (see text)."))
+
+
 def main():
     global OUT
     ap = argparse.ArgumentParser()
@@ -214,7 +275,8 @@ def main():
     OUT = Path(a.out)
     OUT.mkdir(parents=True, exist_ok=True)
     N.update(MN.collect())
-    for f in (t_main, t_tests, t_oab2, t_security, t_temas, t_ablation, t_qualifier, t_latency):
+    for f in (t_main, t_tests, t_oab2, t_volume, t_grounding, t_security, t_temas, t_temastests, t_ablation,
+              t_qualifier, t_latency):
         f()
     print("written", sorted(p.name for p in OUT.glob("tab_*.tex")))
 
