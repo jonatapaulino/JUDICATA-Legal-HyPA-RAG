@@ -531,6 +531,70 @@ def ranges():
                 put(key + ".max", max(vals, key=num), "range over baselines of " + pat)
 
 
+def item_values():
+    """Per-item values for each (model, condition): OAB-1 correct (0/1), OAB-2 guideline
+    recall, precision and specific citations, Temas all fields correct (0/1).
+    Returns {measure: {(model, condition): {item_id: value}}}; items without a
+    guideline provision have no recall or precision."""
+    from app.reasoning.citations import extract_citations, specific_citations, _match
+    out = defaultdict(lambda: defaultdict(dict))
+    key = {json.loads(l)["id"]: json.loads(l)["answer"] for l in open(DATA / "oab1_sample.jsonl", encoding="utf-8")}
+    parsed = A.load_parsed("oab1")
+    for r in A.load_results("oab1"):
+        k = (r["model"], r["condition"], r["id"])
+        a = parsed[k] if k in parsed else (A.parse_mcq(A.text_of(r)) or A.parse_mcq(r.get("answer")))
+        out["oab1"][k[:2]][r["id"]] = 1.0 if a == key[r["id"]] else 0.0
+    items = {json.loads(l)["id"]: json.loads(l) for l in open(DATA / "oab2.jsonl", encoding="utf-8")}
+    for r in A.load_results("oab2"):
+        g = [c.key for c in specific_citations(extract_citations(items[r["id"]]["guideline"]))]
+        a = {c.key for c in specific_citations(extract_citations(r.get("answer") or ""))}
+        k = (r["model"], r["condition"])
+        out["ncit"][k][r["id"]] = float(len(a))
+        if g:
+            out["recall"][k][r["id"]] = A.guideline_recall(r.get("answer") or "", items[r["id"]]["guideline"])
+            out["prec"][k][r["id"]] = (sum(1 for x in a if _match(x, set(g)) or any(_match(q, {x}) for q in g)) / len(a)) if a else 0.0
+    gold = {json.loads(l)["id"]: json.loads(l) for l in open(DATA / "temas_cases.jsonl", encoding="utf-8")}
+    tparsed = A.load_parsed("temas")
+    for r in A.load_results("temas"):
+        k = (r["model"], r["condition"], r["id"])
+        p = (tparsed.get(k) if k in tparsed else None) or A.parse_temas(r.get("answer") or "")
+        g = A.gold_norm(gold[r["id"]]["gold"])
+        ok = all(p.get(f) == g[f] for f in ("competencia", "polo_passivo", "requisitos_cumpridos", "requisito_ausente")
+                 if g.get(f) is not None)
+        out["temas"][k[:2]][r["id"]] = 1.0 if ok else 0.0
+    return out
+
+
+def paired_boot(x, y, B=10000, seed=11):
+    """Mean of the paired differences x - y over the shared items, with a percentile
+    bootstrap 95% CI (resampling items)."""
+    import numpy as np
+    ids = sorted(set(x) & set(y))
+    d = np.array([x[i] - y[i] for i in ids], dtype=float)
+    rs = np.random.default_rng(seed)
+    bs = d[rs.integers(0, len(d), size=(B, len(d)))].mean(axis=1)
+    return float(d.mean()), float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5)), len(ids)
+
+
+def paired_diffs():
+    """JUDICATA minus each comparator, paired by item, for the four main measures.
+    Percentage points for accuracies; proportion units for recall and precision."""
+    V = item_values()
+    src = "results/*.jsonl (paired bootstrap, 10,000 resamples)"
+    for meas, short, scale in (("oab1", "oabone", 100), ("temas", "temas", 100), ("recall", "recall", 1), ("prec", "prec", 1)):
+        for m in MODELS:
+            for c in CONDS:
+                if c == "judicata" or (m, c) not in V[meas]:
+                    continue
+                d, lo, hi, n = paired_boot(V[meas][(m, "judicata")], V[meas][(m, c)])
+                fmt = (lambda z: f"{z * scale:.1f}") if scale == 100 else (lambda z: f"{z:.2f}")
+                k = f"diff.{short}.{MODELS[m]}.{CONDS[c]}"
+                put(k, fmt(d).replace("-", "$-$"), src)
+                put(f"{k}.lo", fmt(lo).replace("-", "$-$"), src)
+                put(f"{k}.hi", fmt(hi).replace("-", "$-$"), src)
+                put(f"{k}.vals", f"{d * scale:.4f},{lo * scale:.4f},{hi * scale:.4f},{n}", src)
+
+
 def collect():
     """Compute every number; return {key: (value, source, label)}."""
     ROWS.clear()
@@ -550,6 +614,7 @@ def collect():
     pii(R)
     counts()
     ranges()
+    paired_diffs()
     seen = {}
     for k, v, s, lab in ROWS:
         if k in seen and seen[k] != v:
