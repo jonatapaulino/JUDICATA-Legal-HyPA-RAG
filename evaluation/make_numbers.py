@@ -595,6 +595,24 @@ def paired_diffs():
                 put(f"{k}.vals", f"{d * scale:.4f},{lo * scale:.4f},{hi * scale:.4f},{n}", src)
 
 
+def temas_format():
+    """Health cases: answers whose text states the COMPETENCIA line requested by the task (parsed
+    by regex, no extraction call). The single-call Toulmin baselines received the task format and
+    the six-component instruction in the same prompt, so they often followed only the second."""
+    src = "results/temas_*.jsonl (regex parse)"
+    n = defaultdict(int)
+    for r in A.load_results("temas"):
+        if r["condition"] in CONDS and A.parse_temas(r.get("answer") or "").get("competencia") is not None:
+            n[(r["model"], r["condition"])] += 1
+    vals = []
+    for m in MODELS:
+        for c in ("rag_toulmin", "rag_toulmin_jq"):
+            put(f"temas.{MODELS[m]}.{CONDS[c]}.fmt", n[(m, c)], src)
+            vals.append(n[(m, c)])
+    put("temas.fmt.min", min(vals), src)
+    put("temas.fmt.max", max(vals), src)
+
+
 def collect():
     """Compute every number; return {key: (value, source, label)}."""
     ROWS.clear()
@@ -614,6 +632,7 @@ def collect():
     pii(R)
     counts()
     ranges()
+    temas_format()
     paired_diffs()
     seen = {}
     for k, v, s, lab in ROWS:

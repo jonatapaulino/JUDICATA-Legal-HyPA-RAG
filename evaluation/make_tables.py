@@ -89,7 +89,8 @@ def t_main():
           "Main comparison on the three tasks", "tab:main", "LCCCC", wide=True,
           note=(f"Same model, task text and answer format in every condition. OAB-1: {v('oabone.n')} first-phase questions, "
                 "accuracy against the official key with Wilson 95\\% CI; answers with no identifiable alternative count as wrong. "
-                f"OAB-2: {v('oabtwo.sample')} second-phase questions, share of the provisions cited in the official FGV guideline "
+                f"OAB-2: the {v('oabtwo.recall.n')} of {v('oabtwo.sample')} sampled second-phase questions whose guideline cites a "
+                "specific provision; share of the provisions cited in the official FGV guideline "
                 "that the answer also cites (deterministic), mean with bootstrap 95\\% CI. "
                 f"Temas: {v('temas.cases')} synthetic health-litigation cases, share with all four fields correct, Wilson 95\\% CI."))
 
