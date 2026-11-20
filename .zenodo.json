@@ -1,0 +1,48 @@
+{
+  "title": "JUDICATA: An open, locally deployable pipeline for legal argument support with citation checking in Brazilian law (code, evaluation scripts and stored outputs, PLOS ONE revision)",
+  "upload_type": "software",
+  "description": "Code, frozen system (tag v2.0.2-frozen), evaluation scripts, synthetic-case generators and stored model outputs for the revised version of the PLOS ONE manuscript PONE-D-26-42993. Every number, table and figure of the manuscript is regenerated from evaluation/results with evaluation/make_numbers.py, make_tables.py and make_figures.py. The external evaluation sets are rebuilt from their public sources with evaluation/build_sets.py and keep their original licences.",
+  "creators": [
+    {
+      "name": "Costa, Jonatã Paulino da",
+      "affiliation": "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+    },
+    {
+      "name": "Sousa, Delvek da Silva Venceslau de",
+      "affiliation": "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+    },
+    {
+      "name": "Azancort Neto, Julio Leite",
+      "affiliation": "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+    },
+    {
+      "name": "Ramos, Rommel Thiago Juca",
+      "affiliation": "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+    },
+    {
+      "name": "Miranda, Cauã Cavalcante",
+      "affiliation": "Instituto Federal do Pará (IFPA), Campus Ananindeua, Ananindeua, Brazil"
+    },
+    {
+      "name": "Vijaykumar, Nandamudi Lankalapalli",
+      "affiliation": "National Institute for Space Research (INPE), São José dos Campos, Brazil"
+    },
+    {
+      "name": "Francês, Carlos Renato Lisboa",
+      "affiliation": "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+    }
+  ],
+  "license": "MIT",
+  "version": "v2.1.1-plos-revision",
+  "keywords": [
+    "legal AI",
+    "retrieval-augmented generation",
+    "Brazilian law",
+    "citation checking",
+    "Toulmin",
+    "local LLM",
+    "evaluation",
+    "PLOS ONE"
+  ],
+  "notes": "Funded by INCT IAmazônia (CNPq grant 409001/2024-4) and in part by CAPES, Finance Code 001. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript."
+}

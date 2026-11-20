@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "JUDICATA: An open, locally deployable pipeline for legal argument support with citation checking in Brazilian law (code, evaluation scripts and stored outputs, PLOS ONE revision)"
+type: software
+license: MIT
+version: "v2.1.1-plos-revision"
+repository-code: https://github.com/jonatapaulino/JUDICATA-Legal-HyPA-RAG
+authors:
+  - family-names: "Costa"
+    given-names: "Jonatã Paulino da"
+    affiliation: "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+  - family-names: "Sousa"
+    given-names: "Delvek da Silva Venceslau de"
+    affiliation: "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+  - family-names: "Azancort Neto"
+    given-names: "Julio Leite"
+    affiliation: "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+  - family-names: "Ramos"
+    given-names: "Rommel Thiago Juca"
+    affiliation: "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"
+  - family-names: "Miranda"
+    given-names: "Cauã Cavalcante"
+    affiliation: "Instituto Federal do Pará (IFPA), Campus Ananindeua, Ananindeua, Brazil"
+  - family-names: "Vijaykumar"
+    given-names: "Nandamudi Lankalapalli"
+    affiliation: "National Institute for Space Research (INPE), São José dos Campos, Brazil"
+  - family-names: "Francês"
+    given-names: "Carlos Renato Lisboa"
+    affiliation: "Programa de Pós-Graduação em Engenharia Elétrica (PPGEE), Universidade Federal do Pará (UFPA), Belém, Brazil"

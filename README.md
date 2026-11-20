@@ -352,4 +352,16 @@ python evaluation/security_eval.py          # E1: defesas em ataques de terceiro
 python evaluation/job_queue.py              # E2–E5: condições, ablações, extração, juízes, auditoria de PII
 python evaluation/analyze.py                # todas as tabelas -> evaluation/results/RESULTS.md
 ```
+
+Números, tabelas e figuras do manuscrito revisado (a partir das saídas armazenadas em `evaluation/results`,
+sem chamar nenhum modelo; tag `v2.1.1-plos-revision`):
+
+```bash
+git checkout v2.1.1-plos-revision
+python evaluation/make_numbers.py  --out <pasta do manuscrito>   # numeros.csv + macros \nm{...}
+python evaluation/make_tables.py   --out <pasta do manuscrito>   # tables/tab_*.tex
+python evaluation/make_figures.py  --out <pasta do manuscrito>   # figures/Fig4..Fig11 (PDF e TIFF)
+```
+Os conjuntos externos (`evaluation/data/`) não estão no repositório: são reconstruídos das fontes públicas
+por `evaluation/build_sets.py` e mantêm as licenças originais.
 Modelos (Ollama, locais): `qwen2.5:14b`, `mistral:7b` (sistemas avaliados); `gemma3:27b`, `llama3.1:8b` (juízes).
