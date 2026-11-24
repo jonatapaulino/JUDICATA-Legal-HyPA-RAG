@@ -354,10 +354,10 @@ python evaluation/analyze.py                # todas as tabelas -> evaluation/res
 ```
 
 Números, tabelas e figuras do manuscrito revisado (a partir das saídas armazenadas em `evaluation/results`,
-sem chamar nenhum modelo; tag `v2.1.2-plos-revision`):
+sem chamar nenhum modelo; tag `v2.1.3-plos-revision`). Antes, coloque os conjuntos de avaliação em `evaluation/data/`: copie a pasta `data/` do S1 File do artigo (ou do arquivo do Zenodo) ou reconstrua-os com `python evaluation/build_sets.py`. As figuras exigem `matplotlib>=3.11` (já em `requirements.txt`):
 
 ```bash
-git checkout v2.1.2-plos-revision
+git checkout v2.1.3-plos-revision
 python evaluation/make_numbers.py  --out <pasta do manuscrito>   # numeros.csv + macros \nm{...}
 python evaluation/make_tables.py   --out <pasta do manuscrito>   # tables/tab_*.tex
 python evaluation/make_figures.py  --out <pasta do manuscrito>   # figures/Fig4..Fig11 (PDF e TIFF)
