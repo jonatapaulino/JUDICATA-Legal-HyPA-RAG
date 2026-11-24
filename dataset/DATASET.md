@@ -1,10 +1,17 @@
-# Self-curated Dataset — Soberania Judicial
+# In-house dataset (development set, earlier version)
 
-This folder contains the self-curated dataset used to evaluate the
-*Soberania Judicial* framework reported in the manuscript
-"Soberania Judicial: Um Framework Neuro-Simbolico e Agentico para
-Resiliencia Causal e Defensibilidade Juridica em Modelos de Linguagem"
-(Sousa, 2026).
+> **Note (PLOS ONE revision, PONE-D-26-42993).** This document describes the in-house query set
+> and the corpus ingestion run of an **earlier version** of JUDICATA. It is kept for transparency
+> and is superseded for evaluation purposes:
+>
+> - The revised evaluation does **not** use these queries to measure performance. Several Guardian,
+>   P2P and complexity-classifier rules were written or adjusted after inspecting failures on them
+>   (commit `475cc9c`), so results on this set measure fit to the queries used to write the rules.
+>   The set is reported only as a development set, separately from the held-out third-party
+>   evaluation in [`evaluation/`](../evaluation/).
+> - The corpus counts below (67 súmulas, 10,374 chunks) refer to that earlier ingestion, which had
+>   extraction defects. The corrected corpus (75 statutes, 13,644 articles, 127 súmula statements)
+>   is described in S1 and S2 Tables of the revised manuscript and in `evaluation/results/`.
 
 The dataset is organised in three layers, all reproducible from this repository:
 
@@ -200,11 +207,11 @@ Qwen2.5:14B (Q4_K_M) via Ollama. Per-query latency averaged 19.9 s (BAIXA),
 
 ## 6. Citation
 
-If you reuse this dataset, please cite:
+If you reuse this dataset, please cite the archived release of JUDICATA:
 
-> Sousa, D. S. V. (2026). *Soberania Judicial: Um Framework Neuro-Simbolico e
-> Agentico para Resiliencia Causal e Defensibilidade Juridica em Modelos de
-> Linguagem.* Manuscript submitted to PeerJ Computer Science.
+> JUDICATA: An open, locally deployable pipeline for legal argument support with citation
+> checking in Brazilian law (code, evaluation scripts and stored outputs, PLOS ONE revision).
+> Zenodo, 2026. https://doi.org/10.5281/zenodo.24479518
 
 ---
 

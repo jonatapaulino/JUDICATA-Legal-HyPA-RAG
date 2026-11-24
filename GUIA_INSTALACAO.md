@@ -1,5 +1,5 @@
 # Guia de Instalação e Execução
-## Backend de Soberania Judicial
+## JUDICATA: pipeline local de apoio à fundamentação jurídica
 
 Este guia fornece instruções passo a passo para executar o sistema completo.
 
@@ -160,8 +160,9 @@ Resposta esperada:
 ### 6.2. Testar endpoint principal
 
 ```bash
-curl -X POST http://localhost:8000/adjudicate \
+curl -X POST http://localhost:8000/analyze \
   -H "Content-Type: application/json" \
+  -H "X-API-Key: $JUDICATA_API_KEY" \
   -d '{
     "query": "Um inquilino deixou de pagar aluguel por 6 meses. O proprietário pode rescindir o contrato?",
     "anonymize": true,

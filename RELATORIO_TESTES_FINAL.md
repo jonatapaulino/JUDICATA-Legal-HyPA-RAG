@@ -1,3 +1,5 @@
+> **NOTA (revisão 2026):** relatório histórico de uma versão anterior do sistema (dezembro de 2025), mantido por transparência. Os componentes, o endpoint (hoje `/analyze`) e o Qualifier mudaram; a avaliação atual está em `evaluation/` e no manuscrito revisado (PLOS ONE, PONE-D-26-42993).
+
 # Relatório Final de Testes - Backend Soberania Judiciária
 **Data**: 2025-12-20
 **Objetivo**: Bateria de testes completa, sem viés, para validar todos os componentes
