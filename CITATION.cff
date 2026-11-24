@@ -3,7 +3,7 @@ message: "If you use this software, please cite it using these metadata."
 title: "JUDICATA: An open, locally deployable pipeline for legal argument support with citation checking in Brazilian law (code, evaluation scripts and stored outputs, PLOS ONE revision)"
 type: software
 license: MIT
-version: "v2.1.1-plos-revision"
+version: "v2.1.2-plos-revision"
 repository-code: https://github.com/jonatapaulino/JUDICATA-Legal-HyPA-RAG
 authors:
   - family-names: "Costa"
